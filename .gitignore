@@ -1,0 +1,8 @@
+bin/
+obj/
+__pycache__/
+*.pyc
+
+# Mods published as their own GitHub repos
+mods/Sekiro_Melee_Deadlock/
+mods/Sekiro_Parry_Sparks/

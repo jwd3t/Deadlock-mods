@@ -1,0 +1,313 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_AST = 
+	{
+		m_pRoot = 
+		{
+			eType = "ROOT"
+			vecChildren = 
+			[
+				{
+					eType = "STYLES"
+					vecChildren = 
+					[
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/citadel_base_styles.vcss"
+							}
+							sourceLineColumn = [ 4, 6 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/hud_ability_modifier_shared.vcss"
+							}
+							sourceLineColumn = [ 5, 4 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/ability_hud_elements/element_common.vcss"
+							}
+							sourceLineColumn = [ 6, 6 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/ability_hud_elements/element_progress_bar_text.vcss"
+							}
+							sourceLineColumn = [ 7, 6 ]
+						},
+					]
+					sourceLineColumn = [ 3, 4 ]
+				},
+				{
+					eType = "PANEL"
+					name = "Citadel_AbilityHUDElement_Progress"
+					vecChildren = 
+					[
+						{
+							eType = "PANEL_ATTRIBUTE"
+							name = "class"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE_VALUE"
+								name = "ability_element_progress"
+							}
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "channel_and_name"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "text_container"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "SplitLabelProgressBar"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "SplitLabel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "ability_name"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "text"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "{s:ability_name}"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "SplitLabelName"
+													}
+												},
+											]
+											sourceLineColumn = [ 14, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Image"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "ability_name_clipped"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "SplitLabelProgress"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "src"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "panel://ability_name"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "context"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "progress"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "progress"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "clip_right"
+													}
+												},
+											]
+											sourceLineColumn = [ 15, 6 ]
+										},
+									]
+									sourceLineColumn = [ 13, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "hint_container"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelBinding"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "CancelKeyBinding"
+												}
+											}
+											sourceLineColumn = [ 19, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "action slash"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "text"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "/"
+													}
+												},
+											]
+											sourceLineColumn = [ 20, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelBinding"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "AbilityKeyBinding"
+												}
+											}
+											sourceLineColumn = [ 21, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "action"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "html"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "true"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "text"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "#Cancel"
+													}
+												},
+											]
+											sourceLineColumn = [ 22, 6 ]
+										},
+									]
+									sourceLineColumn = [ 18, 5 ]
+								},
+							]
+							sourceLineColumn = [ 11, 4 ]
+						},
+					]
+					sourceLineColumn = [ 10, 6 ]
+				},
+			]
+			sourceLineColumn = [  ]
+		}
+	}
+}

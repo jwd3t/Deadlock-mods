@@ -1,0 +1,611 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	PlayerAlert.LowHealth = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Health"
+		volume = -3.0
+		vsnd_files = "sounds/gameplay/low_health/default_alert.vsnd"
+		vsnd_duration = 2.979
+	}
+	PlayerAlert.MajorDamage = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Health"
+		volume = -6.0
+		pitch = 1.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/damage_receive_major_01.vsnd",
+			"sounds/hit_indicators/damage_receive_major_02.vsnd",
+			"sounds/hit_indicators/damage_receive_major_03.vsnd",
+			"sounds/hit_indicators/damage_receive_major_04.vsnd",
+			"sounds/hit_indicators/damage_receive_major_05.vsnd",
+		]
+		vsnd_duration = 2.752948
+	}
+	Player.Bullet.Impact.Default = 
+	{
+		base = "Base.Damage.Receive"
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/damage_receive_default_01.vsnd",
+			"sounds/hit_indicators/damage_receive_default_02.vsnd",
+			"sounds/hit_indicators/damage_receive_default_03.vsnd",
+			"sounds/hit_indicators/damage_receive_default_04.vsnd",
+			"sounds/hit_indicators/damage_receive_default_05.vsnd",
+			"sounds/hit_indicators/damage_receive_default_06.vsnd",
+		]
+		vsnd_duration = 0.854467
+	}
+	Player.Bullet.Impact.Trooper = 
+	{
+		base = "Player.Bullet.Impact.Default"
+		pitch = 3.2
+		volume = -9.0
+	}
+	Player.Bullet.Impact.Hero = 
+	{
+		base = "Player.Bullet.Impact.Default"
+	}
+	Player.Bullet.Impact.Hero.Large = 
+	{
+		base = "Player.Bullet.Impact.Default"
+	}
+	Player.Damage.Melee.Trooper.Impact = 
+	{
+		base = "Player.Bullet.Impact.Default"
+	}
+	Player.Dash.Jump = 
+	{
+		base = "Base.Movement"
+		volume = -1.0
+		play_from_listener_player = 1.0
+		pitch_rand_min = -0.1
+		pitch_rand_max = 0.1
+		vsnd_files = 
+		[
+			"sounds/player/rolljump/player_rolljump_activate_01.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_02.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_03.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_04.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_05.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_06.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_07.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_08.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_09.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_10.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_11.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_12.vsnd",
+			"sounds/player/rolljump/player_rolljump_activate_13.vsnd",
+		]
+		vsnd_duration = 2.10551
+	}
+	Player.Dash.Ground = 
+	{
+		base = "Base.Movement"
+		pitch = 1.07
+		play_from_listener_player = 1.0
+		volume = 1.0
+		volume_fade_out = 0.0008
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		vsnd_files = 
+		[
+			"sounds/player/rolljump/whoosh_01.vsnd",
+			"sounds/player/rolljump/whoosh_02.vsnd",
+			"sounds/player/rolljump/whoosh_03.vsnd",
+			"sounds/player/rolljump/whoosh_04.vsnd",
+			"sounds/player/rolljump/whoosh_05.vsnd",
+			"sounds/player/rolljump/whoosh_06.vsnd",
+			"sounds/player/rolljump/whoosh_07.vsnd",
+			"sounds/player/rolljump/whoosh_08.vsnd",
+			"sounds/player/rolljump/whoosh_09.vsnd",
+			"sounds/player/rolljump/whoosh_10.vsnd",
+			"sounds/player/rolljump/whoosh_11.vsnd",
+			"sounds/player/rolljump/whoosh_12.vsnd",
+			"sounds/player/rolljump/whoosh_13.vsnd",
+			"sounds/player/rolljump/whoosh_14.vsnd",
+			"sounds/player/rolljump/whoosh_15.vsnd",
+			"sounds/player/rolljump/whoosh_16.vsnd",
+			"sounds/player/rolljump/whoosh_17.vsnd",
+			"sounds/player/rolljump/whoosh_18.vsnd",
+			"sounds/player/rolljump/whoosh_19.vsnd",
+			"sounds/player/rolljump/whoosh_20.vsnd",
+			"sounds/player/rolljump/whoosh_21.vsnd",
+			"sounds/player/rolljump/whoosh_22.vsnd",
+			"sounds/player/rolljump/whoosh_23.vsnd",
+			"sounds/player/rolljump/whoosh_24.vsnd",
+			"sounds/player/rolljump/whoosh_25.vsnd",
+			"sounds/player/rolljump/whoosh_26.vsnd",
+			"sounds/player/rolljump/whoosh_27.vsnd",
+			"sounds/player/rolljump/whoosh_28.vsnd",
+		]
+		vsnd_duration = 1.186875
+	}
+	Player.Dash.Air = 
+	{
+		base = "Base.Movement"
+		volume = -1.0
+		play_from_listener_player = 1.0
+		pitch_rand_min = -0.1
+		pitch_rand_max = 0.1
+		vsnd_files = 
+		[
+			"sounds/player/rolljump/player_airjump_activate_01.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_02.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_03.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_04.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_05.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_06.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_07.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_08.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_09.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_10.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_11.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_12.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_13.vsnd",
+		]
+		vsnd_duration = 2.10551
+	}
+	Player.Jump.Air = 
+	{
+		base = "Base.Movement"
+		volume = -1.0
+		play_from_listener_player = 1.0
+		pitch_rand_min = -0.1
+		pitch_rand_max = 0.1
+		vsnd_files = 
+		[
+			"sounds/player/rolljump/player_airjump_activate_01.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_02.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_03.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_04.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_05.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_06.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_07.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_08.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_09.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_10.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_11.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_12.vsnd",
+			"sounds/player/rolljump/player_airjump_activate_13.vsnd",
+		]
+		vsnd_duration = 2.10551
+	}
+	Player.WallJump = 
+	{
+		base = "Base.Movement"
+		play_from_listener_player = 1.0
+		volume_offset_player = 2.0
+		volume_offset_opponent = -4.0
+		volume = 0.0
+		vsnd_files = 
+		[
+			"sounds/player/wall_jump_01.vsnd",
+			"sounds/player/wall_jump_02.vsnd",
+			"sounds/player/wall_jump_03.vsnd",
+			"sounds/player/wall_jump_04.vsnd",
+			"sounds/player/wall_jump_05.vsnd",
+			"sounds/player/wall_jump_06.vsnd",
+		]
+		vsnd_duration = 1.937098
+	}
+	Player.CornerBoostWallJump = 
+	{
+		base = "Base.Movement"
+		play_from_listener_player = 1.0
+		volume_offset_player = 2.0
+		volume_offset_opponent = -4.0
+		volume = 0.0
+		vsnd_files = "sounds/gameplay/jump_pad/jump_pad_wind_01.vsnd"
+		vsnd_duration = 3.045488
+	}
+	Player.Melee.Dash.Ground = 
+	{
+		base = "Base.Movement.Melee"
+		volume = -4.0
+		volume_fade_out = 0.5
+		volume_offset_player = 12.0
+		play_from_listener_player = 1.0
+		volume_enemy_targeting_boost = 0.0
+		cone_facing_enabled = 1.0
+		volume_cone_facing_boost_opponent = 6.0
+		cone_facing_boost_min_distance = 500.0
+		cone_facing_boost_max_distance = 1000.0
+		vsnd_files = 
+		[
+			"sounds/player/melee/shared/melee_dash_ground_01.vsnd",
+			"sounds/player/melee/shared/melee_dash_ground_02.vsnd",
+			"sounds/player/melee/shared/melee_dash_ground_03.vsnd",
+			"sounds/player/melee/shared/melee_dash_ground_04.vsnd",
+			"sounds/player/melee/shared/melee_dash_ground_05.vsnd",
+		]
+		vsnd_duration = 1.77746
+	}
+	Player.Melee.Dash.Air = 
+	{
+		base = "Player.Melee.Dash.Ground"
+	}
+	Player.Jump = 
+	{
+		base = "Base.Movement"
+		volume = -9.0
+		pitch = 1.1
+		volume_offset_opponent = 4.0
+		play_from_listener_player = 1.0
+		vsnd_files = 
+		[
+			"sounds/player/movement/generic/generic_jump_start_01.vsnd",
+			"sounds/player/movement/generic/generic_jump_start_03.vsnd",
+			"sounds/player/movement/generic/generic_jump_start_04.vsnd",
+		]
+		vsnd_duration = 1.001746
+	}
+	Player.Slide.Enter = 
+	{
+		base = "Base.Movement"
+		volume = -6.0
+		play_from_listener_player = 1.0
+		vsnd_files = 
+		[
+			"sounds/gameplay/slide/enter_01.vsnd",
+			"sounds/gameplay/slide/enter_02.vsnd",
+			"sounds/gameplay/slide/enter_03.vsnd",
+			"sounds/gameplay/slide/enter_04.vsnd",
+			"sounds/gameplay/slide/enter_05.vsnd",
+			"sounds/gameplay/slide/enter_06.vsnd",
+			"sounds/gameplay/slide/enter_07.vsnd",
+			"sounds/gameplay/slide/enter_08.vsnd",
+			"sounds/gameplay/slide/enter_09.vsnd",
+			"sounds/gameplay/slide/enter_10.vsnd",
+		]
+		vsnd_duration = 1.289271
+	}
+	Player.Slide.Exit = 
+	{
+		base = "Base.Movement.Slide"
+		play_from_listener_player = 1.0
+		volume = -15.0
+		vsnd_files = 
+		[
+			"sounds/gameplay/slide/exit_01.vsnd",
+			"sounds/gameplay/slide/exit_02.vsnd",
+			"sounds/gameplay/slide/exit_03.vsnd",
+			"sounds/gameplay/slide/exit_04.vsnd",
+			"sounds/gameplay/slide/exit_05.vsnd",
+			"sounds/gameplay/slide/exit_06.vsnd",
+			"sounds/gameplay/slide/exit_07.vsnd",
+			"sounds/gameplay/slide/exit_08.vsnd",
+		]
+		vsnd_duration = 1.239292
+	}
+	Player.Slide.Lp = 
+	{
+		base = "Base.Movement.Slide"
+		play_from_listener_player = 1.0
+		volume = 0.0
+		pitch = 1.1
+		delay_rand_min = -1.0
+		volume_fade_out = 0.5
+		vsnd_files = "sounds/gameplay/slide/lp2_texture.vsnd"
+		vsnd_duration = 10.925563
+	}
+	Player.Melee.Hit.Physics = 
+	{
+		base = "Base.Ability"
+		volume_fade_out = 0.0003
+		volume = 0.0
+		vsnd_files = 
+		[
+			"sounds/player/melee/shared/melee_impact_default_01.vsnd",
+			"sounds/player/melee/shared/melee_impact_default_02.vsnd",
+			"sounds/player/melee/shared/melee_impact_default_03.vsnd",
+			"sounds/player/melee/shared/melee_impact_default_04.vsnd",
+		]
+		vsnd_duration = 0.968186
+	}
+	Player.Melee.Parry.Shared = 
+	{
+		base = "Base.Ability"
+		volume = 0.0
+		vsnd_files = "sounds/player/melee/shared/melee_parry_cast.vsnd"
+		vsnd_duration = 2.24297
+	}
+	Player.Melee.Parry.Success.Shared = 
+	{
+		base = "Base.Ability"
+		volume = 0.0
+		vsnd_files = "sounds/player/melee/shared/melee_parry_success.vsnd"
+		vsnd_duration = 3.531814
+	}
+	Player.Melee.Parry.Trooper.Success = 
+	{
+		base = "Base.Ability"
+		volume = 0.0
+		vsnd_files = 
+		[
+			"sounds/player/melee/shared/melee_parry_trooper_success_01.vsnd",
+			"sounds/player/melee/shared/melee_parry_trooper_success_02.vsnd",
+			"sounds/player/melee/shared/melee_parry_trooper_success_03.vsnd",
+		]
+		vsnd_duration = 1.922358
+	}
+	Player.Melee.Hold.Shared = 
+	{
+		base = "Base.Ability"
+		block_volume_min = 0.001
+		pitch_rand_max = 0.01
+		pitch_rand_min = -0.01
+		volume = 4.0
+		volume_offset_player = -4.0
+		volume_offset_team = -6.0
+		volume_enemy_targeting_boost = 0.0
+		cone_facing_enabled = 1.0
+		volume_cone_facing_boost_opponent = 7.0
+		cone_facing_boost_min_distance = 500.0
+		cone_facing_boost_max_distance = 1000.0
+		occlusion_min = 0.5
+		vsnd_files = "sounds/player/melee/shared/charged_melee_full.vsnd"
+		vsnd_duration = 1.559025
+	}
+	Ability.Melee.Impact.Player = 
+	{
+		base = "Base.Ability.Hit"
+		volume = 0.0
+		volume_offset_other_db = -6.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		filter_include_others = true
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/melee_impact_light_01.vsnd",
+			"sounds/hit_indicators/melee_impact_light_02.vsnd",
+			"sounds/hit_indicators/melee_impact_light_03.vsnd",
+			"sounds/hit_indicators/melee_impact_light_04.vsnd",
+			"sounds/hit_indicators/melee_impact_light_05.vsnd",
+			"sounds/hit_indicators/melee_impact_light_06.vsnd",
+		]
+		vsnd_duration = 1.105986
+	}
+	Ability.Melee.Impact.Heavy.Player = 
+	{
+		base = "Base.Ability.Hit"
+		volume = 1.0
+		volume_offset_attacker_db = 2.0
+		volume_offset_other_db = -3.0
+		pitch_rand_min = -0.025
+		pitch_rand_max = 0.025
+		filter_include_others = true
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/melee_impact_heavy_01.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_02.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_03.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_04.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_05.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_06.vsnd",
+		]
+		vsnd_duration = 1.127438
+	}
+	Ability.Melee.Impact.NPC = 
+	{
+		base = "Base.Ability.Hit"
+		volume = 0.0
+		volume_offset_other_db = -6.0
+		filter_include_others = true
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/melee_impact_light_01.vsnd",
+			"sounds/hit_indicators/melee_impact_light_02.vsnd",
+			"sounds/hit_indicators/melee_impact_light_03.vsnd",
+			"sounds/hit_indicators/melee_impact_light_04.vsnd",
+			"sounds/hit_indicators/melee_impact_light_05.vsnd",
+			"sounds/hit_indicators/melee_impact_light_06.vsnd",
+		]
+		vsnd_duration = 1.105986
+	}
+	Ability.Melee.Impact.Heavy.NPC = 
+	{
+		base = "Base.Ability.Hit"
+		volume = 1.0
+		volume_offset_other_db = -3.0
+		filter_include_others = true
+		vsnd_files = 
+		[
+			"sounds/hit_indicators/melee_impact_heavy_npc_01.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_npc_02.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_npc_03.vsnd",
+			"sounds/hit_indicators/melee_impact_heavy_npc_04.vsnd",
+		]
+		vsnd_duration = 1.347143
+	}
+	Player.Heal.OverTime.Lp = 
+	{
+		type = "citadel_health_effects"
+		base = 
+		[
+			{
+				event_name = "Base.Mod"
+				field_name = "citadel_perspective_default"
+			},
+		]
+		volume = -2.0
+		volume_fade_in = 0.4
+		volume_fade_out = 0.3
+		health_pitch_scale_min = 0.8
+		health_pitch_scale_max = 1.25
+		volume_fade_over_time_curve = 
+		[
+			[
+				0.0, 1.0, 1.083, 1.083,
+				2.0, 3.0,
+			],
+			[
+				3.0, 1.0, -0.04035, -0.04035,
+				3.0, 1.0,
+			],
+			[
+				6.0, 0.7, -0.023581, -0.023581,
+				2.0, 3.0,
+			],
+			[
+				10.0, 0.4, 0.0, 0.0,
+				2.0, 3.0,
+			],
+		]
+		vsnd_files = "sounds/player/healing_overtime_lp.vsnd"
+		vsnd_duration = 22.545986
+	}
+	Player.Heal.OverTime.Start = 
+	{
+		base = "Base.Mod"
+		volume = -5.0
+		block_duration = 1.0
+		vsnd_files = "sounds/player/healing_overtime_start.vsnd"
+		vsnd_duration = 3.949796
+	}
+	Player.Heal.OverTime.LowPriority.Start = 
+	{
+		base = "Player.Heal.OverTime.Start"
+		volume = 0.0
+		volume_fade_out = 0.2
+		vsnd_files = "sounds/player/healing_overtime_low_priority_start.vsnd"
+		vsnd_duration = 3.949796
+	}
+	Player.Heal.HighHealth.Start = 
+	{
+		base = "Player.Heal.OverTime.Start"
+		volume = 0.0
+		block_duration = 3.0
+		vsnd_files = "sounds/player/healing_high_health_oneshot.vsnd"
+		vsnd_duration = 2.582268
+	}
+	Player.Heal.OverTime.Stop = 
+	{
+		type = "citadel_health_effects"
+		base = 
+		[
+			{
+				event_name = "Base.Mod"
+				field_name = "citadel_perspective_default"
+			},
+		]
+		volume = -1.0
+		block_duration = 1.0
+		health_pitch_scale_min = 0.8
+		health_pitch_scale_max = 1.25
+		vsnd_files = "sounds/player/healing_overtime_stop.vsnd"
+		vsnd_duration = 3.517347
+	}
+	Player.Heal.OverTime.TopOff = 
+	{
+		base = "Base.Mod"
+		volume = -10.0
+		block_duration = 3.0
+		vsnd_files = "sounds/player/healing_overtime_topoff.vsnd"
+		vsnd_duration = 3.119161
+	}
+	Player.Heal.Burst.Small = 
+	{
+		base = "Base.Ability.Detached"
+		volume = 4.0
+		volume_offset_team = 8.0
+		hrtf_on_player = 1.0
+		hrtf_mix = 0.65
+		block_duration = 0.1
+		force_entity_perspective_assignment = 1.0
+		solo_for_owner_and_emitter = 1.0
+		block_npc_emitter = 1.0
+		vsnd_files = 
+		[
+			"sounds/player/healing_burst_small_01.vsnd",
+			"sounds/player/healing_burst_small_02.vsnd",
+			"sounds/player/healing_burst_small_03.vsnd",
+		]
+		vsnd_duration = 1.471655
+	}
+	Player.Heal.Burst.Medium = 
+	{
+		base = "Base.Ability.Detached"
+		volume = 3.0
+		volume_offset_team = 7.0
+		hrtf_on_player = 1.0
+		hrtf_mix = 0.65
+		block_duration = 0.2
+		force_entity_perspective_assignment = 1.0
+		solo_for_owner_and_emitter = 1.0
+		vsnd_files = 
+		[
+			"sounds/player/healing_burst_medium_01.vsnd",
+			"sounds/player/healing_burst_medium_02.vsnd",
+			"sounds/player/healing_burst_medium_03.vsnd",
+		]
+		vsnd_duration = 2.247869
+	}
+	Player.Heal.SiphonTick = 
+	{
+		base = "Base.Mod"
+		volume = -6.0
+		block_distance = 2.0
+		block_duration = 0.5
+		vsnd_files = "sounds/player/heal_siphon_tick.vsnd"
+		vsnd_duration = 0.488844
+	}
+	Player.Barrier.Activate = 
+	{
+		base = "Base.Ability.StatusEffect"
+		volume = -1.0
+		pitch_rand_max = 0.025
+		vsnd_files = 
+		[
+			"sounds/player/barrier/barrier_activate_01.vsnd",
+			"sounds/player/barrier/barrier_activate_02.vsnd",
+			"sounds/player/barrier/barrier_activate_03.vsnd",
+		]
+		vsnd_duration = 3.217075
+	}
+	Player.Barrier.Refresh = 
+	{
+		base = "Base.Ability"
+		volume = 1.5
+		pitch = 1.1
+		pitch_rand_min = -0.025
+		pitch_rand_max = 0.025
+		vsnd_files = "sounds/player/barrier/barrier_refresh.vsnd"
+		vsnd_duration = 3.756372
+	}
+	Ability.BulletEvade = 
+	{
+		base = "Base.Ability.Hit"
+		volume = -1.0
+		limiter_max = 1.0
+		vsnd_files = 
+		[
+			"sounds/abilities/shared/bullet_evade_01.vsnd",
+			"sounds/abilities/shared/bullet_evade_02.vsnd",
+			"sounds/abilities/shared/bullet_evade_03.vsnd",
+			"sounds/abilities/shared/bullet_evade_04.vsnd",
+			"sounds/abilities/shared/bullet_evade_05.vsnd",
+			"sounds/abilities/shared/bullet_evade_06.vsnd",
+			"sounds/abilities/shared/bullet_evade_07.vsnd",
+			"sounds/abilities/shared/bullet_evade_08.vsnd",
+			"sounds/abilities/shared/bullet_evade_09.vsnd",
+		]
+		vsnd_duration = 1.761973
+	}
+	Player.Bonk = 
+	{
+		base = "Base.Ability"
+		volume = -1.0
+		pitch_rand_max = 0.025
+		vsnd_files = 
+		[
+			"sounds/ambient/hideout/hideout_bonk.vsnd",
+		]
+		vsnd_duration = 0.628776
+	}
+}

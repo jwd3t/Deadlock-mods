@@ -1,0 +1,1851 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	UI.MainMenu.Hover = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		vsnd_pause_with_game = false
+		panner_mode = "hrtf"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.01
+		pitch_rand_max = 0.01
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_hover_02.vsnd",
+			"sounds/ui/ui_menu_hover_03.vsnd",
+			"sounds/ui/ui_menu_hover_04.vsnd",
+			"sounds/ui/ui_menu_hover_05.vsnd",
+			"sounds/ui/ui_menu_hover_06.vsnd",
+			"sounds/ui/ui_menu_hover_07.vsnd",
+			"sounds/ui/ui_menu_hover_08.vsnd",
+			"sounds/ui/ui_menu_hover_01.vsnd",
+		]
+		vsnd_duration = 0.165986
+	}
+	UI.MainMenu.Activate = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		vsnd_files = "sounds/ui/ui_menu_activate.vsnd"
+		vsnd_duration = 2.677596
+	}
+	HudChat.Message = 
+	{
+		base = "Base.UI"
+		volume = -15.0
+		vsnd_files = "sounds/common/talk.vsnd"
+	}
+	Drafting.Notification = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/drafting_notification.vsnd"
+	}
+	Menu.Select = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/menu_horror01.vsnd"
+	}
+	Menu.Cancel = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/buttonclickrelease.vsnd"
+	}
+	Menu.PopupScroll = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/buttonrollover.vsnd"
+	}
+	Menu.SideScroll = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/menu_click01.vsnd"
+	}
+	Menu.Timer = 
+	{
+		base = "Base.UI"
+		volume_falloff_min = 10.0
+		volume_falloff_max = 100.0
+		vsnd_files = "sounds/ui/beep07.vsnd"
+	}
+	Player.WeaponSelectionClose = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/common/wpn_hudoff.vsnd"
+	}
+	Player.PurchaseUpgrade = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	Player.AbilityLevelUp = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		pitch = 0.9
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hud_upgrade_ability_01.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_02.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_03.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_04.vsnd",
+		]
+		vsnd_duration = 3.958322
+	}
+	UI.Boss_UnderAttack_Ping = 
+	{
+		base = "Base.UI"
+		volume = -19.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.Idol_Spawn_MapPing = 
+	{
+		base = "Base.UI"
+		volume = -18.0
+		pitch = 0.85
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.YourTurnToDraft = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/gameplay/map_ping.vsnd"
+		vsnd_duration = 3.004218
+	}
+	UI.ShopBuy.Broadcast = 
+	{
+		base = "Base.UI"
+		pitch = 1.0
+		volume = -8.0
+		vsnd_files = "sounds/ui/shop_broadcast.vsnd"
+		vsnd_duration = 0.413583
+	}
+	UI.Shop.Ability.Train = 
+	{
+		base = "Base.UI"
+		volume = -18.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hud_upgrade_ability_01.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_02.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_03.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_04.vsnd",
+		]
+		vsnd_duration = 3.958322
+	}
+	UI.Shop.Ability.Upgrade = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		pitch = 1.5
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hud_upgrade_ability_01.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_02.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_03.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_04.vsnd",
+		]
+		vsnd_duration = 3.958322
+	}
+	UI.Shop.Ability.Hover = 
+	{
+		base = "UI.MainMenu.Hover"
+	}
+	UI.Shop.Mod.Hover = 
+	{
+		base = "UI.MainMenu.Hover"
+		preload_vsnds = 10
+		limiter_max = 5
+		volume_fade_out = 0.05
+		panner_mode = "hrtf"
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_hover_02.vsnd",
+			"sounds/ui/ui_menu_hover_03.vsnd",
+			"sounds/ui/ui_menu_hover_04.vsnd",
+			"sounds/ui/ui_menu_hover_05.vsnd",
+			"sounds/ui/ui_menu_hover_06.vsnd",
+			"sounds/ui/ui_menu_hover_07.vsnd",
+			"sounds/ui/ui_menu_hover_08.vsnd",
+			"sounds/ui/ui_menu_hover_01.vsnd",
+		]
+		vsnd_duration = 0.165986
+	}
+	UI.Shop.Mod.Hover.Weapon = 
+	{
+		base = "UI.Shop.Mod.Hover"
+		volume = -14.0
+		pitch = 1.2
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_hover_weapon_01.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_02.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_03.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_04.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_05.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_06.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_07.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_08.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_09.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_10.vsnd",
+			"sounds/ui/ui_shop_mod_hover_weapon_11.vsnd",
+		]
+		vsnd_duration = 0.182063
+	}
+	UI.Shop.Mod.Hover.Vitality = 
+	{
+		base = "UI.Shop.Mod.Hover"
+		volume = -15.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_hover_vitality_01.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_02.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_03.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_04.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_05.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_06.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_07.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_08.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_09.vsnd",
+			"sounds/ui/ui_shop_mod_hover_vitality_10.vsnd",
+		]
+		vsnd_duration = 0.482948
+	}
+	UI.Shop.Mod.Hover.Spirit = 
+	{
+		base = "UI.Shop.Mod.Hover"
+		volume = -12
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_hover_spirit_01.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_02.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_03.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_04.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_05.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_06.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_07.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_08.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_09.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_10.vsnd",
+			"sounds/ui/ui_shop_mod_hover_spirit_11.vsnd",
+		]
+		vsnd_duration = 0.482789
+	}
+	UI.Shop.Mod.Activate = 
+	{
+		base = "Base.UI"
+		volume = -8.0
+		limiter_max = 0.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+		]
+		vsnd_duration = 6.59424
+	}
+	UI.Shop.Mod.Activate.Weapon = 
+	{
+		base = "UI.Shop.Mod.Activate"
+		volume = -4.0
+		track_2.vsnd_track_vol_offset_db = 3.0
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_purchase_t4_weapon.vsnd",
+		]
+	}
+	UI.Shop.Mod.Activate.Vitality = 
+	{
+		base = "UI.Shop.Mod.Activate"
+		volume = -4.0
+		track_2.vsnd_track_vol_offset_db = 0.0
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_purchase_t4_vitality.vsnd",
+		]
+	}
+	UI.Shop.Mod.Activate.Spirit = 
+	{
+		base = "UI.Shop.Mod.Activate"
+		volume = -4.0
+		track_2.vsnd_track_vol_offset_db = 0.0
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_mod_purchase_t4_spirit.vsnd",
+		]
+	}
+	UI.Shop.Tech.Hover = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_hover.vsnd"
+		vsnd_duration = 0.309833
+	}
+	UI.Shop.Tech.Activate = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.Shop.Exit = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_close_01.vsnd",
+			"sounds/ui/ui_shop_close_02.vsnd",
+			"sounds/ui/ui_shop_close_03.vsnd",
+			"sounds/ui/ui_shop_close_04.vsnd",
+			"sounds/ui/ui_shop_close_05.vsnd",
+			"sounds/ui/ui_shop_close_06.vsnd",
+		]
+		vsnd_duration = 5.078934
+	}
+	UI.Shop.InRange = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.Shop.Enter = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_open_01.vsnd",
+			"sounds/ui/ui_shop_open_02.vsnd",
+			"sounds/ui/ui_shop_open_03.vsnd",
+			"sounds/ui/ui_shop_open_04.vsnd",
+			"sounds/ui/ui_shop_open_05.vsnd",
+			"sounds/ui/ui_shop_open_06.vsnd",
+		]
+		vsnd_duration = 5.042812
+	}
+	UI.Shop.TierBonus.Pip = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		pitch_modulation_namespace = "UI.Shop.TierBonus.Pip"
+		pitch_modulation_max = 2.0
+		pitch_modulation_attack = 3.0
+		pitch_modulation_release = 0.1
+		pitch = 0.85
+		panner_mode = "hrtf"
+		vsnd_files = "sounds/ui/ui_shop_tier_bonus_threshold_pip_01.vsnd"
+		vsnd_duration = 0.586803
+	}
+	UI.Shop.TierBonus.Meter.Lp = 
+	{
+		base = "Base.UI"
+		panner_mode = "hrtf"
+		volume = 2.0
+		vsnd_files = "sounds/ui/ui_shop_tier_bonus_meter_lp.vsnd"
+		vsnd_duration = 3.683877
+	}
+	UI.HeroSelection.Hover = 
+	{
+		base = "Base.UI"
+		volume = -12.0
+		pitch = 0.9
+		vsnd_files = "sounds/ui/tech_hover.vsnd"
+		vsnd_duration = 0.309833
+	}
+	UI.HeroSelection.Selected = 
+	{
+		base = "UI.MainMenu.Hover"
+	}
+	UI.HeroSelection.Unselected = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.TeamPick.Hover = 
+	{
+		base = "UI.MainMenu.Hover"
+	}
+	UI.TeamPick.Select = 
+	{
+		base = "Base.UI"
+		volume = -18.0
+		pitch = 0.96
+		vsnd_files = "sounds/ui/hero_select.vsnd"
+		vsnd_duration = 0.379937
+	}
+	UI.HeroSelection.Cancel = 
+	{
+		base = "Base.UI"
+		volume = -12.0
+		vsnd_files = "sounds/ui/hero_select.vsnd"
+		vsnd_duration = 0.379937
+	}
+	UI.Shop.Item.Destroy = 
+	{
+		base = "Base.UI"
+		volume = -25.0
+		pitch = 1.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_purchase_item_01.vsnd",
+			"sounds/ui/ui_shop_purchase_item_02.vsnd",
+			"sounds/ui/ui_shop_purchase_item_03.vsnd",
+			"sounds/ui/ui_shop_purchase_item_04.vsnd",
+		]
+		vsnd_duration = 2.248141
+	}
+	UI.Quickbuy.Add = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/shop_open.vsnd",
+		]
+		vsnd_duration = 1.616689
+	}
+	UI.Quickbuy.Remove = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/shop_close.vsnd",
+		]
+		vsnd_duration = 1.150816
+	}
+	UI.Quickbuy.DragMove = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/shop_close.vsnd",
+		]
+		vsnd_duration = 1.150816
+	}
+	UI.Quickbuy.DragDrop = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/shop_open.vsnd",
+		]
+		vsnd_duration = 1.616689
+	}
+	activation = 
+	{
+		base = "Base.UI"
+		volume = -80.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.MainMenu.NavigateBack = 
+	{
+		base = "Base.UI"
+		volume = -18.0
+		pitch = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		vsnd_files = "sounds/ui/ui_menu_back_minor.vsnd"
+		vsnd_duration = 1.258912
+	}
+	UI.HeroCard.Activate = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = -10.0
+		vsnd_files = "sounds/ui/ui_menu_activate.vsnd"
+		vsnd_duration = 2.677596
+	}
+	UI.HeroCard.Hover = 
+	{
+		base = "Base.UI"
+		volume = -11
+		panner_mode = "bypass"
+		ui_pitch_curve_enabled = true
+		pitch = 1.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_roster_card_hover_01.vsnd",
+			"sounds/ui/ui_roster_card_hover_02.vsnd",
+			"sounds/ui/ui_roster_card_hover_03.vsnd",
+			"sounds/ui/ui_roster_card_hover_04.vsnd",
+			"sounds/ui/ui_roster_card_hover_05.vsnd",
+			"sounds/ui/ui_roster_card_hover_06.vsnd",
+			"sounds/ui/ui_roster_card_hover_07.vsnd",
+			"sounds/ui/ui_roster_card_hover_08.vsnd",
+			"sounds/ui/ui_roster_card_hover_09.vsnd",
+			"sounds/ui/ui_roster_card_hover_10.vsnd",
+		]
+		vsnd_duration = 0.15746
+	}
+	UI.HeroDetails.HeroTesting.Activate = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.HeroDetails.HeroTesting.Hover = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.HeroCard.AddToRoster.Activate = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.HeroCard.AddToRoster.Hover = 
+	{
+		base = "UI.MainMenu.Hover"
+	}
+	UI.HeroCard.ClearRoster.Activate = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.HeroCard.ClearRoster.Hover = 
+	{
+		base = "UI.MainMenu.Hover"
+	}
+	UI.HeroCard.DragCardHoveredOtherHeroCard = 
+	{
+		base = "Base.UI"
+		vsnd_files = "sounds/ui/tech_activate.vsnd"
+		vsnd_duration = 0.512396
+	}
+	UI.Tutorial.LevelUp.Popup = 
+	{
+		base = "Base.UI.3d"
+		volume = 0.0
+		vsnd_files = "sounds/ui/tutorial/popup_level_up.vsnd"
+		vsnd_duration = 0.554604
+	}
+	UI.PlayerChat.Broadcast = 
+	{
+		base = "Base.UI"
+		pitch = 1.0
+		volume = 6.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.Shop.ExitAlarm = 
+	{
+		base = "Base.UI"
+		volume = 1.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.Shop.Mod.Starred.Click = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		track_2.vsnd_track_vol_offset_db = -3.0
+		vsnd_files = "sounds/ui/ui_shop_panel_starred.vsnd"
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_panel_page_01.vsnd",
+			"sounds/ui/ui_shop_panel_page_02.vsnd",
+			"sounds/ui/ui_shop_panel_page_03.vsnd",
+			"sounds/ui/ui_shop_panel_page_04.vsnd",
+			"sounds/ui/ui_shop_panel_page_05.vsnd",
+			"sounds/ui/ui_shop_panel_page_06.vsnd",
+		]
+		vsnd_duration = 2.668934
+	}
+	UI.Shop.Mod.Magic.Click = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		track_2.vsnd_track_vol_offset_db = -3.0
+		vsnd_files = "sounds/ui/ui_shop_panel_magic.vsnd"
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_panel_page_01.vsnd",
+			"sounds/ui/ui_shop_panel_page_02.vsnd",
+			"sounds/ui/ui_shop_panel_page_03.vsnd",
+			"sounds/ui/ui_shop_panel_page_04.vsnd",
+			"sounds/ui/ui_shop_panel_page_05.vsnd",
+			"sounds/ui/ui_shop_panel_page_06.vsnd",
+		]
+		vsnd_duration = 3.233401
+	}
+	UI.Shop.Mod.Weapon.Click = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		track_2.vsnd_track_vol_offset_db = -3.0
+		vsnd_files = "sounds/ui/ui_shop_panel_weapon.vsnd"
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_panel_page_01.vsnd",
+			"sounds/ui/ui_shop_panel_page_02.vsnd",
+			"sounds/ui/ui_shop_panel_page_03.vsnd",
+			"sounds/ui/ui_shop_panel_page_04.vsnd",
+			"sounds/ui/ui_shop_panel_page_05.vsnd",
+			"sounds/ui/ui_shop_panel_page_06.vsnd",
+		]
+		vsnd_duration = 2.495306
+	}
+	UI.Shop.Mod.Vitality.Click = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		track_2.vsnd_track_vol_offset_db = -3.0
+		vsnd_files = "sounds/ui/ui_shop_panel_vitality.vsnd"
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_shop_panel_page_01.vsnd",
+			"sounds/ui/ui_shop_panel_page_02.vsnd",
+			"sounds/ui/ui_shop_panel_page_03.vsnd",
+			"sounds/ui/ui_shop_panel_page_04.vsnd",
+			"sounds/ui/ui_shop_panel_page_05.vsnd",
+			"sounds/ui/ui_shop_panel_page_06.vsnd",
+		]
+		vsnd_duration = 2.652789
+	}
+	UI.Shop.Mod.Search.Click = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		limiter_on = 1.0
+		limiter_max = 0.0
+		pitch = 1.25
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_panel_page_01.vsnd",
+			"sounds/ui/ui_shop_panel_page_02.vsnd",
+			"sounds/ui/ui_shop_panel_page_03.vsnd",
+			"sounds/ui/ui_shop_panel_page_04.vsnd",
+			"sounds/ui/ui_shop_panel_page_05.vsnd",
+			"sounds/ui/ui_shop_panel_page_06.vsnd",
+		]
+		vsnd_duration = 1.285941
+	}
+	UI.MainMenu.StartGame = 
+	{
+		base = "Base.UI"
+		volume = -10.0
+		pitch_rand_min = -0.1
+		vsnd_files = "sounds/ui/ui_menu_activate.vsnd"
+		vsnd_duration = 2.677596
+	}
+	Gameplay.Pause.Start = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		vsnd_files = "sounds/ui/ui_pause_start.vsnd"
+		vsnd_duration = 4.357528
+	}
+	Gameplay.Pause.Resume.Countdown.Tick = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		vsnd_files = "sounds/ui/ui_pause_count.vsnd"
+		vsnd_duration = 1.560521
+	}
+	Gameplay.Pause.Lp = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_pause_lp.vsnd"
+		vsnd_duration = 107.688843
+	}
+	Gameplay.GameOver.Lp = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "Music-GameOver"
+		volume_fade_out = 0.5
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_pause_lp.vsnd"
+		vsnd_duration = 107.688843
+	}
+	Gameplay.Pause.End = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		vsnd_files = "sounds/ui/ui_pause_stop.vsnd"
+		vsnd_duration = 5.465578
+	}
+	UI.Matchmake.Find = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		vsnd_files = "sounds/ui/ui_game_matchmake_find.vsnd"
+		vsnd_duration = 3.519841
+	}
+	UI.Matchmake.Made = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_game_matchmake_made.vsnd"
+		vsnd_duration = 6.123288
+	}
+	UI.Match.End = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		vsnd_files = "sounds/ui/match_end_01.vsnd"
+		vsnd_duration = 15.273515
+	}
+	UI.MapPing_EnemySeen_Start = 
+	{
+		base = "Base.UI"
+		volume = -7.0
+		block_duration = 1.6
+		vsnd_files = "sounds/gameplay/ping_enemy.vsnd"
+		vsnd_duration = 3.853311
+	}
+	UI.MapPing_Attack = 
+	{
+		type = "citadel_start_multi"
+		soundevent_01 = "UI.MapPing_EnemySeen_Start"
+		soundevent_02 = "UI.MapPing_EnemySeen_Exclamation"
+		use_01 = 1.0
+		use_02 = 1.0
+	}
+	UI.MapPing_EnemySeen_Exclamation = 
+	{
+		base = "Base.UI"
+		volume = -10.0
+		vsnd_files = "sounds/gameplay/ping_enemy_exclamation.vsnd"
+		vsnd_duration = 2.036054
+	}
+	UI.MapPing_Warning_Exclamation = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		vsnd_files = "sounds/gameplay/ping_warning_exclamation.vsnd"
+		vsnd_duration = 2.947664
+	}
+	UI.MapPing_Warning_Start = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		block_duration = 1.6
+		vsnd_files = "sounds/gameplay/ping_warning.vsnd"
+		vsnd_duration = 1.672449
+	}
+	UI.MapPing_Warning = 
+	{
+		type = "citadel_start_multi"
+		soundevent_01 = "UI.MapPing_Warning_Start"
+		soundevent_02 = "UI.MapPing_Warning_Exclamation"
+		use_01 = 1.0
+		use_02 = 1.0
+	}
+	UI.MapPing_Start = 
+	{
+		base = "Base.UI"
+		volume = -17.0
+		block_duration = 1.6
+		vsnd_files = "sounds/gameplay/ping_map.vsnd"
+		vsnd_duration = 3.856032
+	}
+	UI.MapPing_Exclamation = 
+	{
+		base = "Base.UI"
+		volume = -18.0
+		hrtf_on = 0.0
+		vsnd_files = "sounds/gameplay/ping_map_spam.vsnd"
+		vsnd_duration = 0.786304
+	}
+	UI.MapPing = 
+	{
+		type = "citadel_start_multi"
+		soundevent_01 = "UI.MapPing_Start"
+		soundevent_02 = "UI.MapPing_Exclamation"
+		use_01 = 1.0
+		use_02 = 1.0
+	}
+	UI.MapPing_Defend_Start = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		block_duration = 1.6
+		vsnd_files = "sounds/gameplay/ping_rally.vsnd"
+		vsnd_duration = 2.354014
+	}
+	UI.MapPing_Defend_Exclamation = 
+	{
+		base = "Base.UI"
+		volume = -9.0
+		delay = 0.1
+		pitch = 1.01
+		vsnd_files = "sounds/gameplay/ping_rally_exclamation.vsnd"
+		vsnd_duration = 1.790204
+	}
+	UI.MapPing_Defend = 
+	{
+		type = "citadel_start_multi"
+		soundevent_01 = "UI.MapPing_Defend_Start"
+		soundevent_02 = "UI.MapPing_Defend_Exclamation"
+		use_01 = 1.0
+		use_02 = 1.0
+	}
+	UI.MainMenu.Game.Launch = 
+	{
+		base = "Base.UI"
+		volume = -8.0
+		vsnd_files = "sounds/ui/ui_game_start.vsnd"
+		vsnd_duration = 8.572426
+	}
+	UI.MainMenu.Title.Launch = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		vsnd_files = "sounds/ui/ui_title_press.vsnd"
+		vsnd_duration = 7.819887
+	}
+	UI.MainMenu.Title.Begin = 
+	{
+		base = "Base.UI"
+		panner_mode = "bypass"
+		delay = 0.1
+		volume = -2.0
+		vsnd_files = "sounds/ui/ui_title_motion.vsnd"
+		vsnd_duration = 15.08068
+	}
+	UI.MainMenu.Title.End = 
+	{
+		base = "Base.UI"
+		panner_mode = "bypass"
+		volume = 0.0
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	UI.PlayerDeath.Team = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Death"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = -1.0
+		volume_fade_out = 0.1
+		delay = 0.1
+		vsnd_files = "sounds/ui/ui_player_death_team.vsnd"
+		vsnd_duration = 6.005238
+	}
+	UI.PlayerDeath.Opponent = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Death"
+		delay = 0.1
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 2.0
+		vsnd_files = "sounds/ui/ui_player_death_opponent.vsnd"
+		vsnd_duration = 3.902177
+	}
+	UI.FriendsList.Hover = 
+	{
+		base = "Base.UI"
+		volume = -15.0
+		panner_mode = "hrtf"
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_list_hover_01.vsnd",
+			"sounds/ui/ui_friends_list_hover_02.vsnd",
+			"sounds/ui/ui_friends_list_hover_03.vsnd",
+			"sounds/ui/ui_friends_list_hover_04.vsnd",
+			"sounds/ui/ui_friends_list_hover_05.vsnd",
+			"sounds/ui/ui_friends_list_hover_06.vsnd",
+			"sounds/ui/ui_friends_list_hover_07.vsnd",
+			"sounds/ui/ui_friends_list_hover_08.vsnd",
+			"sounds/ui/ui_friends_list_hover_09.vsnd",
+			"sounds/ui/ui_friends_list_hover_10.vsnd",
+			"sounds/ui/ui_friends_list_hover_11.vsnd",
+			"sounds/ui/ui_friends_list_hover_12.vsnd",
+		]
+		vsnd_duration = 0.225125
+	}
+	Menu.Party.Invite.Send = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		panner_mode = "bypass"
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_list_send_invite_01.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_02.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_03.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_04.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_05.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_06.vsnd",
+		]
+		vsnd_duration = 3.646916
+	}
+	Menu.Party.Invite.Receive = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		panner_mode = "bypass"
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_list_receive_invite_01.vsnd",
+			"sounds/ui/ui_friends_list_receive_invite_02.vsnd",
+			"sounds/ui/ui_friends_list_receive_invite_03.vsnd",
+			"sounds/ui/ui_friends_list_receive_invite_04.vsnd",
+			"sounds/ui/ui_friends_list_receive_invite_05.vsnd",
+			"sounds/ui/ui_friends_list_receive_invite_06.vsnd",
+		]
+		vsnd_duration = 3.5
+	}
+	Menu.Party.Leave = 
+	{
+		base = "Base.UI"
+		panner_mode = "bypass"
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_friends_party_member_left.vsnd"
+		vsnd_duration = 1.442925
+	}
+	Menu.Party.NewMember = 
+	{
+		base = "Base.UI"
+		panner_mode = "bypass"
+		volume = -6.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_party_member_new.vsnd",
+		]
+		vsnd_duration = 1.133492
+	}
+	Menu.HeroSelection.Enter = 
+	{
+		base = "Base.UI"
+		pitch_modulation_namespace = "UI.Hover"
+		pitch_modulation_attack = 10.0
+		pitch_modulation_release = 0.3
+		pitch_modulation_max = 2.0
+		volume = -1.0
+		vsnd_pause_with_game = false
+		pitch = 1.1
+		delay = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_heroselection_enter_01.vsnd",
+			"sounds/ui/ui_heroselection_enter_02.vsnd",
+			"sounds/ui/ui_heroselection_enter_03.vsnd",
+		]
+		vsnd_duration = 3.094921
+	}
+	Menu.HeroSelection.Complete = 
+	{
+		base = "Base.UI"
+		pitch_modulation_namespace = "UI.Hover"
+		pitch_modulation_attack = 10.0
+		pitch_modulation_release = 0.3
+		pitch_modulation_max = 2.0
+		volume = -14.0
+		vsnd_pause_with_game = false
+		vsnd_files = "sounds/ui/ui_menu_activate.vsnd"
+		vsnd_duration = 2.677596
+	}
+	UI.Cheat.Ban = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_cheat_ban.vsnd"
+		vsnd_duration = 8.3
+	}
+	UI.Cheat.Frog = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		vsnd_files = "sounds/ui/ui_cheat_frog.vsnd"
+		vsnd_duration = 8.3
+	}
+	UI.CommendConfirmation = 
+	{
+		base = "Base.UI.Duck"
+		volume = 0.0
+		delay = 0.0
+		spread_min_value = 1.0
+		spread_max_value = 1.0
+		limiter_max = 0.0
+		hrtf_on = 0.0
+		pitch = 1.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_commend_send_01.vsnd",
+			"sounds/ui/ui_commend_send_02.vsnd",
+			"sounds/ui/ui_commend_send_03.vsnd",
+			"sounds/ui/ui_commend_send_04.vsnd",
+			"sounds/ui/ui_commend_send_05.vsnd",
+			"sounds/ui/ui_commend_send_06.vsnd",
+			"sounds/ui/ui_commend_send_07.vsnd",
+			"sounds/ui/ui_commend_send_08.vsnd",
+		]
+		vsnd_duration = 2.658458
+	}
+	UI.CommendToast = 
+	{
+		base = "Base.UI.Duck"
+		volume = 0.0
+		delay = 0.0
+		spread_min_value = 1.0
+		spread_max_value = 1.0
+		limiter_max = 0.0
+		block_duration = 0.5
+		hrtf_on = 0.0
+		pitch = 1.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_commend_receive_01.vsnd",
+			"sounds/ui/ui_commend_receive_02.vsnd",
+			"sounds/ui/ui_commend_receive_03.vsnd",
+			"sounds/ui/ui_commend_receive_04.vsnd",
+			"sounds/ui/ui_commend_receive_05.vsnd",
+			"sounds/ui/ui_commend_receive_06.vsnd",
+			"sounds/ui/ui_commend_receive_07.vsnd",
+			"sounds/ui/ui_commend_receive_08.vsnd",
+		]
+		vsnd_duration = 3.262948
+	}
+	UI.RevealRank = 
+	{
+		base = "Base.UI"
+		volume = 2.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_rankup_01.vsnd",
+			"sounds/ui/ui_ranked_rankup_02.vsnd",
+			"sounds/ui/ui_ranked_rankup_03.vsnd",
+			"sounds/ui/ui_ranked_rankup_04.vsnd",
+		]
+		vsnd_duration = 5.435147
+	}
+	UI.RevealVote = 
+	{
+		base = "Base.UI"
+		panner_mode = "bypass"
+		volume = -3.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hud_acquire_ap_01.vsnd",
+			"sounds/ui/ui_hud_acquire_ap_02.vsnd",
+			"sounds/ui/ui_hud_acquire_ap_03.vsnd",
+			"sounds/ui/ui_hud_acquire_ap_04.vsnd",
+		]
+		vsnd_duration = 6.149116
+	}
+	UI.Ranked.ProgressUp = 
+	{
+		base = "Base.UI"
+		volume = -1.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_progress_up_01.vsnd",
+		]
+		vsnd_duration = 5.293197
+	}
+	UI.Ranked.ProgressDown = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_progress_down_01.vsnd",
+		]
+		vsnd_duration = 5.224694
+	}
+	UI.Ranked.RankLost = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_rank_down_poof_01.vsnd",
+			"sounds/ui/ui_ranked_rank_down_poof_02.vsnd",
+			"sounds/ui/ui_ranked_rank_down_poof_03.vsnd",
+		]
+		vsnd_duration = 2.663719
+	}
+	UI.Ranked.RankUp.Intra = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_rankup_intra_01.vsnd",
+			"sounds/ui/ui_ranked_rankup_intra_02.vsnd",
+			"sounds/ui/ui_ranked_rankup_intra_03.vsnd",
+		]
+		vsnd_duration = 3.929977
+	}
+	UI.Ranked.RankProtected = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/player/melee/shared/melee_parry_success.vsnd",
+		]
+		vsnd_duration = 3.531814
+	}
+	UI.Ranked.Calibration.Progress = 
+	{
+		base = "Base.UI"
+		volume = -1.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_calibration_progress_01.vsnd",
+		]
+		vsnd_duration = 1.428938
+	}
+	UI.Ranked.Calibration.Complete = 
+	{
+		base = "Base.UI"
+		volume = 3.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_calibration_complete_01.vsnd",
+			"sounds/ui/ui_calibration_complete_02.vsnd",
+			"sounds/ui/ui_calibration_complete_03.vsnd",
+		]
+		vsnd_duration = 3.428292
+	}
+	UI.Ranked.Change = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_whoosh_generic_01.vsnd",
+			"sounds/ui/ui_ranked_whoosh_generic_02.vsnd",
+			"sounds/ui/ui_ranked_whoosh_generic_03.vsnd",
+		]
+		vsnd_duration = 2.26517
+	}
+	UI.Ranked.WinStreak.Appear = 
+	{
+		base = "Base.UI"
+		volume = 2.0
+		pitch = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_ranked_win_streak_appear_01.vsnd",
+		]
+		vsnd_duration = 4.546062
+	}
+	UI.Notify.ItemPurchase = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_purchase_item_notify_01.vsnd",
+			"sounds/ui/ui_shop_purchase_item_notify_02.vsnd",
+			"sounds/ui/ui_shop_purchase_item_notify_03.vsnd",
+			"sounds/ui/ui_shop_purchase_item_notify_04.vsnd",
+		]
+		vsnd_duration = 2.248141
+	}
+	UI.Notify.QuickBuy = 
+	{
+		base = "Base.UI.Duck"
+		volume = -8.0
+		limiter_max = 0.0
+		volume_fade_out = 0.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+			"sounds/ui/ui_shop_autobuy_01.vsnd",
+		]
+		vsnd_duration = 6.59424
+	}
+	UI.LaneSwap.SendRequest = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		pitch = 0.85
+		vsnd_files = 
+		[
+			"sounds/ui/ui_lane_swap_receive_request_01.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_02.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_03.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_04.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_05.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_06.vsnd",
+		]
+		vsnd_duration = 1.213401
+	}
+	UI.LaneSwap.ReceiveRequest = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_lane_swap_receive_request_01.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_02.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_03.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_04.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_05.vsnd",
+			"sounds/ui/ui_lane_swap_receive_request_06.vsnd",
+		]
+		vsnd_duration = 1.213401
+	}
+	UI.LaneSwap.ConfirmRequest = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		vsnd_files = "sounds/ui/ui_lane_swap_request_confirm.vsnd"
+		vsnd_duration = 1.008639
+	}
+	UI.LaneSwap.DenyRequest = 
+	{
+		base = "Base.UI"
+		volume = -14.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		vsnd_files = "sounds/ui/ui_lane_swap_request_deny.vsnd"
+		vsnd_duration = 1.044535
+	}
+	UI.SeasonalAchievement = 
+	{
+		type = "citadel_ui_panner"
+		volume = -1.0
+		delay = 0.0
+		spread_min_value = 1.0
+		spread_max_value = 1.0
+		limiter_max = 0.0
+		block_duration = 0.5
+		hrtf_on = 0.0
+		pitch = 1.0
+		vsnd_files = "sounds/ui/ui_achievement_toast_seasonal.vsnd"
+		vsnd_duration = 3.806395
+	}
+	UI.PostGame.HeroXPReward = 
+	{
+		type = "citadel_ui_panner"
+		volume = -1.0
+		hrtf_on = 0.0
+		vsnd_files = "sounds/ui/ui_postgame_heroxp_ding.vsnd"
+		vsnd_duration = 2.069138
+	}
+	UI.PostGame.HeroXPReward_Tick = 
+	{
+		type = "citadel_ui_panner"
+		volume = -1.0
+		hrtf_on = 0.0
+		vsnd_files = "sounds/ui/ui_xp_click_01.vsnd"
+		vsnd_duration = 0.018889
+	}
+	UI.PostGame.HeroXPReward_LevelUp = 
+	{
+		type = "citadel_ui_panner"
+		volume = -1.0
+		hrtf_on = 0.0
+		vsnd_files = "sounds/ui/ui_draft_item_appear_enhanced.vsnd"
+		vsnd_duration = 6.458685
+	}
+	UI.PostGame.Award = 
+	{
+		type = "citadel_ui_panner"
+		volume = -18.0
+		hrtf_on = 0.0
+		vsnd_files = "sounds/gameplay/ping_map_spam.vsnd"
+		vsnd_duration = 0.786304
+	}
+	UI.PostGame.HeroLevelUp = 
+	{
+		type = "citadel_ui_panner"
+		volume = -3.0
+		pitch = 0.9
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hud_upgrade_ability_01.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_02.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_03.vsnd",
+			"sounds/ui/ui_hud_upgrade_ability_04.vsnd",
+		]
+		vsnd_duration = 3.958322
+	}
+	UI.PostGame.StatAppear = 
+	{
+		type = "citadel_ui_panner"
+		volume = -8.0
+		panner_mode = "hrtf"
+		ui_pitch_curve_enabled = true
+		pitch_modulation_namespace = "UI.Hover"
+		pitch_modulation_max = 3.0
+		pitch_modulation_attack = 3.0
+		pitch_modulation_release = 0.1
+		pitch = 1.0
+		pitch_rand_min = -0.02
+		pitch_rand_max = 0.02
+		vsnd_files = 
+		[
+			"sounds/ui/ui_herocard_hover_01.vsnd",
+			"sounds/ui/ui_herocard_hover_02.vsnd",
+			"sounds/ui/ui_herocard_hover_03.vsnd",
+			"sounds/ui/ui_herocard_hover_04.vsnd",
+			"sounds/ui/ui_herocard_hover_05.vsnd",
+			"sounds/ui/ui_herocard_hover_06.vsnd",
+		]
+		vsnd_duration = 0.468821
+	}
+	UI.PostGame.ProgressStart = 
+	{
+		type = "citadel_ui_panner"
+		volume = -1.0
+		delay = 0.0
+		spread_min_value = 1.0
+		spread_max_value = 1.0
+		limiter_max = 0.0
+		block_duration = 0.5
+		hrtf_on = 0.0
+		pitch = 1.0
+		vsnd_files = "sounds/ui/ui_achievement_toast_seasonal.vsnd"
+		vsnd_duration = 3.806395
+	}
+	UI.PlayMenu.Hover = 
+	{
+		base = "Base.UI"
+		volume = -11
+		panner_mode = "bypass"
+		ui_pitch_curve_enabled = true
+		pitch = 1.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_roster_card_hover_01.vsnd",
+			"sounds/ui/ui_roster_card_hover_02.vsnd",
+			"sounds/ui/ui_roster_card_hover_03.vsnd",
+			"sounds/ui/ui_roster_card_hover_04.vsnd",
+			"sounds/ui/ui_roster_card_hover_05.vsnd",
+			"sounds/ui/ui_roster_card_hover_06.vsnd",
+			"sounds/ui/ui_roster_card_hover_07.vsnd",
+			"sounds/ui/ui_roster_card_hover_08.vsnd",
+			"sounds/ui/ui_roster_card_hover_09.vsnd",
+			"sounds/ui/ui_roster_card_hover_10.vsnd",
+		]
+		vsnd_duration = 0.15746
+	}
+	UI.PlayMenu.Activate = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 3.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_press_big_01.vsnd",
+			"sounds/ui/ui_menu_press_big_02.vsnd",
+			"sounds/ui/ui_menu_press_big_03.vsnd",
+			"sounds/ui/ui_menu_press_big_04.vsnd",
+		]
+		vsnd_duration = 5.692132
+	}
+	UI.PlayMenu.Page.Open = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 3.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.Menu.Close = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 2.0
+		pitch = 0.85
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.MatchIntro.Transition = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 0.0
+		pitch = 1.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_match_intro_transition_01.vsnd",
+			"sounds/ui/ui_match_intro_transition_02.vsnd",
+			"sounds/ui/ui_match_intro_transition_03.vsnd",
+			"sounds/ui/ui_match_intro_transition_04.vsnd",
+		]
+		vsnd_duration = 6.416712
+	}
+	UI.Roster.Confirm = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = -3.0
+		pitch = 1.0
+		vsnd_files = "sounds/ui/ui_confirm_roster.vsnd"
+		vsnd_duration = 14.513832
+	}
+	UI.Roster.Popup.Close = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 4.0
+		pitch = 1.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.HeroReleaseVotesRemainingToast = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		delay = 0.0
+		spread_min_value = 1.0
+		spread_max_value = 1.0
+		limiter_max = 0.0
+		block_duration = 0.5
+		hrtf_on = 0.0
+		pitch = 0.85
+		vsnd_files = "sounds/ui/ui_player_death_opponent.vsnd"
+		vsnd_duration = 3.902177
+	}
+	VisualNovel.PlayAs2D = 
+	{
+		type = "citadel_play_sound"
+		volume = 1.0
+		delay = 0.0
+		vsnd_files = "sounds/test/1khz_sine_100ms_minus6_44khz.vsnd"
+		send_name = "main"
+		vsnd_duration = 0.099751
+	}
+	UI.ItemDraft.Appear.Enhanced = 
+	{
+		base = "Base.UI"
+		volume = -2.0
+		vsnd_files = "sounds/ui/ui_draft_item_appear_enhanced.vsnd"
+		vsnd_duration = 6.458685
+	}
+	UI.ItemDraft.Appear.Rare = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		vsnd_files = "sounds/ui/ui_draft_item_appear_rare.vsnd"
+		vsnd_duration = 3.801655
+	}
+	UI.ItemDraft.Appear.Legendary = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Brawl-Legendary"
+		volume = 0.0
+		limiter_max = 1.0
+		volume_fade_out = 0.1
+		vsnd_files = "sounds/ui/ui_draft_item_legendary.vsnd"
+		vsnd_duration = 5.084875
+	}
+	UI.ItemDraft.Anticipate.Legendary = 
+	{
+		base = "Base.UI"
+		mixer_mixgroup = "UI-Brawl-Legendary"
+		volume = 0.0
+		limiter_max = 1.0
+		volume_fade_out = 0.1
+		vsnd_files = "sounds/common/null.vsnd"
+		vsnd_duration = 0.050023
+	}
+	Base.UI.ItemDraft.Appear = 
+	{
+		base = "Base.UI"
+		volume = -2.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume_fade_out = 0.1
+		track_2.track_vsnd_files = 
+		[
+			"sounds/ui/ui_draft_item_appear_base_01.vsnd",
+			"sounds/ui/ui_draft_item_appear_base_02.vsnd",
+			"sounds/ui/ui_draft_item_appear_base_03.vsnd",
+			"sounds/ui/ui_draft_item_appear_base_04.vsnd",
+			"sounds/ui/ui_draft_item_appear_base_05.vsnd",
+		]
+	}
+	UI.ItemDraft.Appear.Spirit = 
+	{
+		base = "Base.UI.ItemDraft.Appear"
+		volume = -3.0
+		pitch = 1.0
+		pitch_rand_max = 0.05
+		pitch_rand_min = -0.05
+		vsnd_files = "sounds/ui/ui_draft_item_appear_spirit.vsnd"
+		vsnd_duration = 3.243696
+	}
+	UI.ItemDraft.Appear.Vitality = 
+	{
+		base = "Base.UI.ItemDraft.Appear"
+		volume = -3.0
+		pitch = 1.0
+		pitch_rand_max = 0.05
+		pitch_rand_min = -0.05
+		vsnd_files = "sounds/ui/ui_draft_item_appear_vitality.vsnd"
+		vsnd_duration = 3.040884
+	}
+	UI.ItemDraft.Appear.Weapon = 
+	{
+		base = "Base.UI.ItemDraft.Appear"
+		volume = -3.0
+		pitch = 1.0
+		pitch_rand_max = 0.05
+		pitch_rand_min = -0.05
+		vsnd_files = "sounds/ui/ui_draft_item_appear_weapon.vsnd"
+		vsnd_duration = 2.698821
+	}
+	UI.ItemDraft.RevolverSpin = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_item_draft_spin_01.vsnd",
+			"sounds/ui/ui_item_draft_spin_02.vsnd",
+			"sounds/ui/ui_item_draft_spin_03.vsnd",
+			"sounds/ui/ui_item_draft_spin_04.vsnd",
+		]
+		vsnd_duration = 5.228594
+	}
+	UI.ItemDraft.Start = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 3.0
+		pitch = 0.85
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.ItemDraft.End = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 3.0
+		pitch = 0.85
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.Settings.Hover = 
+	{
+		base = "Base.UI"
+		volume = 6.0
+		vsnd_pause_with_game = false
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.01
+		pitch_rand_max = 0.01
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_hover_02.vsnd",
+			"sounds/ui/ui_menu_hover_03.vsnd",
+			"sounds/ui/ui_menu_hover_04.vsnd",
+			"sounds/ui/ui_menu_hover_05.vsnd",
+			"sounds/ui/ui_menu_hover_06.vsnd",
+			"sounds/ui/ui_menu_hover_07.vsnd",
+			"sounds/ui/ui_menu_hover_08.vsnd",
+			"sounds/ui/ui_menu_hover_01.vsnd",
+		]
+		vsnd_duration = 0.165986
+	}
+	UI.Settings.Activate = 
+	{
+		base = "Base.UI"
+		volume = -6.0
+		limiter_max = 0.0
+		limiter_on = 1.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_list_send_invite_01.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_02.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_03.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_04.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_05.vsnd",
+			"sounds/ui/ui_friends_list_send_invite_06.vsnd",
+		]
+		vsnd_duration = 3.646916
+	}
+	UI.Settings.BackClose = 
+	{
+		base = "Base.UI"
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		volume = 0.0
+		pitch = 1.25
+		vsnd_files = 
+		[
+			"sounds/ui/ui_menu_open_swoop_01.vsnd",
+			"sounds/ui/ui_menu_open_swoop_02.vsnd",
+			"sounds/ui/ui_menu_open_swoop_03.vsnd",
+			"sounds/ui/ui_menu_open_swoop_04.vsnd",
+			"sounds/ui/ui_menu_open_swoop_05.vsnd",
+			"sounds/ui/ui_menu_open_swoop_06.vsnd",
+			"sounds/ui/ui_menu_open_swoop_07.vsnd",
+		]
+		vsnd_duration = 2.240884
+	}
+	UI.Settings.HoverCategory = 
+	{
+		base = "Base.UI"
+		volume = -15.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_friends_list_hover_01.vsnd",
+			"sounds/ui/ui_friends_list_hover_02.vsnd",
+			"sounds/ui/ui_friends_list_hover_03.vsnd",
+			"sounds/ui/ui_friends_list_hover_04.vsnd",
+			"sounds/ui/ui_friends_list_hover_05.vsnd",
+			"sounds/ui/ui_friends_list_hover_06.vsnd",
+			"sounds/ui/ui_friends_list_hover_07.vsnd",
+			"sounds/ui/ui_friends_list_hover_08.vsnd",
+			"sounds/ui/ui_friends_list_hover_09.vsnd",
+			"sounds/ui/ui_friends_list_hover_10.vsnd",
+			"sounds/ui/ui_friends_list_hover_11.vsnd",
+			"sounds/ui/ui_friends_list_hover_12.vsnd",
+		]
+		vsnd_duration = 0.225125
+	}
+	UI.Settings.Subsection.Hover = 
+	{
+		base = "Base.UI"
+		volume = -22
+		vsnd_pause_with_game = false
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		pitch_rand_min = -0.01
+		pitch_rand_max = 0.01
+		vsnd_files = 
+		[
+			"sounds/ui/ui_roster_card_hover_01.vsnd",
+			"sounds/ui/ui_roster_card_hover_02.vsnd",
+			"sounds/ui/ui_roster_card_hover_03.vsnd",
+			"sounds/ui/ui_roster_card_hover_04.vsnd",
+			"sounds/ui/ui_roster_card_hover_05.vsnd",
+			"sounds/ui/ui_roster_card_hover_06.vsnd",
+			"sounds/ui/ui_roster_card_hover_07.vsnd",
+			"sounds/ui/ui_roster_card_hover_08.vsnd",
+			"sounds/ui/ui_roster_card_hover_09.vsnd",
+			"sounds/ui/ui_roster_card_hover_10.vsnd",
+		]
+		vsnd_duration = 0.15746
+	}
+	UI.Settings.Error = 
+	{
+		base = "Base.UI"
+		volume = -4.0
+		pitch = 1.0
+		volume_fade_out = 0.05
+		limiter_on = 1.0
+		limiter_max = 0.0
+		limiter_stop_oldest = true
+		recency_bias_max_scale = 1.0
+		recency_bias_min_scale = 0.35
+		vsnd_files = 
+		[
+			"sounds/ui/ui_meepmop_01.vsnd",
+			"sounds/ui/ui_meepmop_02.vsnd",
+			"sounds/ui/ui_meepmop_03.vsnd",
+			"sounds/ui/ui_meepmop_04.vsnd",
+			"sounds/ui/ui_meepmop_05.vsnd",
+			"sounds/ui/ui_meepmop_06.vsnd",
+		]
+		vsnd_duration = 0.96746
+	}
+	UI.Settings.Keybind.Press = 
+	{
+		base = "Base.UI"
+		volume = -3.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_keybind_press_01.vsnd",
+			"sounds/ui/ui_keybind_press_02.vsnd",
+			"sounds/ui/ui_keybind_press_03.vsnd",
+			"sounds/ui/ui_keybind_press_04.vsnd",
+			"sounds/ui/ui_keybind_press_05.vsnd",
+			"sounds/ui/ui_keybind_press_06.vsnd",
+		]
+		vsnd_duration = 0.282404
+	}
+	UI.Vote.Hero.Tally.Toast = 
+	{
+		base = "Base.UI"
+		volume = 3.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	UI.Vote.Hero.Tally.Lp = 
+	{
+		base = "Base.UI"
+		volume = 1.0
+		limiter_max = 0.0
+		volume_fade_out = 0.1
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hero_voting_tally_lp_01.vsnd",
+		]
+		vsnd_duration = 4.640726
+	}
+	UI.Vote.Hero.Tally.Lp.End = 
+	{
+		base = "Base.UI"
+		volume = 0.0
+		limiter_max = 0.0
+		vsnd_files = 
+		[
+			"sounds/ui/ui_hero_voting_tally_end_01.vsnd",
+			"sounds/ui/ui_hero_voting_tally_end_02.vsnd",
+			"sounds/ui/ui_hero_voting_tally_end_03.vsnd",
+		]
+		vsnd_duration = 0.461066
+	}
+}

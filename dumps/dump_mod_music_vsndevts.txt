@@ -1,0 +1,1205 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Base.Music.2d = 
+	{
+		type = "citadel_default_2d"
+		mixer_mixgroup = "Music"
+		send_name = "Music"
+		event_voice_layer = "game"
+		reverb_xfade_value = 0.0
+		reverb_use_curve = 0.0
+		volume = -10.0
+		position_force_from_player = true
+		event_use_music_convar = false
+		block_volume_min = -1.0
+		volume_fade_out = 2.0
+		mixer_mixlayer_volume_gate = 0.0
+	}
+	Base.Music.Queue = 
+	{
+		type = "citadel_music"
+		preload_vsnds = true
+		mixer_mixgroup = "Music"
+		send_name = "Music"
+		event_voice_layer = "game"
+		reverb_xfade_value = 0.0
+		reverb_use_curve = 0.0
+		volume = -10.0
+		position_force_from_player = true
+		event_use_music_convar = false
+		block_volume_min = -1.0
+		volume_fade_out = 2.0
+	}
+	Base.Stingers.2d = 
+	{
+		base = "Base.Music.2d"
+		volume = -1.0
+		position_force_from_player = true
+		event_use_music_convar = false
+		volume_fade_out = 0.5
+	}
+	Base.Stingers.KillStreaks.2d = 
+	{
+		base = "Base.Stingers.2d"
+		mixer_mixgroup = "Music-KS"
+		send_name = "music-ks"
+		volume = 1.0
+		delay = 0.2
+		volume_fade_out = 0.3
+	}
+	Music.MainMenu = 
+	{
+		base = "Base.Music.2d"
+		volume = 0.0
+		delay = 1.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		vsnd_files = 
+		[
+			"sounds/music/music_menu_lp.vsnd",
+		]
+		vsnd_duration = 247.026443
+	}
+	Music.Title = 
+	{
+		type = "citadel_music_title"
+		mixer_mixgroup = "Music"
+		send_name = "Music"
+		volume = 2.0
+		volume_fade_out = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		reverb_xfade_value = 0.0
+		reverb_use_curve = 0.0
+		wet_dry_crossfade_velocity = 2.0
+		position_force_from_player = true
+		block_volume_min = -1.0
+		vsnd_files_fx = 
+		[
+			"sounds/music/music_title_fx_155bpm.vsnd",
+		]
+		vsnd_files = 
+		[
+			"sounds/music/music_title_155bpm.vsnd",
+		]
+		vsnd_duration = 170.0
+	}
+	Music.Hideout.Build = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = -2.0
+		volume_fade_out = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		endpoint = [ 5.714 ]
+		syncpoints = [ 1.548 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/music_hideout_build_155bpm.vsnd",
+		]
+		vsnd_duration = 5.714082
+	}
+	Music.Hideout = 
+	{
+		type = "citadel_music_hideout"
+		preload_vsnds = true
+		volume = 3.0
+		mixer_mixgroup = "Music"
+		send_name = "Music"
+		volume_fade_in = 0.0
+		volume_fade_out = 0.5
+		delay = 0.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		play_button_volume_min_distance = 150.0
+		play_button_volume_max_distance = 550.0
+		play_button_distance_curve_amount = -1.0
+		distance_attenuation_max_velocity = 0.5
+		base_fx_layer_max_velocity = 0.25
+		base_fx_layer_facing_min_volume_linear = 0.25
+		base_fx_layer_vol_offset_db = -3.0
+		play_button_low_layer_fade_velocity = 0.5
+		play_button_high_layer_fade_velocity = 0.5
+		play_button_intro_velocity = 0.25
+		volume_max_gain_change_per_second = 5.0
+		afk_vol_floor_linear_min_base = 0.1
+		afk_vol_floor_linear_min_base_fx = 0.1
+		endpoint = [ 43.355 ]
+		vsnd_files_play_base = 
+		[
+			"sounds/music/music_hideout_play_base_lp_155bpm.vsnd",
+		]
+		sync_bpm = [ 155.0 ]
+		vsnd_files_play_base_fx = 
+		[
+			"sounds/music/music_hideout_play_base_lp_fx_155bpm.vsnd",
+		]
+		vsnd_files_play_high = 
+		[
+			"sounds/music/music_hideout_play_high_lp_155bpm.vsnd",
+		]
+		startpoint = [ 0.0 ]
+		vsnd_files_play_low = 
+		[
+			"sounds/music/music_hideout_play_low_lp_155bpm.vsnd",
+		]
+		vsnd_duration = 43.354851
+	}
+	Music.Hideout.Search = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 4.0
+		volume_fade_out = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		endpoint = [ 75.096001 ]
+		startpoint = [ 0.774 ]
+		sync_bpm = [ 155.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/music_hideout_search_155bpm.vsnd",
+		]
+		vsnd_duration = 75.096802
+	}
+	Music.Hideout.Wait = 
+	{
+		base = "Base.Music.2d"
+		volume = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		vsnd_files = 
+		[
+			"sounds/music/music_search_wait_temp.vsnd",
+		]
+		vsnd_duration = 349.700134
+	}
+	Map.Broadcast.GameStart = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -9.0
+		vsnd_files = 
+		[
+			"sounds/ui/match_start_01.vsnd",
+		]
+		vsnd_duration = 14.513832
+	}
+	Music.MatchIntro.Connecting = 
+	{
+		base = "Base.Music.2d"
+		volume = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		volume_fade_in = 1.0
+		volume_fade_out = 2.0
+		vsnd_files = 
+		[
+			"sounds/music/match_intro/music_match_intro_connecting_60bpm.vsnd",
+		]
+		vsnd_duration = 269.0
+	}
+	Music.MatchIntro.HeroReveal = 
+	{
+		base = "Base.Music.2d"
+		volume = 1.0
+		delay = 0.5
+		volume_fade_out = 3.0
+		vsnd_files = 
+		[
+			"sounds/music/match_intro/music_match_intro_flourish_160bpm.vsnd",
+		]
+		vsnd_duration = 15.75
+	}
+	Music.MatchIntro.MatchStart.King = 
+	{
+		base = "Base.Music.2d"
+		volume = 3.0
+		vsnd_files = 
+		[
+			"sounds/music/match_intro/music_match_intro_king_160bpm.vsnd",
+		]
+		vsnd_duration = 27.0
+	}
+	Music.MatchIntro.MatchStart.Mother = 
+	{
+		base = "Base.Music.2d"
+		volume = 5.0
+		vsnd_files = 
+		[
+			"sounds/music/match_intro/music_match_intro_mother_160bpm.vsnd",
+		]
+		vsnd_duration = 28.874989
+	}
+	Music.Zipline.Lp = 
+	{
+		base = "Base.Music.2d"
+		volume_fade_out = 1.0
+		vsnd_files = 
+		[
+			"sounds/music/music_silence_1s_loop.vsnd",
+		]
+		vsnd_duration = 1.0
+	}
+	Music.Match.Formed = 
+	{
+		base = "Base.Music.2d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Music.Base.Attack = 
+	{
+		type = "citadel_music_end_game"
+		base = 
+		[
+			{
+				event_name = "Base.Music.2d"
+				field_name = "citadel_default_2d"
+			},
+		]
+		volume_fade_in = 0.05
+		volume_fade_out = 3.0
+		volume = -6.0
+		vsnd_files = 
+		[
+			"sounds/music/music_core_exposed_lp.vsnd",
+		]
+		vsnd_duration = 44.859795
+	}
+	Music.Match.Win = 
+	{
+		base = "Base.Stingers.2d"
+		mixer_mixgroup = "Music-GameOver"
+		event_voice_layer = "ui"
+		volume = 5.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_game_over_win.vsnd",
+		]
+		vsnd_duration = 6.072
+	}
+	Music.Match.Lose = 
+	{
+		base = "Base.Stingers.2d"
+		mixer_mixgroup = "Music-GameOver"
+		event_voice_layer = "ui"
+		volume = -3.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_game_over_lose.vsnd",
+		]
+		vsnd_duration = 7.624104
+	}
+	Music.PostGame = 
+	{
+		type = "citadel_music_postgame"
+		mixer_mixgroup = "Music-GameOver"
+		volume = 2.0
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		volume_fade_out = 2.0
+		vsnd_files = 
+		[
+			"sounds/music/music_postgame_155bpm.vsnd",
+		]
+		vsnd_duration = 44.0
+	}
+	Gameplay.Pause.Music.Lp = 
+	{
+		base = "Base.Music.3d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Stinger.Respawn = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -3.0
+		volume_fade_out = 1
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_player_respawn.vsnd",
+		]
+		vsnd_duration = 10.000362
+	}
+	Stinger.Respawn.Countdown = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 0.0
+		volume_fade_out = 1
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_player_respawn_countdown.vsnd",
+		]
+		vsnd_duration = 7.671882
+	}
+	Stinger.Death = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 6.0
+		volume_fade_out = 1
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_player_death.vsnd",
+		]
+		vsnd_duration = 4.728
+	}
+	Stinger.Rejuvinator.Claimed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -4.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_rejuv_won.vsnd",
+		]
+		vsnd_duration = 8.316236
+	}
+	Stinger.Rejuvinator.Claimed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -2.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_rejuv_lost.vsnd",
+		]
+		vsnd_duration = 4.773084
+	}
+	Stinger.Rejuvinator.Descent = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -1.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_rejuv_drop_6s.vsnd",
+		]
+		vsnd_duration = 12.487959
+	}
+	Stinger.Respawn.Rejuvinator = 
+	{
+		base = "Base.Stingers.2d"
+		volume = -3.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_rejuv_won.vsnd",
+		]
+		vsnd_duration = 8.316236
+	}
+	Stinger.Rejuvinator.Expired = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_rejuv_lost.vsnd",
+		]
+		vsnd_duration = 4.773084
+	}
+	Stinger.PersonalRejuvinator.Respawn = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Stinger.PersonalRejuvinator.Deploy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Stinger.CoreExposed = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Stinger.MidBoss.Arrived = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 6.0
+		delay = 1.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_mid_boss_arrived.vsnd",
+		]
+		vsnd_duration = 6.531928
+	}
+	Stinger.Tier1.Killed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t1_killed.vsnd",
+		]
+		vsnd_duration = 3.527982
+	}
+	Stinger.Tier1.Killed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t1_killed.vsnd",
+		]
+		vsnd_duration = 3.527982
+	}
+	Stinger.Tier2.Killed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t1_killed.vsnd",
+		]
+		vsnd_duration = 3.527982
+	}
+	Stinger.Tier2.Killed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t1_killed.vsnd",
+		]
+		vsnd_duration = 3.527982
+	}
+	Stinger.Titan.Killed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t3_killed.vsnd",
+		]
+		vsnd_duration = 6.02907
+	}
+	Stinger.Titan.Killed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_t3_killed.vsnd",
+		]
+		vsnd_duration = 6.02907
+	}
+	Stinger.TitanShield1.Killed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_generator_killed.vsnd",
+		]
+		vsnd_duration = 5.029773
+	}
+	Stinger.TitanShield1.Killed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_generator_killed.vsnd",
+		]
+		vsnd_duration = 5.029773
+	}
+	Stinger.TitanShield2.Killed.Friendly = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_generator_killed.vsnd",
+		]
+		vsnd_duration = 5.029773
+	}
+	Stinger.TitanShield2.Killed.Enemy = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_generator_killed.vsnd",
+		]
+		vsnd_duration = 5.029773
+	}
+	Music.Idol.Pickup.Lp = 
+	{
+		type = "citadel_music_urn"
+		volume = 0.0
+		volume_fade_in = 0.1
+		max_fade_distance = 3200.0
+		vsnd_files = 
+		[
+			"sounds/music/music_idol_carry_lp_141bpm.vsnd",
+		]
+		vsnd_files_distance_xfade = 
+		[
+			"sounds/music/music_idol_carry_distant_lp_141bpm.vsnd",
+		]
+		distance_xfade_gain = 
+		[
+			[
+				0.0, 1.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 1.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				2002.8737, 1.0, 0.0, -0.000811,
+				0.0, 0.0,
+			],
+			[
+				3236.437, 0.0, -0.000811, -0.000811,
+				1.0, 1.0,
+			],
+		]
+		distance_falloff_db = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				1565.9482, 0.0, 0.0, -0.012818,
+				0.0, 0.0,
+			],
+			[
+				1800.0, -3.0, -0.012818, -0.012818,
+				1.0, 1.0,
+			],
+		]
+		vsnd_duration = 47.659569
+	}
+	Music.Idol.Timer.Lp = 
+	{
+		type = "citadel_music_urn_drop"
+		volume = 3.0
+		volume_fade_in = 0.5
+		volume_fade_out = 1.0
+		vsnd_files = 
+		[
+			"sounds/music/music_idol_timer_lp_team_160bpm.vsnd",
+		]
+		vsnd_files_opponent_control = 
+		[
+			"sounds/music/music_idol_timer_lp_opponent_160bpm.vsnd",
+		]
+		vsnd_duration = 12.0
+	}
+	Stinger.Idol.Returned.Team = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 4.0
+		vsnd_files = 
+		[
+			"sounds/music/music_idol_return_team.vsnd",
+		]
+		vsnd_duration = 7.082041
+	}
+	Stinger.Idol.Returned.Opponent = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 4.0
+		vsnd_files = 
+		[
+			"sounds/music/music_idol_return_opponent.vsnd",
+		]
+		vsnd_duration = 5.68034
+	}
+	Stinger.Idol.AnnounceDrop = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		vsnd_files = 
+		[
+			"sounds/music/music_idol_announce.vsnd",
+		]
+		vsnd_duration = 6.808504
+	}
+	Stinger.CorruptedShop.Announce = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		vsnd_files = 
+		[
+			"sounds/music/music_corrupted_shop_announce.vsnd",
+		]
+		vsnd_duration = 7.99254
+	}
+	Music.Koth.Capture.Lp = 
+	{
+		type = "citadel_music_koth_capture"
+		volume = 0.0
+		volume_fade_in = 0.5
+		volume_fade_out = 0.5
+	}
+	Stinger.Koth.Announce = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		vsnd_files = 
+		[
+			"sounds/music/music_koth_announce.vsnd",
+		]
+		vsnd_duration = 7.521678
+	}
+	Stinger.Koth.Win = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		mixer_mixgroup = "Music-Objective"
+		vsnd_files = 
+		[
+			"sounds/music/music_koth_win.vsnd",
+		]
+		vsnd_duration = 7.104739
+	}
+	Stinger.Koth.Lose = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		mixer_mixgroup = "Music-Objective"
+		vsnd_files = 
+		[
+			"sounds/music/music_koth_lose.vsnd",
+		]
+		vsnd_duration = 8.522018
+	}
+	Stinger.Koth.Expire = 
+	{
+		base = "Base.Stingers.2d"
+		volume = 2.0
+		mixer_mixgroup = "Music-Objective"
+		vsnd_files = 
+		[
+			"sounds/music/music_koth_expire.vsnd",
+		]
+		vsnd_duration = 7.662245
+	}
+	Stinger.KillStreak.FirstBlood = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		volume = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_first_blood.vsnd",
+		]
+		vsnd_duration = 4.773401
+	}
+	Stinger.KillStreak_01 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_01.vsnd",
+		]
+		vsnd_duration = 5.911157
+	}
+	Stinger.KillStreak_02 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_02.vsnd",
+		]
+		vsnd_duration = 6.163877
+	}
+	Stinger.KillStreak_03 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_03.vsnd",
+		]
+		vsnd_duration = 6.152426
+	}
+	Stinger.KillStreak_04 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_04.vsnd",
+		]
+		vsnd_duration = 5.131247
+	}
+	Stinger.KillStreak_05 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_05.vsnd",
+		]
+		vsnd_duration = 5.905079
+	}
+	Stinger.KillStreak_06 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_06.vsnd",
+		]
+		vsnd_duration = 5.732177
+	}
+	Stinger.KillStreak_07 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_07.vsnd",
+		]
+		vsnd_duration = 5.193265
+	}
+	Stinger.KillStreak_08 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_08.vsnd",
+		]
+		vsnd_duration = 5.186962
+	}
+	Stinger.KillStreak_09 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_09.vsnd",
+		]
+		vsnd_duration = 5.40585
+	}
+	Stinger.KillStreak_10 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_10.vsnd",
+		]
+		vsnd_duration = 6.912086
+	}
+	Stinger.RevealRank_01 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_01.vsnd",
+		]
+		vsnd_duration = 5.911157
+	}
+	Stinger.RevealRank_02 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_01.vsnd",
+		]
+		vsnd_duration = 5.911157
+	}
+	Stinger.RevealRank_03 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_02.vsnd",
+		]
+		vsnd_duration = 6.163877
+	}
+	Stinger.RevealRank_04 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_03.vsnd",
+		]
+		vsnd_duration = 6.152426
+	}
+	Stinger.RevealRank_05 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_04.vsnd",
+		]
+		vsnd_duration = 5.131247
+	}
+	Stinger.RevealRank_06 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_05.vsnd",
+		]
+		vsnd_duration = 5.905079
+	}
+	Stinger.RevealRank_07 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_06.vsnd",
+		]
+		vsnd_duration = 5.732177
+	}
+	Stinger.RevealRank_08 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_07.vsnd",
+		]
+		vsnd_duration = 5.193265
+	}
+	Stinger.RevealRank_09 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_08.vsnd",
+		]
+		vsnd_duration = 5.186962
+	}
+	Stinger.RevealRank_10 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_09.vsnd",
+		]
+		vsnd_duration = 5.40585
+	}
+	Stinger.RevealRank_11 = 
+	{
+		base = "Base.Stingers.KillStreaks.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_10.vsnd",
+		]
+		vsnd_duration = 6.912086
+	}
+	Stinger.Tutorial.Complete = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/common/null.vsnd",
+		]
+		vsnd_duration = 0.050023
+	}
+	Stinger.CheaterVote = 
+	{
+		base = "Base.Stingers.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_first_blood.vsnd",
+		]
+		vsnd_duration = 4.773401
+	}
+	Music.Shop.Silence = 
+	{
+		base = "Base.Music.2d"
+		vsnd_files = 
+		[
+			"sounds/music/music_silence_1s_loop.vsnd",
+		]
+		vsnd_duration = 1.0
+	}
+	Music.Shop = 
+	{
+		type = "citadel_diagetic_music"
+		volume_max_gain_change_per_second = 10.0
+		mixer_mixgroup = "Music-World"
+		event_voice_layer = "game"
+		volume = -4.0
+		occlusion_volume_blend_distance_min = 250.0
+		occlusion_volume_blend_distance_max = 500.0
+		occlusion_min = 0.0
+		occlusion_max = 1.0
+		occlusion_scale = 1.0
+		occlusion_radius = 100.0
+		volume_falloff_max = 1200.0
+		volume_falloff_min = 100.0
+		volume_falloff_curve_amount = 0.4
+		spread_min_value = 0.0
+		spread_max_value = 0.5
+		reverb_use_curve = 0.0
+		volume_fade_out = 0.5
+		cull_at_distance = 2000.0
+		vsnd_files = 
+		[
+			"sounds/music/menu/curio_music.vsnd",
+		]
+		vsnd_duration = 112.29805
+	}
+	Music.Shop.Secret = 
+	{
+		base = "Music.Shop"
+		volume = -2.0
+		delay_rand_min = 0.0
+		cull_at_distance = 3000.0
+		delay_rand_max = 0.0
+		volume_falloff_max = 1400.0
+		occlusion_max_velocity = 0.9
+		occlusion_min = 0.4
+		vsnd_files = 
+		[
+			"sounds/music/menu/curio_music_02.vsnd",
+		]
+		vsnd_duration = 137.607773
+	}
+	Stinger.RevealVote = 
+	{
+		base = "Base.Stingers.2d"
+		event_voice_layer = "ui"
+		volume = 0.0
+		vsnd_files = 
+		[
+			"sounds/music/music_stinger_ks_03.vsnd",
+		]
+		vsnd_duration = 6.152426
+	}
+	Stinger.Brawl.Overtime.Announce = 
+	{
+		base = "Base.Music.2d"
+		mixer_mixgroup = "Music-Objective"
+		volume = 5.0
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_overtime_95bpm.vsnd",
+		]
+		vsnd_duration = 6.481156
+	}
+	Music.Brawl.Round.Won = 
+	{
+		base = "Base.Music.2d"
+		volume = 4.0
+		event_voice_layer = "ui"
+		mixer_mixgroup = "Music-Objective"
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_won_95bpm.vsnd",
+		]
+		vsnd_duration = 9.473878
+	}
+	Music.Brawl.Round.Lost = 
+	{
+		base = "Base.Music.2d"
+		volume = 4.0
+		event_voice_layer = "ui"
+		mixer_mixgroup = "Music-Objective"
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_lost_95bpm.vsnd",
+		]
+		vsnd_duration = 8.210499
+	}
+	Music.Brawl.Titles = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		volume = 1.0
+		endpoint = [ 15.784 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_titles_117bpm-95bpm.vsnd",
+		]
+		vsnd_duration = 18.310385
+	}
+	Music.Brawl.Draft = 
+	{
+		type = "citadel_music_brawl_draft"
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		base = 
+		[
+			{
+				event_name = "Base.Music.Queue"
+				field_name = "citadel_music"
+			},
+		]
+		preload_vsnds = true
+		volume = 1.0
+		volume_fade_in = 0.0
+		volume_fade_out = 1.2
+		layer_draft_vol_offset_db = 0.0
+		layer_draft_fx_vol_offset_db = -2.0
+		layer_draft_timer_vol_offset_db = 2.0
+		layer_draft_fx_countdown_crossfade_db = 
+		[
+			[
+				0.172414, -60.0, 0.0, 6.052174,
+				0.0, 0.0,
+			],
+			[
+				10.086206, 0.0, 6.052174, 0.0,
+				0.0, 0.0,
+			],
+			[
+				14.849137, 0.0, 0.0, -8.236688,
+				0.0, 0.0,
+			],
+			[
+				22.133619, -60.0, -8.236688, 0.0,
+				0.0, 0.0,
+			],
+			[
+				30.0, -60.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+		]
+		layer_draft_countdown_crossfade_db = 
+		[
+			[
+				0.0, -60.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				3.070422, -60.0, 0.0, 5.392405,
+				0.0, 0.0,
+			],
+			[
+				14.197183, 0.0, 5.392405, 3.544093,
+				0.0, 1.0,
+			],
+			[
+				20.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+		]
+		sync_bpm = [ 95.0 ]
+		vsnd_files_draft_fx = 
+		[
+			"sounds/music/brawl/music_brawl_draft_fx_95bpm.vsnd",
+		]
+		vsnd_files_draft_timer = 
+		[
+			"sounds/music/brawl/music_brawl_draft_timer_95bpm.vsnd",
+		]
+		vsnd_files_draft = 
+		[
+			"sounds/music/brawl/music_brawl_draft_95bpm.vsnd",
+		]
+		layer_draft_timer_countdown_crossfade_db = 
+		[
+			[
+				0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0,
+			],
+			[
+				9.857706, 0.0, 0.0, -4.565413,
+				0.0, 0.0,
+			],
+			[
+				23.0, -60.0, -4.565413, 0.0,
+				0.0, 0.0,
+			],
+		]
+		vsnd_duration = 62.526325
+	}
+	Music.Brawl.RoundStart1 = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 2.0
+		endpoint = [ 10.104 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_1_start_95bpm.vsnd",
+		]
+		vsnd_duration = 14.01687
+	}
+	Music.Brawl.RoundStart2 = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 2.0
+		endpoint = [ 10.104 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_2_start_95bpm.vsnd",
+		]
+		vsnd_duration = 14.268957
+	}
+	Music.Brawl.RoundStart3 = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 2.0
+		endpoint = [ 10.104 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_3_start_95bpm.vsnd",
+		]
+		vsnd_duration = 14.030862
+	}
+	Music.Brawl.RoundStart4 = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 2.0
+		endpoint = [ 10.104 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_4_start_95bpm.vsnd",
+		]
+		vsnd_duration = 14.295986
+	}
+	Music.Brawl.RoundStart5 = 
+	{
+		base = "Base.Music.Queue"
+		preload_vsnds = true
+		volume = 2.0
+		endpoint = [ 10.104 ]
+		startpoint = [ 0.0 ]
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_round_5_start_95bpm.vsnd",
+		]
+		vsnd_duration = 14.336689
+	}
+	Music.Brawl.Match.Won = 
+	{
+		base = "Base.Music.2d"
+		mixer_mixgroup = "Music-GameOver"
+		preload_vsnds = true
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		volume = 4.0
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_match_won_95bpm.vsnd",
+		]
+		vsnd_duration = 7.578957
+	}
+	Music.Brawl.Match.Lost = 
+	{
+		base = "Base.Music.2d"
+		mixer_mixgroup = "Music-GameOver"
+		preload_vsnds = true
+		event_voice_layer = "ui"
+		event_use_music_convar = true
+		volume = 4.0
+		vsnd_files = 
+		[
+			"sounds/music/brawl/music_brawl_match_lost_95bpm.vsnd",
+		]
+		vsnd_duration = 7.579138
+	}
+	_auto_calc_vnsd_duration_ = true
+}

@@ -1,0 +1,6127 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_AST = 
+	{
+		m_pRoot = 
+		{
+			eType = "ROOT"
+			vecChildren = 
+			[
+				{
+					eType = "STYLES"
+					vecChildren = 
+					[
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/citadel_base_styles.vcss"
+							}
+							sourceLineColumn = [ 3, 4 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/ability_property_icons.vcss"
+							}
+							sourceLineColumn = [ 4, 4 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/hud_common.vcss"
+							}
+							sourceLineColumn = [ 5, 4 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/npc_icons.vcss"
+							}
+							sourceLineColumn = [ 6, 4 ]
+						},
+						{
+							eType = "INCLUDE"
+							child = 
+							{
+								eType = "REFERENCE_COMPILED"
+								name = "panorama/styles/hud.vcss"
+							}
+							sourceLineColumn = [ 7, 4 ]
+						},
+					]
+					sourceLineColumn = [ 2, 3 ]
+				},
+				{
+					eType = "SNIPPETS"
+					vecChildren = 
+					[
+						{
+							eType = "SNIPPET"
+							name = "OffscreenEnemySnippet"
+							child = 
+							{
+								eType = "PANEL"
+								name = "Panel"
+								vecChildren = 
+								[
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "class"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "damage_offscreen"
+										}
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "damage_arrow_icon damage_arrow_up"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_up_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 13, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "damage_arrow_icon damage_arrow_left"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_left_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 14, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "damage_arrow_icon damage_arrow_right"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_right_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 15, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "damage_arrow_icon damage_arrow_down"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_down_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 16, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Panel"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "unit_info"
+												}
+											},
+											{
+												eType = "PANEL"
+												name = "Image"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "hero_icon"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "scaling"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "stretch-to-fit-preserve-aspect"
+														}
+													},
+												]
+												sourceLineColumn = [ 18, 7 ]
+											},
+											{
+												eType = "PANEL"
+												name = "Panel"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "health_container"
+														}
+													},
+													{
+														eType = "PANEL"
+														name = "Panel"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "health_backer"
+															}
+														}
+														sourceLineColumn = [ 20, 8 ]
+													},
+													{
+														eType = "PANEL"
+														name = "Panel"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "health_bar"
+															}
+														}
+														sourceLineColumn = [ 21, 8 ]
+													},
+												]
+												sourceLineColumn = [ 19, 7 ]
+											},
+										]
+										sourceLineColumn = [ 17, 6 ]
+									},
+								]
+								sourceLineColumn = [ 12, 5 ]
+							}
+							sourceLineColumn = [ 11, 4 ]
+						},
+						{
+							eType = "SNIPPET"
+							name = "OffscreenPingSnippet"
+							child = 
+							{
+								eType = "PANEL"
+								name = "Panel"
+								vecChildren = 
+								[
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "class"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "ping_offscreen"
+										}
+									},
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "hittest"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "false"
+										}
+									},
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "hittestchildren"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "false"
+										}
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "playerPortraitBackground"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/hud/ping/player_portrait_bg.vsvg"
+												}
+											},
+										]
+										sourceLineColumn = [ 29, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "ping_arrow_icon ping_arrow_up"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_up_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 30, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "ping_arrow_icon ping_arrow_left"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_left_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 31, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "ping_arrow_icon ping_arrow_right"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_right_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 32, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "ping_arrow_icon ping_arrow_down"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/control_icons/arrow_solid_down_png.vtex"
+												}
+											},
+										]
+										sourceLineColumn = [ 33, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "pingPlayerPulse1 playerPulse"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/hud/ping/ping_player.vsvg"
+												}
+											},
+										]
+										sourceLineColumn = [ 34, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "pingPlayerPulse2 playerPulse"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/hud/ping/ping_player.vsvg"
+												}
+											},
+										]
+										sourceLineColumn = [ 35, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "pingPlayerPulse3 playerPulse"
+												}
+											},
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "src"
+												child = 
+												{
+													eType = "REFERENCE_COMPILED"
+													name = "panorama/images/hud/ping/ping_player.vsvg"
+												}
+											},
+										]
+										sourceLineColumn = [ 36, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Image"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "hero_icon"
+											}
+										}
+										sourceLineColumn = [ 37, 6 ]
+									},
+								]
+								sourceLineColumn = [ 28, 5 ]
+							}
+							sourceLineColumn = [ 27, 4 ]
+						},
+						{
+							eType = "SNIPPET"
+							name = "SeasonalKillToast"
+							child = 
+							{
+								eType = "PANEL"
+								name = "Panel"
+								vecChildren = 
+								[
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "class"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "SeasonalKillToast"
+										}
+									},
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "toast_duration_override"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "4s"
+										}
+									},
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "toast_appear_sound"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "UI.SeasonalAchievement"
+										}
+									},
+									{
+										eType = "PANEL"
+										name = "Panel"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "Left"
+												}
+											},
+											{
+												eType = "PANEL"
+												name = "CitadelHeroImage"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "KillerHeroImage"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "heroimagestyle"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "small"
+														}
+													},
+												]
+												sourceLineColumn = [ 44, 7 ]
+											},
+											{
+												eType = "PANEL"
+												name = "Image"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "SnowballImage"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "src"
+														child = 
+														{
+															eType = "REFERENCE_COMPILED"
+															name = "panorama/images/items/seasonal/2025_snowball_psd.vtex"
+														}
+													},
+												]
+												sourceLineColumn = [ 45, 7 ]
+											},
+											{
+												eType = "PANEL"
+												name = "CitadelHeroImage"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "VictimHeroImage"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "heroimagestyle"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "small"
+														}
+													},
+												]
+												sourceLineColumn = [ 46, 7 ]
+											},
+										]
+										sourceLineColumn = [ 43, 6 ]
+									},
+									{
+										eType = "PANEL"
+										name = "Panel"
+										vecChildren = 
+										[
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "class"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "Right"
+												}
+											},
+											{
+												eType = "PANEL"
+												name = "Label"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "html"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "true"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "class"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "snowballLine1"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "text"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "#Citadel_Hud_Toast_SeasonalKill"
+														}
+													},
+												]
+												sourceLineColumn = [ 49, 7 ]
+											},
+											{
+												eType = "PANEL"
+												name = "Label"
+												vecChildren = 
+												[
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "html"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "true"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "class"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "snowballLine2"
+														}
+													},
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "text"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "#Citadel_Hud_Toast_SeasonalKill2"
+														}
+													},
+												]
+												sourceLineColumn = [ 50, 7 ]
+											},
+										]
+										sourceLineColumn = [ 48, 6 ]
+									},
+								]
+								sourceLineColumn = [ 42, 5 ]
+							}
+							sourceLineColumn = [ 41, 4 ]
+						},
+					]
+					sourceLineColumn = [ 10, 3 ]
+				},
+				{
+					eType = "PANEL"
+					name = "CitadelHud"
+					vecChildren = 
+					[
+						{
+							eType = "PANEL_ATTRIBUTE"
+							name = "class"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE_VALUE"
+								name = "WindowRoot"
+							}
+						},
+						{
+							eType = "PANEL_ATTRIBUTE"
+							name = "hittest"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE_VALUE"
+								name = "false"
+							}
+						},
+						{
+							eType = "PANEL_ATTRIBUTE"
+							name = "disallowedstyleflags"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE_VALUE"
+								name = "hover,descendantfocus"
+							}
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "class"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "HudCore"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "disallowedstyleflags"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "hover,descendantfocus"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelPingIndicator"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "PingIndicator"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 60, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudEventIndicatorsPanel"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "HudEventIndicatorsPanel"
+										}
+									}
+									sourceLineColumn = [ 61, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelModifierMessage"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "ModifierMessages"
+										}
+									}
+									sourceLineColumn = [ 62, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudQuickResponse"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "CitadelQuickResponse"
+										}
+									}
+									sourceLineColumn = [ 63, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "SafeToAbandonIndicator"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "abandon_title"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "text"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "#AbandonTriggerTeam_Title"
+													}
+												},
+											]
+											sourceLineColumn = [ 65, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "text"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "{s:safe_to_abandon_text}"
+												}
+											}
+											sourceLineColumn = [ 66, 6 ]
+										},
+									]
+									sourceLineColumn = [ 64, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudPersonalBest"
+									sourceLineColumn = [ 69, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "death_replay_loading"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "text"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "#Citadel_Hud_LoadingDeathReplay"
+												}
+											}
+											sourceLineColumn = [ 72, 6 ]
+										},
+									]
+									sourceLineColumn = [ 71, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "mispredict_indicator"
+										}
+									}
+									sourceLineColumn = [ 75, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudAbilityResource"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "ability_resource"
+										}
+									}
+									sourceLineColumn = [ 77, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "deathReplayNoticeLower"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "deathReplayBar"
+											}
+										},
+									]
+									sourceLineColumn = [ 79, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "deathReplayNoticeUpper"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "deathReplayBar"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "text"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "#Citadel_Hud_DeathCam"
+												}
+											}
+											sourceLineColumn = [ 81, 6 ]
+										},
+									]
+									sourceLineColumn = [ 80, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudModifierHistory"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "hud_modifier_history"
+										}
+									}
+									sourceLineColumn = [ 84, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "hero_pos_debug"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "model_position_debug"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "Small"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "style"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "font-size: 40px;"
+															}
+														},
+													]
+													sourceLineColumn = [ 88, 7 ]
+												},
+											]
+											sourceLineColumn = [ 87, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "large_model_position_debug"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "Large"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "style"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "font-size: 40px;"
+															}
+														},
+													]
+													sourceLineColumn = [ 91, 7 ]
+												},
+											]
+											sourceLineColumn = [ 90, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "gun_position_debug"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "Gun Position"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "style"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "font-size: 30px;"
+															}
+														},
+													]
+													sourceLineColumn = [ 94, 7 ]
+												},
+											]
+											sourceLineColumn = [ 93, 6 ]
+										},
+									]
+									sourceLineColumn = [ 86, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudJoinTeam"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "join_team"
+										}
+									}
+									sourceLineColumn = [ 98, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "gameplay_hud"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "gameplay_hud"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "classes"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "gShopOpen"
+												}
+											}
+											sourceLineColumn = [ 101, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "hudBacker"
+												}
+											}
+											sourceLineColumn = [ 102, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelHudGameAnnouncements"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "CitadelHudGameAnnouncements"
+												}
+											}
+											sourceLineColumn = [ 103, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "TeamObjectiveHealthPanel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "objectives_health_friendly"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "team"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "2"
+													}
+												},
+											]
+											sourceLineColumn = [ 104, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "spectator_count"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "onmouseover"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "UIShowTextTooltip( #hud_spectate_count_tooltip )"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "onmouseout"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "UIHideTextTooltip()"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "spectator_count_container"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "class"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "spectatorIcon"
+																}
+															}
+															sourceLineColumn = [ 107, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "specatorLabel"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#hud_spectate_count"
+																	}
+																},
+															]
+															sourceLineColumn = [ 108, 8 ]
+														},
+													]
+													sourceLineColumn = [ 106, 7 ]
+												},
+											]
+											sourceLineColumn = [ 105, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "voice_active_box"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "style"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "flow-children:right;"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "class"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "micIcon"
+																}
+															}
+															sourceLineColumn = [ 113, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "text"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "#Citadel_Hud_MicActive"
+																}
+															}
+															sourceLineColumn = [ 114, 8 ]
+														},
+													]
+													sourceLineColumn = [ 112, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "voice_active_not_in_chat"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "text"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "#Citadel_Hud_VoiceChatNotAvailable"
+																}
+															}
+															sourceLineColumn = [ 117, 8 ]
+														},
+													]
+													sourceLineColumn = [ 116, 7 ]
+												},
+											]
+											sourceLineColumn = [ 111, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "TeamChatStatus"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "teamChatStatus"
+												}
+											}
+											sourceLineColumn = [ 120, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "gameplay_hud_alive"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "MinimapRevealPanel"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittestchildren"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+													]
+													sourceLineColumn = [ 122, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudScreenEffects_Silenced"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "silenced_screen_effect"
+														}
+													}
+													sourceLineColumn = [ 123, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudScreenEffects_Stunned"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "stunned_screen_effect"
+														}
+													}
+													sourceLineColumn = [ 124, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudScreenEffects_HornetScope"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "scope_screen_effect"
+														}
+													}
+													sourceLineColumn = [ 125, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudScreenEffects_LowHealth"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "low_health_screen_effect"
+														}
+													}
+													sourceLineColumn = [ 126, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_indicator_radar"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "acceptinput"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "CitadelDamageIndicator"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_indicator_canvas"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "acceptinput"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "false"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "hittest"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "false"
+																	}
+																},
+															]
+															sourceLineColumn = [ 128, 8 ]
+														},
+													]
+													sourceLineColumn = [ 127, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelDamageIndicatorOffscreenEnemy"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_indicator_offscreen_enemy"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "acceptinput"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+													]
+													sourceLineColumn = [ 130, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudUnitIndicatorsV2"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "unit_indicators_v2"
+														}
+													}
+													sourceLineColumn = [ 131, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "status_bars"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "acceptinput"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "CitadelHudModifiers"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "hud_modifiers"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "center_modifiers"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "display_location"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "center"
+																	}
+																},
+															]
+															sourceLineColumn = [ 133, 8 ]
+														},
+													]
+													sourceLineColumn = [ 132, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "out_of_ammo_label"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_OutOfAmmo"
+															}
+														},
+													]
+													sourceLineColumn = [ 136, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "low_ammo_label"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_LowAmmo"
+															}
+														},
+													]
+													sourceLineColumn = [ 137, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "out_of_mana_label"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_NotEnoughEnergy"
+															}
+														},
+													]
+													sourceLineColumn = [ 138, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Citadel_AbilityHUDPanels"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "crosshair"
+														}
+													}
+													sourceLineColumn = [ 139, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelStatusEffect"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "StatusEffects"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "under_reticle"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "display_location"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "healthbar"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "max_modifiers"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "6"
+															}
+														},
+													]
+													sourceLineColumn = [ 140, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "LowHealthWarning"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "text"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "#Citadel_Hud_HealthCritical"
+																}
+															}
+															sourceLineColumn = [ 142, 8 ]
+														},
+													]
+													sourceLineColumn = [ 141, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "MidHealthWarning"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "text"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "#Citadel_Hud_HealthWarning"
+																}
+															}
+															sourceLineColumn = [ 145, 8 ]
+														},
+													]
+													sourceLineColumn = [ 144, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "disabled_container"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "CircularProgressBar"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "id"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "disabled_progress"
+																}
+															}
+															sourceLineColumn = [ 148, 8 ]
+														},
+													]
+													sourceLineColumn = [ 147, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudHints"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "hintsPanel"
+														}
+													}
+													sourceLineColumn = [ 150, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "invisibility"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Image"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "invis_icon"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "scaling"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "stretch-to-fit-preserve-aspect"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "src"
+																	child = 
+																	{
+																		eType = "REFERENCE_COMPILED"
+																		name = "panorama/images/hud/invis_visible_psd.vtex"
+																	}
+																},
+															]
+															sourceLineColumn = [ 152, 8 ]
+														},
+													]
+													sourceLineColumn = [ 151, 7 ]
+												},
+											]
+											sourceLineColumn = [ 121, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "spectate_container"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudSpectateBar"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "spectate_bar"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+													]
+													sourceLineColumn = [ 156, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudReplay"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "hud_replay"
+														}
+													}
+													sourceLineColumn = [ 157, 7 ]
+												},
+											]
+											sourceLineColumn = [ 155, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelHudHealthContainer"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "health_and_abilities_container"
+												}
+											}
+											sourceLineColumn = [ 159, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelHudAbilityInterrupt"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "ability_interrupt_panel"
+												}
+											}
+											sourceLineColumn = [ 160, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "friendly_final_objective_container"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "final_objective_container friendly"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "center_container"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "cp_container"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "cp_container"
+																	}
+																},
+															]
+															sourceLineColumn = [ 165, 8 ]
+														},
+													]
+													sourceLineColumn = [ 164, 7 ]
+												},
+											]
+											sourceLineColumn = [ 163, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "enemy_final_objective_container"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "final_objective_container enemy"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "center_container"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "cp_container"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "cp_container"
+																	}
+																},
+															]
+															sourceLineColumn = [ 171, 8 ]
+														},
+													]
+													sourceLineColumn = [ 170, 7 ]
+												},
+											]
+											sourceLineColumn = [ 169, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "context_action_container"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "GlobalClassListener"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "classes"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "gDetailView"
+														}
+													}
+													sourceLineColumn = [ 175, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "citadel_ability_zip_line"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "action_zip_line context_action"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "zipline_info"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE"
+																		name = "class"
+																		child = 
+																		{
+																			eType = "PANEL_ATTRIBUTE_VALUE"
+																			name = "zipline_icon"
+																		}
+																	}
+																	sourceLineColumn = [ 179, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "zipline_text"
+																			}
+																		},
+																		{
+																			eType = "PANEL"
+																			name = "Label"
+																			vecChildren = 
+																			[
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "class"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "zipline_name"
+																					}
+																				},
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "text"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "{s:lane_name}"
+																					}
+																				},
+																			]
+																			sourceLineColumn = [ 181, 10 ]
+																		},
+																		{
+																			eType = "PANEL"
+																			name = "Label"
+																			vecChildren = 
+																			[
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "class"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "zipline_express"
+																					}
+																				},
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "text"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "#Citadel_LaneExpress"
+																					}
+																				},
+																			]
+																			sourceLineColumn = [ 182, 10 ]
+																		},
+																	]
+																	sourceLineColumn = [ 180, 9 ]
+																},
+															]
+															sourceLineColumn = [ 178, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "light action_binding"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_RideZipLine"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 185, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "zipline_cooldown_indicator"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "zipline_cooldown_value"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Citadel_Hud_RideZipLineOnCooldownValue"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "html"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 187, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "zipline_cooldown_label"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Citadel_Hud_RideZipLineOnCooldown"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "html"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 188, 9 ]
+																},
+															]
+															sourceLineColumn = [ 186, 8 ]
+														},
+													]
+													sourceLineColumn = [ 177, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "action_upgrade context_action"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Image"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "shop_sign"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "scaling"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "stretch-to-fit-preserve-aspect"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "src"
+																	child = 
+																	{
+																		eType = "REFERENCE_COMPILED"
+																		name = "panorama/images/shop/shop_logo_ui_psd.vtex"
+																	}
+																},
+															]
+															sourceLineColumn = [ 193, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "light action_binding"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_OpenShop"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 194, 8 ]
+														},
+													]
+													sourceLineColumn = [ 192, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "action_corrupted_shop context_action"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Image"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "shop_sign"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "scaling"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "stretch-to-fit-preserve-aspect"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "src"
+																	child = 
+																	{
+																		eType = "REFERENCE_COMPILED"
+																		name = "panorama/images/shop/corrupted_items/logo_broker_psd.vtex"
+																	}
+																},
+															]
+															sourceLineColumn = [ 198, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "light action_binding"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_OpenCorruptedShop"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 199, 8 ]
+														},
+													]
+													sourceLineColumn = [ 197, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "action_hideout_interact context_action"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "light action_binding"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "{s:hideout_interact}"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 203, 8 ]
+														},
+													]
+													sourceLineColumn = [ 202, 7 ]
+												},
+											]
+											sourceLineColumn = [ 174, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "death_penalty_gold_flash"
+												}
+											}
+											sourceLineColumn = [ 208, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "damage_meter"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_meter_header"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "class"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "damage_meter_status_dot"
+																}
+															}
+															sourceLineColumn = [ 212, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_title"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_Title"
+																	}
+																},
+															]
+															sourceLineColumn = [ 213, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_state"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_Live"
+																	}
+																},
+															]
+															sourceLineColumn = [ 214, 8 ]
+														},
+													]
+													sourceLineColumn = [ 211, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_meter_dps_row"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_dps_value"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "{i:dps}"
+																	}
+																},
+															]
+															sourceLineColumn = [ 217, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_dps_unit"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_DPS"
+																	}
+																},
+															]
+															sourceLineColumn = [ 218, 8 ]
+														},
+													]
+													sourceLineColumn = [ 216, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "class"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "damage_meter_divider"
+														}
+													}
+													sourceLineColumn = [ 220, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_meter_stat_row"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_stat_label"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_Total"
+																	}
+																},
+															]
+															sourceLineColumn = [ 222, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_stat_value"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "{i:damage_meter_total}"
+																	}
+																},
+															]
+															sourceLineColumn = [ 223, 8 ]
+														},
+													]
+													sourceLineColumn = [ 221, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "damage_meter_stat_row"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_stat_label"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_Duration"
+																	}
+																},
+															]
+															sourceLineColumn = [ 226, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "damage_meter_stat_value"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_DamageMeter_DurationValue"
+																	}
+																},
+															]
+															sourceLineColumn = [ 227, 8 ]
+														},
+													]
+													sourceLineColumn = [ 225, 7 ]
+												},
+											]
+											sourceLineColumn = [ 210, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "clamp_width"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudDamageSummary"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "hud_damage_summary"
+														}
+													}
+													sourceLineColumn = [ 231, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "GlobalClassListener"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "minimap_persp"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "classes"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "gDetailView gScoreboardOpen"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "minimap_hints"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "html"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Minimap_HintControls"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 234, 9 ]
+																},
+															]
+															sourceLineColumn = [ 233, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "minimap_container"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "hittest"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "false"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "id"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "minimap_blur"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "hittest"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "false"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 237, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "id"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "minimap_frame"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "hittest"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "false"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 238, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "id"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "HudMinimapContainer"
+																			}
+																		},
+																		{
+																			eType = "PANEL"
+																			name = "HudMinimap"
+																			vecChildren = 
+																			[
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "id"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "hud_minimap"
+																					}
+																				},
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "acceptsinput"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "false"
+																					}
+																				},
+																				{
+																					eType = "PANEL_ATTRIBUTE"
+																					name = "acceptsfocus"
+																					child = 
+																					{
+																						eType = "PANEL_ATTRIBUTE_VALUE"
+																						name = "false"
+																					}
+																				},
+																			]
+																			sourceLineColumn = [ 240, 10 ]
+																		},
+																	]
+																	sourceLineColumn = [ 239, 9 ]
+																},
+															]
+															sourceLineColumn = [ 236, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "minimap_location"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "location_district"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "{s:district_name}"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 245, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "location_building"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "{s:building_name}"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 246, 9 ]
+																},
+															]
+															sourceLineColumn = [ 244, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "MinimapRevealNotif"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE"
+																		name = "text"
+																		child = 
+																		{
+																			eType = "PANEL_ATTRIBUTE_VALUE"
+																			name = "revealed!"
+																		}
+																	}
+																	sourceLineColumn = [ 249, 9 ]
+																},
+															]
+															sourceLineColumn = [ 248, 8 ]
+														},
+													]
+													sourceLineColumn = [ 232, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudModifiers"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "hud_aura_modifiers"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "display_location"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "left"
+															}
+														},
+													]
+													sourceLineColumn = [ 252, 7 ]
+												},
+											]
+											sourceLineColumn = [ 230, 6 ]
+										},
+									]
+									sourceLineColumn = [ 100, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudMatchEnd"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "MatchEnd"
+										}
+									}
+									sourceLineColumn = [ 256, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudStreetBrawlRoundScoringDisplay"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "StreetBrawlDisplay"
+										}
+									}
+									sourceLineColumn = [ 257, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudReportCard"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "hud_reportcard"
+										}
+									}
+									sourceLineColumn = [ 259, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudPlayerIntents"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "hud_playerintents"
+										}
+									}
+									sourceLineColumn = [ 260, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelItemDraftPanel"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "ItemDraft"
+										}
+									}
+									sourceLineColumn = [ 261, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelDamageImpact"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "damage_impact"
+										}
+									}
+									sourceLineColumn = [ 265, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudTopBar"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "TopBar"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 266, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelPregameCountdown"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "PregameCountdown"
+										}
+									}
+									sourceLineColumn = [ 267, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudHeroShop"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "CitadelHudHeroShop"
+										}
+									}
+									sourceLineColumn = [ 268, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudActivePlayerStats"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "hudActivePlayerStats"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "clamp_width"
+											}
+										},
+									]
+									sourceLineColumn = [ 269, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudDamageReport"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "CitadelHudDamageReport"
+										}
+									}
+									sourceLineColumn = [ 270, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudHeroTesting"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "hud_hero_testing"
+										}
+									}
+									sourceLineColumn = [ 271, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "gameplay_hud_dead"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittestchildren"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "classes"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "gShopOpen"
+												}
+											}
+											sourceLineColumn = [ 274, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "respawn_timer"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "respawn_timer_container"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "respawn_timer_col_left"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "respawn_text"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Citadel_Hud_RespawnIn"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 278, 9 ]
+																},
+															]
+															sourceLineColumn = [ 277, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "respawn_timer_col_right"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "respawn_number"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "{s:respawn_timer}"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 282, 9 ]
+																},
+															]
+															sourceLineColumn = [ 281, 8 ]
+														},
+													]
+													sourceLineColumn = [ 276, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "death_button_hint shop_while_dead"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "button_hint_text"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Dead_ShopReminder"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 287, 8 ]
+														},
+													]
+													sourceLineColumn = [ 286, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "death_button_hint replay_death"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "button_hint_text"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Dead_ReplayDeath"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+															]
+															sourceLineColumn = [ 291, 8 ]
+														},
+													]
+													sourceLineColumn = [ 290, 7 ]
+												},
+											]
+											sourceLineColumn = [ 275, 6 ]
+										},
+									]
+									sourceLineColumn = [ 273, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudHeroBuilds"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "CitadelHudHeroBuilds"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 297, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "party_ctn"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelPartyInviteList"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "partyinvites"
+												}
+											}
+											sourceLineColumn = [ 300, 6 ]
+										},
+									]
+									sourceLineColumn = [ 299, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudSandboxTutorial"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "hud_sandbox_tutorial"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 303, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelPaused"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "PausedInfo"
+										}
+									}
+									sourceLineColumn = [ 305, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelChatWheel"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "ChatWheel"
+										}
+									}
+									sourceLineColumn = [ 307, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudSubtitles"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "HudSubtitles"
+										}
+									}
+									sourceLineColumn = [ 308, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "CheaterVoteBox"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "classes"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "gScoreboardOpen"
+												}
+											}
+											sourceLineColumn = [ 311, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "id"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "AbramsImg"
+												}
+											}
+											sourceLineColumn = [ 312, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "AlertArea"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "Caption"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_CheaterVoteAlert"
+															}
+														},
+													]
+													sourceLineColumn = [ 314, 7 ]
+												},
+											]
+											sourceLineColumn = [ 313, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "VotingArea"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "CheaterInfo"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "CitadelHeroImage"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "id"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "CheaterHeroImage"
+																}
+															}
+															sourceLineColumn = [ 318, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "CaptionName"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_CheaterVoteCaption"
+																	}
+																},
+															]
+															sourceLineColumn = [ 319, 8 ]
+														},
+													]
+													sourceLineColumn = [ 317, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "ButtonRow"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Button"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "FrogButton"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "KeepPlaying"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "onactivate"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "CitadelCastCheaterVote(0)"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE"
+																		name = "class"
+																		child = 
+																		{
+																			eType = "PANEL_ATTRIBUTE_VALUE"
+																			name = "frogButtonIcon"
+																		}
+																	}
+																	sourceLineColumn = [ 323, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Citadel_Hud_CheaterVote_Option_Play"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "html"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 324, 9 ]
+																},
+															]
+															sourceLineColumn = [ 322, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Button"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "FrogButton"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "Leave"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_Hud_CheaterVote_Option_Ban"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "onactivate"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "CitadelCastCheaterVote(1)"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "Panel"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE"
+																		name = "class"
+																		child = 
+																		{
+																			eType = "PANEL_ATTRIBUTE_VALUE"
+																			name = "frogButtonIcon"
+																		}
+																	}
+																	sourceLineColumn = [ 327, 9 ]
+																},
+																{
+																	eType = "PANEL"
+																	name = "Label"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "text"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "#Citadel_Hud_CheaterVote_Option_Ban"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "html"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 328, 9 ]
+																},
+															]
+															sourceLineColumn = [ 326, 8 ]
+														},
+													]
+													sourceLineColumn = [ 321, 7 ]
+												},
+											]
+											sourceLineColumn = [ 316, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "PromptRow"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "CaptionPrompt"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "html"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "true"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_CheaterVoteAlert_Action"
+															}
+														},
+													]
+													sourceLineColumn = [ 333, 7 ]
+												},
+											]
+											sourceLineColumn = [ 332, 6 ]
+										},
+									]
+									sourceLineColumn = [ 310, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "HudDataFeed"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "DataFeed"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "clamp_width"
+											}
+										},
+									]
+									sourceLineColumn = [ 336, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "StatsAndModsContainer"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "clamp_width"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "DamageReportGlobalClassListener"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "classes"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "gEditingBuilds gShopOpen gScoreboardOpen"
+													}
+												},
+											]
+											sourceLineColumn = [ 339, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "LowerLeft"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudPlayerStats"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "hudPlayerStats"
+														}
+													}
+													sourceLineColumn = [ 341, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelStatusEffect"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "StatusEffects"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "display_location"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "bottom_left"
+															}
+														},
+													]
+													sourceLineColumn = [ 342, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudSoulAPContainer"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE"
+														name = "id"
+														child = 
+														{
+															eType = "PANEL_ATTRIBUTE_VALUE"
+															name = "gold_and_ap_container"
+														}
+													}
+													sourceLineColumn = [ 343, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "ModsContainer"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "ModsContainer"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "ModSection FlexMods"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "hittest"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "false"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "CitadelModsPurchasedPanel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "id"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "ModPurchasedPanelUniversal"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "mod_universal modsButton"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "mod_category"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "Universal"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "show_cooldowns"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "show_spectating_player_items"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 346, 9 ]
+																},
+															]
+															sourceLineColumn = [ 345, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "ModSection FlexMods"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "hittest"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "false"
+																	}
+																},
+																{
+																	eType = "PANEL"
+																	name = "CitadelModsPurchasedPanel"
+																	vecChildren = 
+																	[
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "id"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "ModPurchasedPanelUniversalLocked"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "class"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "mod_universal modsButton"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "mod_category"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "Locked Universal"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "show_cooldowns"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																		{
+																			eType = "PANEL_ATTRIBUTE"
+																			name = "show_spectating_player_items"
+																			child = 
+																			{
+																				eType = "PANEL_ATTRIBUTE_VALUE"
+																				name = "true"
+																			}
+																		},
+																	]
+																	sourceLineColumn = [ 349, 9 ]
+																},
+															]
+															sourceLineColumn = [ 348, 8 ]
+														},
+													]
+													sourceLineColumn = [ 344, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "CitadelHudQuickbuy"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "CitadelHudQuickbuy"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "hittest"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "false"
+															}
+														},
+													]
+													sourceLineColumn = [ 352, 7 ]
+												},
+											]
+											sourceLineColumn = [ 340, 6 ]
+										},
+									]
+									sourceLineColumn = [ 338, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "AbilitiesContainer"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "abilitiesContainer"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "classes"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "gDetailView gScoreboardOpen gShopOpen gItemDraftOpen"
+												}
+											}
+											sourceLineColumn = [ 357, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelHudPassiveAbilities"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "hud_passive_items"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "items passive_items"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittestchildren"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+											]
+											sourceLineColumn = [ 368, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "CitadelHudAbilities"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "hud_signature"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "abilities"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "slots"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "signature_1 signature_2 signature_3 signature_4"
+													}
+												},
+											]
+											sourceLineColumn = [ 369, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "ActiveAbilitiesMenu"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "ActiveAbilitiesMenu"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "active_abilities"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "slots"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "item_1 item_2 item_3 item_4"
+													}
+												},
+											]
+											sourceLineColumn = [ 370, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "ActiveAbilitiesMenu"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "CosmeticAbilitiesMenu"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "active_abilities"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "slots"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "cosmetic_1"
+													}
+												},
+											]
+											sourceLineColumn = [ 371, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "ActiveAbilitiesMenu"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "HeldAbilitiesMenu"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "active_abilities"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "slots"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "ability_held"
+													}
+												},
+											]
+											sourceLineColumn = [ 372, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "scoreboardBindMessages"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "unlockMessage upgradeReminderUI"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_HUD_AbilityUnlockAvailable"
+																	}
+																},
+															]
+															sourceLineColumn = [ 377, 8 ]
+														},
+													]
+													sourceLineColumn = [ 376, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "upgradeMessage upgradeReminderUI"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "html"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "true"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "#Citadel_HUD_AbilityUpgradeAvailable"
+																	}
+																},
+															]
+															sourceLineColumn = [ 380, 8 ]
+														},
+													]
+													sourceLineColumn = [ 379, 7 ]
+												},
+											]
+											sourceLineColumn = [ 375, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "APContainer"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Panel"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "class"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "APValues"
+															}
+														},
+														{
+															eType = "PANEL"
+															name = "Panel"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE"
+																name = "class"
+																child = 
+																{
+																	eType = "PANEL_ATTRIBUTE_VALUE"
+																	name = "APCurrencyIcon"
+																}
+															}
+															sourceLineColumn = [ 385, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Label"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "class"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "APCurrencyAmount"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "text"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "{d:current_ap}"
+																	}
+																},
+															]
+															sourceLineColumn = [ 386, 8 ]
+														},
+														{
+															eType = "PANEL"
+															name = "Image"
+															vecChildren = 
+															[
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "id"
+																	child = 
+																	{
+																		eType = "PANEL_ATTRIBUTE_VALUE"
+																		name = "hudAPInfinite"
+																	}
+																},
+																{
+																	eType = "PANEL_ATTRIBUTE"
+																	name = "src"
+																	child = 
+																	{
+																		eType = "REFERENCE_COMPILED"
+																		name = "panorama/images/upgrades/infinity_psd.vtex"
+																	}
+																},
+															]
+															sourceLineColumn = [ 387, 8 ]
+														},
+													]
+													sourceLineColumn = [ 384, 7 ]
+												},
+											]
+											sourceLineColumn = [ 383, 6 ]
+										},
+									]
+									sourceLineColumn = [ 356, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "cast_failed_box"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "GlobalClassListener"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "hittest"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "false"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "classes"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "gDetailView"
+													}
+												},
+											]
+											sourceLineColumn = [ 392, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "id"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "invalid_cast_ability"
+													}
+												},
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "text"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "{s:failed_ability_name}"
+													}
+												},
+											]
+											sourceLineColumn = [ 393, 6 ]
+										},
+										{
+											eType = "PANEL"
+											name = "Panel"
+											vecChildren = 
+											[
+												{
+													eType = "PANEL_ATTRIBUTE"
+													name = "class"
+													child = 
+													{
+														eType = "PANEL_ATTRIBUTE_VALUE"
+														name = "invalid_cast_line"
+													}
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "invalid_cast_reason"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "{s:invalid_cast_reason}"
+															}
+														},
+													]
+													sourceLineColumn = [ 395, 7 ]
+												},
+												{
+													eType = "PANEL"
+													name = "Label"
+													vecChildren = 
+													[
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "id"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "invalid_cast_time_remaining"
+															}
+														},
+														{
+															eType = "PANEL_ATTRIBUTE"
+															name = "text"
+															child = 
+															{
+																eType = "PANEL_ATTRIBUTE_VALUE"
+																name = "#Citadel_Hud_CastTimeRemaining"
+															}
+														},
+													]
+													sourceLineColumn = [ 396, 7 ]
+												},
+											]
+											sourceLineColumn = [ 394, 6 ]
+										},
+									]
+									sourceLineColumn = [ 391, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudMovementSpeed"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "MovementSpeedPanel"
+										}
+									}
+									sourceLineColumn = [ 399, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelChat"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "Chat"
+										}
+									}
+									sourceLineColumn = [ 401, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudHideout"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "CitadelHudHideout"
+										}
+									}
+									sourceLineColumn = [ 404, 5 ]
+								},
+							]
+							sourceLineColumn = [ 58, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "HudExperimentsContainer"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "Panel"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "class"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "Example"
+											}
+										},
+										{
+											eType = "PANEL"
+											name = "Label"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE"
+												name = "text"
+												child = 
+												{
+													eType = "PANEL_ATTRIBUTE_VALUE"
+													name = "#Citadel_PlaytestWarningBody"
+												}
+											}
+											sourceLineColumn = [ 410, 6 ]
+										},
+									]
+									sourceLineColumn = [ 409, 5 ]
+								},
+							]
+							sourceLineColumn = [ 408, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "class"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "HudTakeovers"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudPregame"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "Pregame"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 415, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelHudMatchStart"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "id"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "MatchStart"
+										}
+									}
+									sourceLineColumn = [ 416, 5 ]
+								},
+							]
+							sourceLineColumn = [ 414, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "CitadelCommendNotification"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE"
+								name = "id"
+								child = 
+								{
+									eType = "PANEL_ATTRIBUTE_VALUE"
+									name = "CommendNotification"
+								}
+							}
+							sourceLineColumn = [ 419, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "ToastManager"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "ToastManager"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "toastduration"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "5s"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "maxtoastsvisible"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "4"
+									}
+								},
+							]
+							sourceLineColumn = [ 421, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "CitadelHudEscapeMenu"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE"
+								name = "id"
+								child = 
+								{
+									eType = "PANEL_ATTRIBUTE_VALUE"
+									name = "EscapeMenu"
+								}
+							}
+							sourceLineColumn = [ 423, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "CitadelPartyContainer"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "GlobalClassListener"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE"
+										name = "classes"
+										child = 
+										{
+											eType = "PANEL_ATTRIBUTE_VALUE"
+											name = "gShopOpen"
+										}
+									}
+									sourceLineColumn = [ 426, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelParty"
+									vecChildren = 
+									[
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "id"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "CitadelParty"
+											}
+										},
+										{
+											eType = "PANEL_ATTRIBUTE"
+											name = "hittest"
+											child = 
+											{
+												eType = "PANEL_ATTRIBUTE_VALUE"
+												name = "false"
+											}
+										},
+									]
+									sourceLineColumn = [ 427, 5 ]
+								},
+							]
+							sourceLineColumn = [ 425, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "CitadelHudCombatLog"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE"
+								name = "id"
+								child = 
+								{
+									eType = "PANEL_ATTRIBUTE_VALUE"
+									name = "CitadelHudCombatLog"
+								}
+							}
+							sourceLineColumn = [ 430, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "PopupManager"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "PopupManager"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+							]
+							sourceLineColumn = [ 432, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "CitadelContextMenuManager"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "ContextMenuManager"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+							]
+							sourceLineColumn = [ 433, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "CitadelTooltipManager"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "id"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "TooltipManager"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+							]
+							sourceLineColumn = [ 434, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "Panel"
+							vecChildren = 
+							[
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "class"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "RadialsRoot"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittest"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL_ATTRIBUTE"
+									name = "hittestchildren"
+									child = 
+									{
+										eType = "PANEL_ATTRIBUTE_VALUE"
+										name = "false"
+									}
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelRadialMinimapPing"
+									sourceLineColumn = [ 438, 5 ]
+								},
+								{
+									eType = "PANEL"
+									name = "CitadelRadialCommsWheel"
+									sourceLineColumn = [ 439, 5 ]
+								},
+							]
+							sourceLineColumn = [ 437, 4 ]
+						},
+						{
+							eType = "PANEL"
+							name = "HudPerfStatsBasics"
+							child = 
+							{
+								eType = "PANEL_ATTRIBUTE"
+								name = "hittest"
+								child = 
+								{
+									eType = "PANEL_ATTRIBUTE_VALUE"
+									name = "false"
+								}
+							}
+							sourceLineColumn = [ 442, 4 ]
+						},
+					]
+					sourceLineColumn = [ 56, 3 ]
+				},
+			]
+			sourceLineColumn = [  ]
+		}
+	}
+}
