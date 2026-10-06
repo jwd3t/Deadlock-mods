@@ -57,6 +57,10 @@ There are no tests; the verification loop is: rebuild → `vrf_dumper` on the VP
 - Sounds: never hex-patch `.vsnd_c` (LZ4 control block breaks → silence); re-serialize via VRF. Update `vsnd_duration` in the `.vsndevts_c` or the clip gets cut at the vanilla length. Overriding `soundevents/player.vsndevts_c` clobbers other sound mods.
 - Full-screen effects (death/victory kanji) belong in Panorama CSS (`hud.vcss_c`), not world particles.
 
+## Releases
+
+Both repos publish GitHub releases from tags via `.github/workflows/release.yml`: every push creates the releases missing for existing tags, attaching the mod zip as committed at that tag. Here tags are `deathblow-v<x>` / `death-victory-v<x>`; in `Sekiro_Melee_Deadlock` they are `v<x>`. Release notes go in `release-notes/<tag>.md` (Spanish). To release: rebuild the zip, commit, write the notes, tag, push with `--tags`. `gh` is not installed and the repos are private, so release state can only be checked on GitHub by the user.
+
 ## Matching Sekiro effects
 
 Without Sekiro's files, effects are matched against footage the user provides (kept in `Downloads`). The method that worked: decode with OpenCV (`cv2`; no ffmpeg on PATH), find the effect frames, subtract a background frame from just before it appears, and fit per-ring alpha/color by least squares; check by compositing the result over the real background next to the real frame. Green screen captures (perilous kanji) are keyed by color relationships, not by a plain green distance, because glows get mixed into the green.

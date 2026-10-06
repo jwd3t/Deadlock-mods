@@ -1,0 +1,45 @@
+# Creates a GitHub release for every mod tag that does not have one yet, attaching that mod's zip
+# as it was at the tag. Tags are <mod>-v<version>, e.g. deathblow-v2.0. Runs on every push, so
+# pushing a new tag is enough to publish it.
+name: Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['*-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Publish missing releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for tag in $(git tag -l '*-v*' | sort -V); do
+            case "$tag" in
+              deathblow-v*)     mod=Sekiro_Deathblow_Mod;     title="Sekiro Deathblow" ;;
+              death-victory-v*) mod=Sekiro_Death_Victory_Mod; title="Sekiro Death & Victory" ;;
+              *) echo "No mod mapped for $tag, skipping"; continue ;;
+            esac
+            if gh release view "$tag" > /dev/null 2>&1; then
+              continue
+            fi
+            version="${tag##*-}"
+            asset="$mod-$version.zip"
+            git show "$tag:mods/$mod/$mod.zip" > "$asset"
+            if [ -f "release-notes/$tag.md" ]; then
+              cp "release-notes/$tag.md" notes.md
+            else
+              git tag -l --format='%(contents)' "$tag" > notes.md
+            fi
+            gh release create "$tag" "$asset" --verify-tag --latest=false --title "$title $version" --notes-file notes.md
+          done
