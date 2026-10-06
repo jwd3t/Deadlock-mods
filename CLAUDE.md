@@ -43,6 +43,8 @@ dotnet run --project tools/vpcf_tool -- vtex  <template.vtex_c> <image.rgba> <si
 dotnet run --project tools/vpcf_tool -- blend <file.vpcf_c> <BLEND_MODE> <overbright>
 dotnet run --project tools/vpcf_tool -- timing <file.vpcf_c> <lifetime> <fadeInFrac> <fadeOutFrac>
 dotnet run --project tools/vpcf_tool -- deathblow-anim <symbol.vpcf_c> <lifetime> <radius>
+dotnet run --project tools/vpcf_tool -- scan "<Deadlock>/game/citadel/pak01_dir.vpk" <field>...   # how vanilla particles use a field
+dotnet run --project tools/vpcf_tool -- extract "<Deadlock>/game/citadel/pak01_dir.vpk" <internal path> <out>
 ```
 There are no tests; the verification loop is: rebuild → `vrf_dumper` on the VPK → decode textures to PNG and look at them → user tests in-game (Sandbox). Game files: `C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\pak01_dir.vpk`.
 
@@ -65,5 +67,5 @@ Both repos publish GitHub releases from tags via `.github/workflows/release.yml`
 
 Without Sekiro's files, effects are matched against footage the user provides (kept in `Downloads`). The method that worked: decode with OpenCV (`cv2`; no ffmpeg on PATH), find the effect frames, subtract a background frame from just before it appears, and fit per-ring alpha/color by least squares; check by compositing the result over the real background next to the real frame. Green screen captures (perilous kanji) are keyed by color relationships, not by a plain green distance, because glows get mixed into the green.
 
-- **Deathblow** (`mods/Sekiro_Deathblow_Mod`): `melee_parry_debuff.vpcf` anchors to the `aim` attachment (chest); `melee_parry_debuff_symbol.vpcf` draws the dot. Measured from footage: pure red (255,0,0), alpha-blended (it hides the scene, ~0.76 alpha at center fading smoothly to 0), ~0.17 s fade-in settling from 1.25x size, ~0.23 s fade-out. The white center seen in Sekiro captures is the lock-on dot, not the deathblow. Texture: `tools/make_deathblow_texture.py`; timing: `vpcf_tool deathblow-anim`. Unverified: whether Deadlock's parry stun outlasts the 2.5 s lifetime (endcap kills the particle).
+- **Deathblow** (`mods/Sekiro_Deathblow_Mod`): `melee_parry_debuff.vpcf` anchors to the `aim` attachment (inside the chest); `melee_parry_debuff_symbol.vpcf` draws the dot. Measured: a solid pure red (255,0,0) disc that covers the scene (~0.9 alpha plateau over the inner third, near-linear falloff), fine grain, ~0.12 s fade-in settling from 1.25x, ~0.18 s fade-out expanding to 1.3x. The white center in Sekiro captures is the lock-on dot. In-game test of an earlier build showed the dot hidden inside the body and washed out pink: the renderer now has `m_bDisableZBuffering = true`, `m_nFeatheringMode = "PARTICLE_DEPTH_FEATHERING_OFF"`, `m_flSelfIllumAmount = 1.0` (all found in vanilla particles with `vpcf_tool scan`). Texture: `tools/make_deathblow_texture.py`; particle: `vpcf_tool deathblow-anim <file> 2.5 25`. A dark-scene clip alone is misleading for shape/opacity; check against a bright-scene clip too.
 - **Perilous kanji**: see `mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py`.

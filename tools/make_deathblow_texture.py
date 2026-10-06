@@ -1,34 +1,41 @@
-"""Generates the Sekiro deathblow dot texture from a profile fitted to in-game footage.
+"""Generates the Sekiro deathblow dot texture from a profile measured on in-game footage.
 
-Source: "Enfeebled Deathblow Animation - Sekiro.mp4" (1280x720, 29.97 fps), frames 114-120, dot near
-(657, 283); frames 108-109 (no dot) are the background. The dot is pure red (255, 0, 0) and hides
-the scene behind it, so it is modeled as out = bg * (1 - a) + red * a. For every 2 px ring, `a` is the
-least-squares fit over all three channels (lock-on dot pixels excluded), then made non-increasing
-and smoothed. The white center seen in captures is Sekiro's lock-on dot, not part of this effect.
+Shape: "Sekiro Shadows Die Twice Mikiri Kick counter and Deathblow.mp4" (1920x1080, 29.97 fps),
+frames 222-229, dot near (1135, 735). Opacity per 6 px ring = 1 - (green+blue inside) / (green+blue of
+the scene ring around the dot): a ~80% plateau over the inner third, then a near-linear falloff to 0 at
+~72 px. The rings under the lock-on dot (the white center, not part of this effect) are excluded and
+the plateau is carried inward. An earlier fit on a dark-scene clip ("Enfeebled Deathblow Animation")
+gave a cone with a long faint tail; that tail is kept only as the faint fringe past the main edge.
 
-Render with PARTICLE_OUTPUT_BLEND_MODE_ALPHA, overbright 1.0.
+Color: pure red (255, 0, 0). The dot covers the scene (alpha blend), with fine grain inside.
+
+Render with PARTICLE_OUTPUT_BLEND_MODE_ALPHA, overbright 1.0, self-illuminated, no depth test.
 Output: mods/Sekiro_Deathblow_Mod/deathblow_dot.png and .rgba (input for `vpcf_tool vtex`).
 """
 import os
+import cv2
 import numpy as np
 from PIL import Image
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT_DIR = os.path.join(ROOT, 'mods', 'Sekiro_Deathblow_Mod')
 SIZE = 256
+GRAIN = 0.15  # strength of the fine noise inside the dot
 
-# Fitted alpha every 2 px from the center (720p video pixels); the texture edge maps to the last entry.
-ALPHA = [0.763, 0.752, 0.735, 0.715, 0.694, 0.674, 0.658, 0.643, 0.627, 0.607, 0.581, 0.55, 0.518, 0.484,
-         0.451, 0.417, 0.382, 0.348, 0.314, 0.283, 0.253, 0.224, 0.197, 0.172, 0.148, 0.128, 0.11, 0.096,
-         0.084, 0.073, 0.064, 0.057, 0.052, 0.049, 0.047, 0.045, 0.043, 0.041, 0.038, 0.035, 0.032, 0.0]
+# (radius / main edge radius, alpha). The texture edge is at 1.15x the main edge.
+PROFILE = [(0.0, 0.92), (0.25, 0.92), (0.33, 0.85), (0.42, 0.75), (0.5, 0.66), (0.58, 0.55), (0.67, 0.42),
+           (0.75, 0.28), (0.83, 0.15), (0.92, 0.07), (1.0, 0.04), (1.15, 0.0)]
 
 
 def build():
-    radii = np.linspace(0, 1, len(ALPHA))
+    radii = np.array([p[0] for p in PROFILE]) / PROFILE[-1][0]
+    values = np.array([p[1] for p in PROFILE])
     yy, xx = np.mgrid[:SIZE, :SIZE].astype(np.float64)
     c = (SIZE - 1) / 2
     r = np.hypot(xx - c, yy - c) / (SIZE / 2)
-    alpha = np.interp(r, radii, ALPHA, right=0)
+    alpha = np.interp(r, radii, values, right=0)
+    grain = cv2.GaussianBlur(np.random.default_rng(7).random((SIZE, SIZE)), (0, 0), 0.8)
+    alpha *= 1 - GRAIN * (grain - grain.min()) / (grain.max() - grain.min())
 
     rgba = np.zeros((SIZE, SIZE, 4), dtype=np.uint8)
     rgba[..., 0] = 255
