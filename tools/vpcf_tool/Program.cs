@@ -8,11 +8,11 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool dump  <file.vpcf_c|file.vtex_c>
 //   vpcf_tool vtex  <template.vtex_c> <image.rgba> <size> <out.vtex_c>   (256x256 DXT5, no mips: header is cloned from template)
 //   vpcf_tool png   <file.vtex_c> <out.png>
-//   vpcf_tool deathblow-anim <symbol.vpcf_c> <radius>
+//   vpcf_tool deathblow-anim <symbol.vpcf_c> <radius> [grain fps]
 //   vpcf_tool timing <file.vpcf_c> <lifetime> <fadeInFraction> <fadeOutFraction>
 //   vpcf_tool scan <pak01_dir.vpk> <key>...   (stats of particle fields across the game)
 //   vpcf_tool extract <pak01_dir.vpk> <internal path> <out>
-//   vpcf_tool sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
+//   vpcf_tool sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c> [loop]
 //   vpcf_tool parent-offset <melee_parry_debuff.vpcf_c> <z>
 //   vpcf_tool blend <file.vpcf_c> <BLEND_MODE> <overbright>               (edits the first renderer in place)
 switch (args[0])
@@ -58,7 +58,8 @@ switch (args[0])
     }
     case "deathblow-anim":
     {
-        // Sekiro deathblow dot: deathblow-anim <symbol.vpcf_c> <radius>
+        // Sekiro deathblow dot: deathblow-anim <symbol.vpcf_c> <radius> [grain fps]
+        // With a grain fps, the tint and dot textures are looping flipbooks (animated grain) played in FPS mode.
         // Two renderers on one particle, matching 1080p Sekiro footage (see tools/make_deathblow_texture.py):
         // a MOD2X tint that hides the scene's green/blue under the dot, and the measured emitted light as
         // ADD. Textures: materials/particle/sekiro_deathblow_{tint,dot}.vtex. Both ignore depth and scene
@@ -70,6 +71,7 @@ switch (args[0])
         res.Read(args[1]);
         var data = ((ParticleSystem)res.DataBlock).Data;
         double radius = double.Parse(args[2], System.Globalization.CultureInfo.InvariantCulture);
+        double grainFps = args.Length > 3 ? double.Parse(args[3], System.Globalization.CultureInfo.InvariantCulture) : 0;
         const string tex = "materials/particle/sekiro_deathblow_";
 
         static KVObject Obj(params (string Key, KVObject Value)[] fields) =>
@@ -124,6 +126,12 @@ switch (args[0])
             Sprite(tex + "tint.vtex", "PARTICLE_OUTPUT_BLEND_MODE_MOD2X", 1.0, 1.0, 1.0),
             Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 2.0, 1.0, 1.0),
         });
+        if (grainFps > 0)
+            for (int i = 0; i < 2; i++)
+            {
+                data["m_Renderers"][i]["m_bAnimateInFPS"] = (KVObject)true;
+                data["m_Renderers"][i]["m_flAnimationRate"] = (KVObject)grainFps;
+            }
 
         var refs = res.ExternalReferences.ResourceRefInfoList;
         refs.RemoveAll(r => r.Name.StartsWith(tex) && !r.Name.EndsWith("tint.vtex") && !r.Name.EndsWith("dot.vtex"));
@@ -227,13 +235,15 @@ switch (args[0])
         // Animated DXT5 flipbook (VTexExtraData.SHEET), built at the binary level because VRF cannot
         // serialize textures. Layout and timing quirks follow Deadlock-Modding-Skill SKILL.md section 2B:
         // TotalTime = frames - 1 and DisplayTime = 1 (0 on the last frame), in tick units.
-        // sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
-        // The RED2 block is copied from the template.
+        // sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c> [loop]
+        // The RED2 block is copied from the template. "loop" makes a repeating sequence (clamp off, every
+        // frame shown for one tick, TotalTime = frames) for particles that animate in FPS mode.
         var template = File.ReadAllBytes(args[1]);
         var rgba = File.ReadAllBytes(args[2]);
         int size = int.Parse(args[3]), cols = int.Parse(args[4]), rows = int.Parse(args[5]);
         int cell = int.Parse(args[6]), margin = int.Parse(args[7]), frames = int.Parse(args[8]);
         if (frames > cols * rows) throw new ArgumentException("more frames than cells");
+        bool loop = args.Length > 10 && args[10] == "loop";
 
         byte[] red2 = null;
         int blockCount = BitConverter.ToInt32(template, 12);
@@ -246,9 +256,9 @@ switch (args[0])
         using (var w = new BinaryWriter(sheetMs, System.Text.Encoding.UTF8, true))
         {
             w.Write(8u); w.Write(1u); w.Write(0u);
-            w.Write(true); w.Write(false); w.Write(false); w.Write(false);
+            w.Write(!loop); w.Write(false); w.Write(false); w.Write(false);
             long posFramesRel = sheetMs.Position; w.Write(0);
-            w.Write((uint)frames); w.Write((float)(frames - 1));
+            w.Write((uint)frames); w.Write((float)(loop ? frames : frames - 1));
             long posNameRel = sheetMs.Position; w.Write(0);
             long posFloatParamsRel = sheetMs.Position; w.Write(0); w.Write(0u);
             long namePos = sheetMs.Position; w.Write(System.Text.Encoding.UTF8.GetBytes("CDmeSheetSequence\0"));
@@ -257,7 +267,7 @@ switch (args[0])
             Patch(posFloatParamsRel, sheetMs.Position);
             Patch(posFramesRel, sheetMs.Position);
             var imgRel = new long[frames];
-            for (int f = 0; f < frames; f++) { w.Write(f == frames - 1 ? 0f : 1f); imgRel[f] = sheetMs.Position; w.Write(0); w.Write(1u); }
+            for (int f = 0; f < frames; f++) { w.Write(f == frames - 1 && !loop ? 0f : 1f); imgRel[f] = sheetMs.Position; w.Write(0); w.Write(1u); }
             for (int f = 0; f < frames; f++)
             {
                 Patch(imgRel[f], sheetMs.Position);

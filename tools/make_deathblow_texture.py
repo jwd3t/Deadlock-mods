@@ -19,6 +19,14 @@ is rendered with overbright 2 because Deadlock's tonemapping dims it (pure red, 
 reference image, an extra pink glow) read as a sticker or came out orange in game.
 
 Output: mods/Sekiro_Deathblow_Mod/deathblow_{tint,dot}.{png,rgba} (inputs for `vpcf_tool vtex`).
+
+`--animated-grain STRENGTH` instead writes deathblow_{dot,tint}_anim.{png,rgba}: 4x4 looping flipbooks (1024x1024,
+256 px cells, for `vpcf_tool sheet-vtex ... 1024 4 4 256 0 16 ... loop`). Footage grain is ~1 px and only
+half animated (consecutive frames correlate ~0.45, still ~0.34 eight frames apart), so each frame mixes
+one fixed noise pattern with fresh noise. YouTube compression leaves only ~2% grain visible; the real
+amount is unknown, so the strength is a choice. Over bright floors the added red light saturates and the
+grain in it vanishes, so the same noise also darkens the tint's red channel (MOD2X below 128), which keeps
+the speckle visible there.
 """
 import os
 import numpy as np
@@ -63,6 +71,27 @@ def build():
     save(np.dstack([light, np.full_like(r, 255.0)]), 'deathblow_dot')
 
 
+def build_animated(strength, frames=16, cols=4):
+    r = radius_map()
+    xs = [p[0] for p in EMISSION]
+    base = np.dstack([np.interp(r, xs, [p[1][i] for p in EMISSION], right=0) for i in range(3)])
+    occ = np.interp(r, [p[0] for p in OCCLUSION], [p[1] for p in OCCLUSION], right=0)
+    occ = 1 - (1 - occ) ** 2
+    rng = np.random.default_rng(SEED)
+    fixed = rng.normal(0, 1, (SIZE, SIZE))
+    dots = np.zeros((SIZE * cols, SIZE * cols, 4))
+    tints = np.zeros_like(dots)
+    for k in range(frames):
+        noise = np.sqrt(0.45) * fixed + np.sqrt(0.55) * rng.normal(0, 1, (SIZE, SIZE))
+        light = base * np.clip(1 + strength * noise, 0, None)[..., None]
+        red_keep = 1 - np.clip(strength * occ * np.maximum(-noise, 0), 0, 0.6)  # darker specks only
+        y, x = (k // cols) * SIZE, (k % cols) * SIZE
+        dots[y:y + SIZE, x:x + SIZE] = np.dstack([light, np.full_like(r, 255.0)])
+        tints[y:y + SIZE, x:x + SIZE] = np.dstack([128 * red_keep, 128 * (1 - occ), 128 * (1 - occ), np.full_like(r, 255.0)])
+    save(dots, 'deathblow_dot_anim')
+    save(tints, 'deathblow_tint_anim')
+
+
 def save(rgba, name):
     img = Image.fromarray(np.clip(rgba + 0.5, 0, 255).astype(np.uint8), 'RGBA')
     img.save(os.path.join(OUT_DIR, name + '.png'))
@@ -71,5 +100,10 @@ def save(rgba, name):
 
 
 if __name__ == '__main__':
-    build()
-    print('deathblow_tint / deathblow_dot written')
+    import sys
+    if len(sys.argv) > 2 and sys.argv[1] == '--animated-grain':
+        build_animated(float(sys.argv[2]))
+        print('deathblow_dot_anim / deathblow_tint_anim written')
+    else:
+        build()
+        print('deathblow_tint / deathblow_dot written')
