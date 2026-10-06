@@ -20,14 +20,14 @@ dumps/      decompiled text dumps of game files (KV3, vcss, vsndevts) used as re
 
 - A file overrides the game asset with the same internal path, e.g. `extracted/particles/abilities/melee/melee_parry_debuff_symbol.vpcf_c`. Everything under `extracted/` is packed verbatim; never put scratch files there.
 - `mods/Sekiro_Melee_Deadlock/` and `mods/Sekiro_Parry_Sparks/` are **separate git repos** (their own GitHub remotes) and are git-ignored here. Commit inside them separately.
-- The Perilous Attack mod lives only in `Sekiro_Melee_Deadlock` (repo `jwd3t/Sekiro-melee`, zip named `Sekiro_Perilous_Attack_True.zip`). Versions are git tags + GitHub releases there (v1.0 Tenor GIF animation, v2.0 green screen animation); never overwrite an old version, add a new tag. The old loose copies were removed from this repo (still in its history).
+- The Perilous Attack mod lives only in `Sekiro_Melee_Deadlock` (repo `jwd3t/Sekiro-melee`, zip named `Sekiro_Perilous_Attack_True.zip`). Versions are git tags + GitHub releases there: v1.0 (Tenor GIF, 25 frames at 200 px), v2.0 (green screen capture; the user found it worse in game than v1.0), v1.1 (v1.0 again with optical-flow midpoints: 49 frames at 288 px, 7x7 in a 2048 atlas via `vpcf_tool sheet-vtex`). Never overwrite an old version, add a new tag. The old loose copies were removed from this repo (still in its history).
 
 ## Commands
 
 Packaging (pure-Python VPK v1 writer, no deps):
 ```bash
 python tools/package_all_mods.py          # rebuilds Deathblow and Death_Victory
-python mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py   # Perilous Attack: 危 flipbook from the green screen video
+python mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py   # Perilous Attack: 危 flipbook (v1.1: Tenor GIF frames, 49 frames, 2048 atlas)
 python mods/Sekiro_Melee_Deadlock/build_full_mod.py
 python mods/Sekiro_Parry_Sparks/build_mod.py
 python mods/Sekiro_Parry_Sparks/configure_parry.py   # GUI/CLI color+size configurator; can install into the Deadlock addons folder
@@ -41,6 +41,7 @@ dotnet run --project tools/vpcf_tool -- dump  <file.vpcf_c|.vtex_c>          # p
 dotnet run --project tools/vpcf_tool -- png   <file.vtex_c> <out.png>       # decode a texture to check it
 dotnet run --project tools/vpcf_tool -- vtex  <template.vtex_c> <image.rgba> <size> <out.vtex_c>
 dotnet run --project tools/vpcf_tool -- blend <file.vpcf_c> <BLEND_MODE> <overbright>
+dotnet run --project tools/vpcf_tool -- sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out>   # animated flipbook, any grid (RED2 copied from template)
 dotnet run --project tools/vpcf_tool -- timing <file.vpcf_c> <lifetime> <fadeInFrac> <fadeOutFrac>
 dotnet run --project tools/vpcf_tool -- deathblow-anim <symbol.vpcf_c> <lifetime> <radius>
 dotnet run --project tools/vpcf_tool -- scan "<Deadlock>/game/citadel/pak01_dir.vpk" <field>...   # how vanilla particles use a field
@@ -68,4 +69,4 @@ Both repos publish GitHub releases from tags via `.github/workflows/release.yml`
 Without Sekiro's files, effects are matched against footage the user provides (kept in `Downloads`). The method that worked: decode with OpenCV (`cv2`; no ffmpeg on PATH), find the effect frames, subtract a background frame from just before it appears, and fit per-ring alpha/color by least squares; check by compositing the result over the real background next to the real frame. Green screen captures (perilous kanji) are keyed by color relationships, not by a plain green distance, because glows get mixed into the green.
 
 - **Deathblow** (`mods/Sekiro_Deathblow_Mod`): `melee_parry_debuff.vpcf` anchors to the `aim` attachment (inside the chest); `melee_parry_debuff_symbol.vpcf` draws the dot. History: synthesized pure-red discs fitted to video looked like a faint pink cloud in game (hidden inside the body, washed out, then too big and grainy). Current build uses `assets/source/deathblow_reference_isolated.png` (the dot on black, from the user) directly: alpha from the brightest channel, color un-premultiplied, so the orange-red body is opaque on bright scenes; its sparkly yellow core is part of the effect (the separate small white dot in gameplay captures is the lock-on). Renderer: `m_bDisableZBuffering = true`, `m_nFeatheringMode = "PARTICLE_DEPTH_FEATHERING_OFF"`, `m_flSelfIllumAmount = 1.0` (found in vanilla particles with `vpcf_tool scan`). Particle (`vpcf_tool deathblow-anim <file> 15 materials/particle/sekiro_deathblow_glow.vtex`) follows Valve's buff pattern (`area_leash_h`): no `C_OP_Decay`, the dot lives until the stun's end cap, then `C_OP_LerpEndCapScalar` (alpha, 0.2 s) + `C_OP_EndCapTimedDecay` (0.2 s) fade it out; 0.25 s fade-in growing from 0.55x; random start angle and slow `C_OP_SpinUpdate` so the fluffy edge moves (a static sprite read as "a PNG"); an additive glow renderer at 1.8x behind the dot. Radius 15 (~torso width). Always ask the user for an in-game screenshot before releasing; previews outside the game have been misleading.
-- **Perilous kanji**: see `mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py`.
+- **Perilous kanji**: see `mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py`. Lesson from v2.0: a cleaner/higher-res source is not automatically better in game; the user preferred v1.0's look, so improvements keep the approved look and add frames/resolution.

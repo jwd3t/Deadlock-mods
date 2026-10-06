@@ -12,6 +12,7 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool timing <file.vpcf_c> <lifetime> <fadeInFraction> <fadeOutFraction>
 //   vpcf_tool scan <pak01_dir.vpk> <key>...   (stats of particle fields across the game)
 //   vpcf_tool extract <pak01_dir.vpk> <internal path> <out>
+//   vpcf_tool sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
 //   vpcf_tool blend <file.vpcf_c> <BLEND_MODE> <overbright>               (edits the first renderer in place)
 switch (args[0])
 {
@@ -196,6 +197,91 @@ switch (args[0])
             foreach (var (v, files) in vals.OrderByDescending(x => x.Value.Count).Take(top))
                 Console.WriteLine($"  {files.Count,6}x {v}   e.g. {string.Join(", ", files.Distinct().Take(2))}");
         }
+        break;
+    }
+    case "sheet-vtex":
+    {
+        // Animated DXT5 flipbook (VTexExtraData.SHEET), built at the binary level because VRF cannot
+        // serialize textures. Layout and timing quirks follow Deadlock-Modding-Skill SKILL.md section 2B:
+        // TotalTime = frames - 1 and DisplayTime = 1 (0 on the last frame), in tick units.
+        // sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
+        // The RED2 block is copied from the template.
+        var template = File.ReadAllBytes(args[1]);
+        var rgba = File.ReadAllBytes(args[2]);
+        int size = int.Parse(args[3]), cols = int.Parse(args[4]), rows = int.Parse(args[5]);
+        int cell = int.Parse(args[6]), margin = int.Parse(args[7]), frames = int.Parse(args[8]);
+        if (frames > cols * rows) throw new ArgumentException("more frames than cells");
+
+        byte[] red2 = null;
+        int blockCount = BitConverter.ToInt32(template, 12);
+        for (int b = 0, pos = 16; b < blockCount; b++, pos += 12)
+            if (System.Text.Encoding.ASCII.GetString(template, pos, 4) == "RED2")
+                red2 = template[(pos + 4 + BitConverter.ToInt32(template, pos + 4))..][..BitConverter.ToInt32(template, pos + 8)];
+        if (red2 == null) throw new Exception("template has no RED2 block");
+
+        using var sheetMs = new MemoryStream();
+        using (var w = new BinaryWriter(sheetMs, System.Text.Encoding.UTF8, true))
+        {
+            w.Write(8u); w.Write(1u); w.Write(0u);
+            w.Write(true); w.Write(false); w.Write(false); w.Write(false);
+            long posFramesRel = sheetMs.Position; w.Write(0);
+            w.Write((uint)frames); w.Write((float)(frames - 1));
+            long posNameRel = sheetMs.Position; w.Write(0);
+            long posFloatParamsRel = sheetMs.Position; w.Write(0); w.Write(0u);
+            long namePos = sheetMs.Position; w.Write(System.Text.Encoding.UTF8.GetBytes("CDmeSheetSequence "));
+            void Patch(long at, long target) { long cur = sheetMs.Position; sheetMs.Position = at; w.Write((int)(target - at)); sheetMs.Position = cur; }
+            Patch(posNameRel, namePos);
+            Patch(posFloatParamsRel, sheetMs.Position);
+            Patch(posFramesRel, sheetMs.Position);
+            var imgRel = new long[frames];
+            for (int f = 0; f < frames; f++) { w.Write(f == frames - 1 ? 0f : 1f); imgRel[f] = sheetMs.Position; w.Write(0); w.Write(1u); }
+            for (int f = 0; f < frames; f++)
+            {
+                Patch(imgRel[f], sheetMs.Position);
+                float x0 = (float)(margin + (f % cols) * cell) / size, x1 = (float)(margin + (f % cols + 1) * cell) / size;
+                float y0 = (float)(margin + (f / cols) * cell) / size, y1 = (float)(margin + (f / cols + 1) * cell) / size;
+                w.Write(x0); w.Write(y0); w.Write(x1); w.Write(y1); w.Write(x0); w.Write(y0); w.Write(x1); w.Write(y1);
+            }
+        }
+        var sheet = sheetMs.ToArray();
+
+        var encoder = new BcEncoder();
+        encoder.OutputOptions.Format = CompressionFormat.Bc3;
+        encoder.OutputOptions.GenerateMipMaps = false;
+        encoder.OutputOptions.Quality = CompressionQuality.BestQuality;
+        var pixels = encoder.EncodeToRawBytes(rgba, size, size, PixelFormat.Rgba32)[0];
+
+        using var dataMs = new MemoryStream();
+        using (var d = new BinaryWriter(dataMs, System.Text.Encoding.UTF8, true))
+        {
+            d.Write((ushort)1); d.Write((ushort)0);
+            d.Write(0.1f); d.Write(0.01f); d.Write(0.01f); d.Write(0.1f);
+            d.Write((ushort)size); d.Write((ushort)size); d.Write((ushort)1);
+            d.Write((byte)2); d.Write((byte)1); d.Write(0u);
+            d.Write(8u); d.Write(1u);
+            d.Write(2u); d.Write(8u); d.Write((uint)sheet.Length);
+            d.Write(sheet);
+            while (dataMs.Position % 16 != 0) d.Write((byte)0);
+        }
+        var data = dataMs.ToArray();
+
+        using var outMs = new MemoryStream();
+        using (var o = new BinaryWriter(outMs, System.Text.Encoding.UTF8, true))
+        {
+            int red2Offset = 16 + 2 * 12;
+            int dataOffset = red2Offset + red2.Length;
+            int pad = (16 - dataOffset % 16) % 16;
+            dataOffset += pad;
+            o.Write((uint)(dataOffset + data.Length)); o.Write((ushort)12); o.Write((ushort)1); o.Write(8u); o.Write(2u);
+            o.Write(System.Text.Encoding.ASCII.GetBytes("RED2")); o.Write((uint)(red2Offset - 20)); o.Write((uint)red2.Length);
+            o.Write(System.Text.Encoding.ASCII.GetBytes("DATA")); o.Write((uint)(dataOffset - 32)); o.Write((uint)data.Length);
+            o.Write(red2);
+            for (int i = 0; i < pad; i++) o.Write((byte)0);
+            o.Write(data);
+            o.Write(pixels);
+        }
+        File.WriteAllBytes(args[9], outMs.ToArray());
+        Console.WriteLine($"Wrote {args[9]} ({outMs.Length} bytes, {frames} frames {cols}x{rows} of {cell}px)");
         break;
     }
     case "blend":
