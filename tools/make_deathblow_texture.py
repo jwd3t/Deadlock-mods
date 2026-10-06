@@ -9,12 +9,15 @@ bright Deadlock scenes too; only the wispy edge fades.
 Earlier versions synthesized a pure red disc from video measurements; in game they looked like a pink
 cloud, so the reference image is used as-is instead.
 
-Also writes the glow drawn additively behind the dot at 1.8x its radius (Sekiro's dot glows into the
-scene): a soft gaussian in the dot's edge color.
-
-Render the dot with PARTICLE_OUTPUT_BLEND_MODE_ALPHA, overbright 1.0, self-illuminated, no depth test.
-Output: mods/Sekiro_Deathblow_Mod/deathblow_dot.{png,rgba} and deathblow_glow.{png,rgba}
-(inputs for `vpcf_tool vtex`).
+Sekiro's dot is two things at once, which footage shows: under it the scene's green/blue drop (it
+tints what is behind) while red rises above the scene (it emits light). An opaque alpha sprite only
+covers, and in game it read as a flat sticker. So the dot is drawn in three layers, matching how
+Deadlock's own marks are built (additive with overbright 2-15; MOD2X for tinting):
+  deathblow_tint  MOD2X: red where the dot is, neutral grey outside, so the scene under it turns red
+                  but keeps its own shading.
+  deathblow_dot   ADD with overbright: the reference image as emitted light (blooms in game).
+  deathblow_glow  ADD: soft halo past the dot's edge.
+Output: mods/Sekiro_Deathblow_Mod/deathblow_{tint,dot,glow}.{png,rgba} (inputs for `vpcf_tool vtex`).
 """
 import os
 import numpy as np
@@ -29,6 +32,8 @@ HALF = 150            # crop half-size: disc radius ~135 plus a margin that stay
 OPAQUE_AT = 150.0     # brightest-channel value from which a pixel is fully opaque (disc body is 160-230)
 GLOW_COLOR = (255, 55, 25)
 GLOW_SIGMA = 0.38     # in texture radii
+TINT = (128, 25, 17)  # MOD2X: 128 = unchanged, so this keeps red and cuts green/blue to ~20%
+TINT_EDGE = (0.55, 0.9)  # tint fades from full to neutral between these radii (texture radii)
 
 
 def build():
@@ -50,6 +55,12 @@ def build():
     glow = np.dstack([np.broadcast_to(np.array(GLOW_COLOR, float), (SIZE, SIZE, 3)), glow_alpha * 255])
     save(Image.fromarray(np.clip(glow + 0.5, 0, 255).astype(np.uint8), 'RGBA'), 'deathblow_glow')
 
+    t = np.clip((TINT_EDGE[1] - r) / (TINT_EDGE[1] - TINT_EDGE[0]), 0, 1)
+    t = t * t * (3 - 2 * t)  # smoothstep
+    tint_rgb = 128 + (np.array(TINT, float) - 128) * t[..., None]
+    tint = np.dstack([tint_rgb, t * 255])
+    save(Image.fromarray(np.clip(tint + 0.5, 0, 255).astype(np.uint8), 'RGBA'), 'deathblow_tint')
+
 
 def save(img, name):
     img.save(os.path.join(OUT_DIR, name + '.png'))
@@ -59,4 +70,4 @@ def save(img, name):
 
 if __name__ == '__main__':
     build()
-    print('deathblow_dot / deathblow_glow written')
+    print('deathblow_tint / deathblow_dot / deathblow_glow written')

@@ -8,7 +8,7 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool dump  <file.vpcf_c|file.vtex_c>
 //   vpcf_tool vtex  <template.vtex_c> <image.rgba> <size> <out.vtex_c>   (256x256 DXT5, no mips: header is cloned from template)
 //   vpcf_tool png   <file.vtex_c> <out.png>
-//   vpcf_tool deathblow-anim <symbol.vpcf_c> <radius> <glow texture resource path>
+//   vpcf_tool deathblow-anim <symbol.vpcf_c> <radius>
 //   vpcf_tool timing <file.vpcf_c> <lifetime> <fadeInFraction> <fadeOutFraction>
 //   vpcf_tool scan <pak01_dir.vpk> <key>...   (stats of particle fields across the game)
 //   vpcf_tool extract <pak01_dir.vpk> <internal path> <out>
@@ -57,24 +57,43 @@ switch (args[0])
     }
     case "deathblow-anim":
     {
-        // Sekiro deathblow dot: deathblow-anim <symbol.vpcf_c> <radius> <glow texture path>
-        // Follows Valve's buff pattern (area_leash_h): no C_OP_Decay, so the dot lives until the stun's
-        // end cap, then fades out over 0.2 s (LerpEndCapScalar on alpha + EndCapTimedDecay). Lifetime is
-        // 1.0 so the Simple ops' fractions are seconds. Spawns growing from 0.55x with a 0.25 s fade-in,
-        // spins slowly from a random angle so the fluffy edge moves, and draws an additive red glow
-        // behind the dot. Both layers ignore depth and scene lighting so the body cannot hide or tint them.
+        // Sekiro deathblow dot: deathblow-anim <symbol.vpcf_c> <radius>
+        // Three renderers on one particle, built like Deadlock's own marks (additive + overbright, MOD2X
+        // to tint): a MOD2X tint that turns the scene under the dot red while keeping its shading, the
+        // dot as additive overbright light (blooms), and an additive glow. Textures:
+        // materials/particle/sekiro_deathblow_{tint,dot,glow}.vtex. All ignore depth and scene lighting.
+        // Lifetime 1.0 so the Simple ops' fractions are seconds; no C_OP_Decay: the dot lives until the
+        // stun's end cap, then fades out over 0.2 s (Valve's area_leash_h pattern). Entry as measured on
+        // footage: starts large and faint and contracts to size over 0.15 s. Then it spins slowly and
+        // breathes with the radius oscillation Valve uses on assassinate_tgt.
         using var res = new Resource();
         res.Read(args[1]);
         var data = ((ParticleSystem)res.DataBlock).Data;
-        var inv = System.Globalization.CultureInfo.InvariantCulture;
-        double radius = double.Parse(args[2], inv);
-        string glowTexture = args[3];
+        double radius = double.Parse(args[2], System.Globalization.CultureInfo.InvariantCulture);
+        const string tex = "materials/particle/sekiro_deathblow_";
 
         static KVObject Obj(params (string Key, KVObject Value)[] fields) =>
             KVObject.Collection(fields.Select(f => new KeyValuePair<string, KVObject>(f.Key, f.Value)));
         static KVObject Literal(double v) => Obj(("m_nType", (KVObject)"PF_TYPE_LITERAL"), ("m_flLiteralValue", (KVObject)v));
         static KVObject InitFloat(int field, KVObject input) =>
             Obj(("_class", (KVObject)"C_INIT_InitFloat"), ("m_InputValue", input), ("m_nOutputField", (KVObject)field));
+        static KVObject Sprite(string texture, string blend, double overbright, double radiusScale, double alphaScale)
+        {
+            var t = (KVObject)texture;
+            t.Flag = KVFlag.Resource;
+            return Obj(
+                ("_class", (KVObject)"C_OP_RenderSprites"),
+                ("m_bUseYawWithNormalAligned", (KVObject)false),
+                ("m_nOrientationType", (KVObject)0),
+                ("m_nOutputBlendMode", (KVObject)blend),
+                ("m_flOverbrightFactor", (KVObject)overbright),
+                ("m_bDisableZBuffering", (KVObject)true),
+                ("m_nFeatheringMode", (KVObject)"PARTICLE_DEPTH_FEATHERING_OFF"),
+                ("m_flSelfIllumAmount", (KVObject)1.0),
+                ("m_flRadiusScale", (KVObject)radiusScale),
+                ("m_flAlphaScale", (KVObject)alphaScale),
+                ("m_vecTexturesInput", KVObject.Array(new[] { Obj(("m_hTexture", t)) })));
+        }
 
         var keep = data["m_Initializers"].Select(kv => kv.Value).Where(i => (string)i["_class"] != "C_INIT_InitFloat").ToList();
         var inits = new List<KVObject>
@@ -92,40 +111,26 @@ switch (args[0])
         data["m_Operators"] = KVObject.Array(new[]
         {
             position,
-            Obj(("_class", (KVObject)"C_OP_FadeInSimple"), ("m_flFadeInTime", (KVObject)0.25)),
-            Obj(("_class", (KVObject)"C_OP_InterpolateRadius"), ("m_flStartTime", (KVObject)0.0), ("m_flEndTime", (KVObject)0.25),
-                ("m_flStartScale", (KVObject)0.55), ("m_flEndScale", (KVObject)1.0)),
+            Obj(("_class", (KVObject)"C_OP_FadeInSimple"), ("m_flFadeInTime", (KVObject)0.15)),
+            Obj(("_class", (KVObject)"C_OP_InterpolateRadius"), ("m_flStartTime", (KVObject)0.0), ("m_flEndTime", (KVObject)0.15),
+                ("m_flStartScale", (KVObject)1.6), ("m_flEndScale", (KVObject)1.0)),
             Obj(("_class", (KVObject)"C_OP_SpinUpdate")),
+            Obj(("_class", (KVObject)"C_OP_OscillateScalarSimple"), ("m_Rate", (KVObject)5.0), ("m_Frequency", (KVObject)1.5), ("m_nField", (KVObject)3)),
             Obj(("_class", (KVObject)"C_OP_LerpEndCapScalar"), ("m_flLerpTime", (KVObject)0.2), ("m_nFieldOutput", (KVObject)7), ("m_flOutput", (KVObject)0.0)),
             Obj(("_class", (KVObject)"C_OP_EndCapTimedDecay"), ("m_flDecayTime", (KVObject)0.2)),
         });
 
-        var dot = data["m_Renderers"][0];
-        dot["m_nOutputBlendMode"] = (KVObject)"PARTICLE_OUTPUT_BLEND_MODE_ALPHA";
-        dot["m_flOverbrightFactor"] = (KVObject)1.0;
-        dot["m_bDisableZBuffering"] = (KVObject)true;
-        dot["m_nFeatheringMode"] = (KVObject)"PARTICLE_DEPTH_FEATHERING_OFF";
-        dot["m_flSelfIllumAmount"] = (KVObject)1.0;
-
-        var glowRef = (KVObject)glowTexture.Replace(".vtex_c", ".vtex");
-        glowRef.Flag = KVFlag.Resource;
-        var glow = Obj(
-            ("_class", (KVObject)"C_OP_RenderSprites"),
-            ("m_bUseYawWithNormalAligned", (KVObject)false),
-            ("m_nOrientationType", (KVObject)0),
-            ("m_nOutputBlendMode", (KVObject)"PARTICLE_OUTPUT_BLEND_MODE_ADD"),
-            ("m_flOverbrightFactor", (KVObject)1.0),
-            ("m_bDisableZBuffering", (KVObject)true),
-            ("m_nFeatheringMode", (KVObject)"PARTICLE_DEPTH_FEATHERING_OFF"),
-            ("m_flSelfIllumAmount", (KVObject)1.0),
-            ("m_flRadiusScale", (KVObject)1.8),
-            ("m_flAlphaScale", (KVObject)0.6),
-            ("m_vecTexturesInput", KVObject.Array(new[] { Obj(("m_hTexture", glowRef)) })));
-        data["m_Renderers"] = KVObject.Array(new[] { glow, dot });
+        data["m_Renderers"] = KVObject.Array(new[]
+        {
+            Sprite(tex + "tint.vtex", "PARTICLE_OUTPUT_BLEND_MODE_MOD2X", 1.0, 1.1, 1.0),
+            Sprite(tex + "glow.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 2.0, 1.8, 0.5),
+            Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 1.5, 1.0, 1.0),
+        });
 
         var refs = res.ExternalReferences.ResourceRefInfoList;
-        if (!refs.Any(r => r.Name == glowTexture.Replace(".vtex_c", ".vtex")))
-            refs.Add(new ValveResourceFormat.Blocks.ResourceExtRefList.ResourceReferenceInfo { Id = 0, Name = glowTexture.Replace(".vtex_c", ".vtex") });
+        foreach (var name in new[] { "tint", "glow", "dot" })
+            if (!refs.Any(r => r.Name == tex + name + ".vtex"))
+                refs.Add(new ValveResourceFormat.Blocks.ResourceExtRefList.ResourceReferenceInfo { Id = 0, Name = tex + name + ".vtex" });
 
         using var ms = new MemoryStream();
         res.Serialize(ms);
