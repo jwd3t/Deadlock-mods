@@ -10,7 +10,12 @@ ring (lock-on dot pixels excluded) shows two things at once:
 So the dot is two layers, the way Deadlock builds its own marks:
   deathblow_tint  MOD2X: red channel unchanged, green/blue scaled by (1 - occlusion).
   deathblow_dot   ADD: the measured emitted light, with grain.
-The texture edge maps to 96 px of the footage. Earlier attempts (opaque sprite, an orange isolated
+The texture edge maps to 96 px of the footage.
+
+Deadlock adaptation: Sekiro's scenes are dark, so a half-tinted edge reads dark red there; over Deadlock's
+bright floors the same edge leaves green/blue and reads pink. The tint therefore uses
+1 - (1 - occlusion)^2 (unchanged at the center and the edge, stronger in between), and the light layer
+is rendered with overbright 2 because Deadlock's tonemapping dims it (pure red, so only red saturates). Earlier attempts (opaque sprite, an orange isolated
 reference image, an extra pink glow) read as a sticker or came out orange in game.
 
 Output: mods/Sekiro_Deathblow_Mod/deathblow_{tint,dot}.{png,rgba} (inputs for `vpcf_tool vtex`).
@@ -46,6 +51,7 @@ def build():
     r = radius_map()
 
     occ = np.interp(r, [p[0] for p in OCCLUSION], [p[1] for p in OCCLUSION], right=0)
+    occ = 1 - (1 - occ) ** 2
     keep = 1 - occ
     tint = np.dstack([np.full_like(r, 128.0), 128 * keep, 128 * keep, np.full_like(r, 255.0)])
     save(tint, 'deathblow_tint')

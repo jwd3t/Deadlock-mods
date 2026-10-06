@@ -13,6 +13,7 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool scan <pak01_dir.vpk> <key>...   (stats of particle fields across the game)
 //   vpcf_tool extract <pak01_dir.vpk> <internal path> <out>
 //   vpcf_tool sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
+//   vpcf_tool parent-offset <melee_parry_debuff.vpcf_c> <z>
 //   vpcf_tool blend <file.vpcf_c> <BLEND_MODE> <overbright>               (edits the first renderer in place)
 switch (args[0])
 {
@@ -121,7 +122,7 @@ switch (args[0])
         data["m_Renderers"] = KVObject.Array(new[]
         {
             Sprite(tex + "tint.vtex", "PARTICLE_OUTPUT_BLEND_MODE_MOD2X", 1.0, 1.0, 1.0),
-            Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 1.05, 1.0, 1.0),
+            Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 2.0, 1.0, 1.0),
         });
 
         var refs = res.ExternalReferences.ResourceRefInfoList;
@@ -130,6 +131,25 @@ switch (args[0])
             if (!refs.Any(r => r.Name == tex + name + ".vtex"))
                 refs.Add(new ValveResourceFormat.Blocks.ResourceExtRefList.ResourceReferenceInfo { Id = 0, Name = tex + name + ".vtex" });
 
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        res.Dispose();
+        File.WriteAllBytes(args[1], ms.ToArray());
+        Console.WriteLine($"Updated {args[1]}");
+        break;
+    }
+    case "parent-offset":
+    {
+        // parent-offset <melee_parry_debuff.vpcf_c> <z>: moves the debuff's anchor particle (whose position
+        // C_OP_SetChildControlPoints hands to the children as CP3) by z world units from the "aim"
+        // attachment. Vanilla uses +70 to float the stun stars over the head.
+        using var res = new Resource();
+        res.Read(args[1]);
+        var data = ((ParticleSystem)res.DataBlock).Data;
+        double z = double.Parse(args[2], System.Globalization.CultureInfo.InvariantCulture);
+        var box = data["m_Initializers"].Select(kv => kv.Value).First(i => (string)i["_class"] == "C_INIT_CreateWithinBox");
+        foreach (var key in new[] { "m_vecMin", "m_vecMax" })
+            box[key]["m_vLiteralValue"] = KVObject.Array(new[] { (KVObject)0.0, (KVObject)0.0, (KVObject)z });
         using var ms = new MemoryStream();
         res.Serialize(ms);
         res.Dispose();
