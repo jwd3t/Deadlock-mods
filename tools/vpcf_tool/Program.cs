@@ -58,14 +58,13 @@ switch (args[0])
     case "deathblow-anim":
     {
         // Sekiro deathblow dot: deathblow-anim <symbol.vpcf_c> <radius>
-        // Three renderers on one particle, built like Deadlock's own marks (additive + overbright, MOD2X
-        // to tint): a MOD2X tint that turns the scene under the dot red while keeping its shading, the
-        // dot as additive overbright light (blooms), and an additive glow. Textures:
-        // materials/particle/sekiro_deathblow_{tint,dot,glow}.vtex. All ignore depth and scene lighting.
-        // Lifetime 1.0 so the Simple ops' fractions are seconds; no C_OP_Decay: the dot lives until the
-        // stun's end cap, then fades out over 0.2 s (Valve's area_leash_h pattern). Entry as measured on
-        // footage: starts large and faint and contracts to size over 0.15 s. Then it spins slowly and
-        // breathes with the radius oscillation Valve uses on assassinate_tgt.
+        // Two renderers on one particle, matching 1080p Sekiro footage (see tools/make_deathblow_texture.py):
+        // a MOD2X tint that hides the scene's green/blue under the dot, and the measured emitted light as
+        // ADD. Textures: materials/particle/sekiro_deathblow_{tint,dot}.vtex. Both ignore depth and scene
+        // lighting. Lifetime 1.0 so the Simple ops' fractions are seconds; no C_OP_Decay: the dot lives
+        // until the stun's end cap, then fades out over 0.2 s (Valve's area_leash_h pattern). Entry: 0.12 s
+        // fade-in contracting from 1.3x. Constant size afterwards (as in the footage); a slow spin keeps
+        // the grain shimmering instead of sitting still.
         using var res = new Resource();
         res.Read(args[1]);
         var data = ((ParticleSystem)res.DataBlock).Data;
@@ -111,24 +110,23 @@ switch (args[0])
         data["m_Operators"] = KVObject.Array(new[]
         {
             position,
-            Obj(("_class", (KVObject)"C_OP_FadeInSimple"), ("m_flFadeInTime", (KVObject)0.15)),
-            Obj(("_class", (KVObject)"C_OP_InterpolateRadius"), ("m_flStartTime", (KVObject)0.0), ("m_flEndTime", (KVObject)0.15),
-                ("m_flStartScale", (KVObject)1.6), ("m_flEndScale", (KVObject)1.0)),
+            Obj(("_class", (KVObject)"C_OP_FadeInSimple"), ("m_flFadeInTime", (KVObject)0.12)),
+            Obj(("_class", (KVObject)"C_OP_InterpolateRadius"), ("m_flStartTime", (KVObject)0.0), ("m_flEndTime", (KVObject)0.12),
+                ("m_flStartScale", (KVObject)1.3), ("m_flEndScale", (KVObject)1.0)),
             Obj(("_class", (KVObject)"C_OP_SpinUpdate")),
-            Obj(("_class", (KVObject)"C_OP_OscillateScalarSimple"), ("m_Rate", (KVObject)5.0), ("m_Frequency", (KVObject)1.5), ("m_nField", (KVObject)3)),
             Obj(("_class", (KVObject)"C_OP_LerpEndCapScalar"), ("m_flLerpTime", (KVObject)0.2), ("m_nFieldOutput", (KVObject)7), ("m_flOutput", (KVObject)0.0)),
             Obj(("_class", (KVObject)"C_OP_EndCapTimedDecay"), ("m_flDecayTime", (KVObject)0.2)),
         });
 
         data["m_Renderers"] = KVObject.Array(new[]
         {
-            Sprite(tex + "tint.vtex", "PARTICLE_OUTPUT_BLEND_MODE_MOD2X", 1.0, 1.1, 1.0),
-            Sprite(tex + "glow.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 2.0, 1.8, 0.5),
-            Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 1.5, 1.0, 1.0),
+            Sprite(tex + "tint.vtex", "PARTICLE_OUTPUT_BLEND_MODE_MOD2X", 1.0, 1.0, 1.0),
+            Sprite(tex + "dot.vtex", "PARTICLE_OUTPUT_BLEND_MODE_ADD", 1.05, 1.0, 1.0),
         });
 
         var refs = res.ExternalReferences.ResourceRefInfoList;
-        foreach (var name in new[] { "tint", "glow", "dot" })
+        refs.RemoveAll(r => r.Name.StartsWith(tex) && !r.Name.EndsWith("tint.vtex") && !r.Name.EndsWith("dot.vtex"));
+        foreach (var name in new[] { "tint", "dot" })
             if (!refs.Any(r => r.Name == tex + name + ".vtex"))
                 refs.Add(new ValveResourceFormat.Blocks.ResourceExtRefList.ResourceReferenceInfo { Id = 0, Name = tex + name + ".vtex" });
 
