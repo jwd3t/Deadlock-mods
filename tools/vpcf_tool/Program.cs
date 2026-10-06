@@ -14,6 +14,11 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool extract <pak01_dir.vpk> <internal path> <out>
 //   vpcf_tool sheet-vtex <template.vtex_c> <image.rgba> <size> <cols> <rows> <cell> <margin> <frames> <out.vtex_c>
 //   vpcf_tool parent-offset <melee_parry_debuff.vpcf_c> <z>
+//   vpcf_tool grep <pak01_dir.vpk> <extension> <regex>   (search decompiled game files)
+//   vpcf_tool vcss-append <game.vcss_c> <extra.css> <out.vcss_c> [image refs...]
+//   vpcf_tool roundtrip <file> <out>
+//   vpcf_tool kv-patch <game file> <patch.json> <out>   (edit events of a KV3 resource such as .vsndevts_c)
+//   vpcf_tool vtex-raw <template.vtex_c> <image.rgba> <width> <height> <out.vtex_c>   (BGRA8888, Panorama images)
 //   vpcf_tool blend <file.vpcf_c> <BLEND_MODE> <overbright>               (edits the first renderer in place)
 switch (args[0])
 {
@@ -35,6 +40,30 @@ switch (args[0])
         using var bmp = ((Texture)res.DataBlock).GenerateBitmap();
         using var fs = File.Create(args[2]);
         bmp.Encode(fs, SkiaSharp.SKEncodedImageFormat.Png, 100);
+        break;
+    }
+    case "vtex-raw":
+    {
+        // vtex-raw <template.vtex_c> <image.rgba> <width> <height> <out.vtex_c>
+        // Uncompressed BGRA8888 texture (the format Panorama HUD images use here); the header is cloned
+        // from a template of the same size and format.
+        var template = File.ReadAllBytes(args[1]);
+        var rgba = File.ReadAllBytes(args[2]);
+        int w = int.Parse(args[3]), h = int.Parse(args[4]);
+        if (rgba.Length != w * h * 4) throw new ArgumentException("image size does not match");
+        int headerSize = template.Length - w * h * 4;
+        if (headerSize <= 0) throw new Exception("template size does not match");
+        var output = new byte[template.Length];
+        Array.Copy(template, output, headerSize);
+        for (int i = 0; i < w * h; i++)
+        {
+            output[headerSize + i * 4 + 0] = rgba[i * 4 + 2];
+            output[headerSize + i * 4 + 1] = rgba[i * 4 + 1];
+            output[headerSize + i * 4 + 2] = rgba[i * 4 + 0];
+            output[headerSize + i * 4 + 3] = rgba[i * 4 + 3];
+        }
+        File.WriteAllBytes(args[5], output);
+        Console.WriteLine($"Wrote {args[5]} ({output.Length} bytes, header {headerSize})");
         break;
     }
     case "vtex":
@@ -188,6 +217,102 @@ switch (args[0])
         var entry = pkg.FindEntry(args[2]) ?? throw new FileNotFoundException(args[2]);
         pkg.ReadEntry(entry, out var bytes);
         File.WriteAllBytes(args[3], bytes);
+        break;
+    }
+    case "vcss-append":
+    {
+        // vcss-append <game.vcss_c> <extra.css> <out.vcss_c> [image resource paths...]
+        // Rebuilds a Panorama stylesheet from the CURRENT game file plus extra rules, so a game update
+        // never gets reverted by a stale copy. Images used by the extra rules are registered in the
+        // external references like Valve's own styles do.
+        using var res = new Resource();
+        res.Read(args[1]);
+        var panorama = (Panorama)res.DataBlock;
+        var text = System.Text.Encoding.UTF8.GetString(panorama.Data).TrimEnd('\0');
+        var extra = File.ReadAllText(args[2]);
+        var block = new Panorama(System.Text.Encoding.UTF8.GetBytes(text + "\n" + extra), panorama.Images.ToList()) { Resource = res };
+        int index = res.Blocks.IndexOf(panorama);
+        res.Blocks[index] = block;
+        if (res.ExternalReferences == null && args.Length > 4)
+            res.Blocks.Insert(0, new ValveResourceFormat.Blocks.ResourceExtRefList { Resource = res });
+        var refs = res.ExternalReferences?.ResourceRefInfoList ?? new();
+        foreach (var image in args.Skip(4))
+            if (!refs.Any(r => r.Name == image))
+                refs.Add(new ValveResourceFormat.Blocks.ResourceExtRefList.ResourceReferenceInfo { Id = 0, Name = image });
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        File.WriteAllBytes(args[3], ms.ToArray());
+        Console.WriteLine($"Wrote {args[3]} (+{extra.Length} chars of CSS, {args.Length - 4} image refs)");
+        break;
+    }
+    case "roundtrip":
+    {
+        // roundtrip <file> <out>: read and re-serialize unchanged, to check a resource type serializes faithfully.
+        using var res = new Resource();
+        res.Read(args[1]);
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        File.WriteAllBytes(args[2], ms.ToArray());
+        break;
+    }
+    case "kv-patch":
+    {
+        // kv-patch <game file (e.g. .vsndevts_c)> <patch.json> <out>
+        // Applies {"Event": {"key": value, ...}} to the CURRENT game file, so game updates are never
+        // reverted by a stale copy. Values: number, string, or list of strings. "__copy_from": "Other"
+        // creates the event as a copy of another one first.
+        using var res = new Resource();
+        res.Read(args[1]);
+        var root = ((BinaryKV3)res.DataBlock).Data.Root;
+        using var doc = System.Text.Json.JsonDocument.Parse(File.ReadAllText(args[2]));
+        static KVObject ToKV(System.Text.Json.JsonElement v) => v.ValueKind switch
+        {
+            System.Text.Json.JsonValueKind.Number => (KVObject)v.GetDouble(),
+            System.Text.Json.JsonValueKind.String => (KVObject)v.GetString(),
+            System.Text.Json.JsonValueKind.Array => KVObject.Array(v.EnumerateArray().Select(ToKV)),
+            _ => throw new ArgumentException($"unsupported value {v}"),
+        };
+        static KVObject Clone(KVObject o) => KVObject.Collection(o.Select(kv => new KeyValuePair<string, KVObject>(kv.Key, kv.Value)));
+        foreach (var ev in doc.RootElement.EnumerateObject())
+        {
+            KVObject target;
+            if (ev.Value.TryGetProperty("__copy_from", out var src))
+            {
+                target = Clone(root[src.GetString()]);
+                root.Add(ev.Name, target);
+            }
+            else
+                target = root[ev.Name] ?? throw new KeyNotFoundException(ev.Name);
+            foreach (var field in ev.Value.EnumerateObject())
+                if (field.Name != "__copy_from")
+                    target[field.Name] = ToKV(field.Value);
+        }
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        File.WriteAllBytes(args[3], ms.ToArray());
+        Console.WriteLine($"Wrote {args[3]}");
+        break;
+    }
+    case "grep":
+    {
+        // grep <pak01_dir.vpk> <extension, e.g. vxml_c> <regex>: decompiles every file of that type and
+        // prints the matching lines with their file path.
+        using var pkg = new ValvePak.Package();
+        pkg.Read(args[1]);
+        var rx = new System.Text.RegularExpressions.Regex(args[3]);
+        foreach (var entry in pkg.Entries.TryGetValue(args[2], out var list) ? list : new())
+        {
+            pkg.ReadEntry(entry, out var bytes);
+            string text;
+            try { using var ms = new MemoryStream(bytes); using var r = new Resource(); r.Read(ms); text = r.DataBlock.ToString(); }
+            catch { continue; }
+            foreach (var line in text.Split('\n'))
+                foreach (System.Text.RegularExpressions.Match m in rx.Matches(line))
+                {
+                    int from = Math.Max(0, m.Index - 120), len = Math.Min(line.Length - from, m.Length + 240);
+                    Console.WriteLine($"{entry.GetFullPath()}: {line.Substring(from, len).Trim()}");
+                }
+        }
         break;
     }
     case "scan":

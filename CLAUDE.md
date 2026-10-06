@@ -26,7 +26,8 @@ dumps/      decompiled text dumps of game files (KV3, vcss, vsndevts) used as re
 
 Packaging (pure-Python VPK v1 writer, no deps):
 ```bash
-python tools/package_all_mods.py          # rebuilds Deathblow and Death_Victory
+python tools/package_all_mods.py          # rebuilds Deathblow (Death_Victory has its own build.py)
+python mods/Sekiro_Death_Victory_Mod/build.py   # rebuilds from the CURRENT game files; rerun after every Deadlock update
 python mods/Sekiro_Melee_Deadlock/make_kanji_atlas.py   # Perilous Attack: 危 flipbook (v1.1: Tenor GIF frames, 49 frames, 2048 atlas)
 python mods/Sekiro_Melee_Deadlock/build_full_mod.py
 python mods/Sekiro_Parry_Sparks/build_mod.py
@@ -47,8 +48,13 @@ dotnet run --project tools/vpcf_tool -- deathblow-anim <symbol.vpcf_c> <radius> 
 dotnet run --project tools/vpcf_tool -- parent-offset <melee_parry_debuff.vpcf_c> <z>   # moves the deathblow anchor from the aim attachment
 dotnet run --project tools/vpcf_tool -- scan "<Deadlock>/game/citadel/pak01_dir.vpk" <field>...   # how vanilla particles use a field (SCAN_TOP=n rows; `_class` lists operator usage)
 dotnet run --project tools/vpcf_tool -- extract "<Deadlock>/game/citadel/pak01_dir.vpk" <internal path> <out>
+dotnet run --project tools/vpcf_tool -- grep "<Deadlock>/game/citadel/pak01_dir.vpk" <extension> <regex>   # search decompiled game files (vcss_c, vxml_c, vsndevts_c...)
+dotnet run --project tools/vpcf_tool -- vcss-append <game.vcss_c> <extra.css> <out> [image refs...]   # game stylesheet + mod rules
+dotnet run --project tools/vpcf_tool -- kv-patch <game .vsndevts_c> <patch.json> <out>                  # game sound events + mod edits
+dotnet run --project tools/vpcf_tool -- vtex-raw <template.vtex_c> <image.rgba> <w> <h> <out>          # BGRA8888 (Panorama images)
+dotnet run --project tools/vpcf_tool -- roundtrip <file> <out>                                          # check a type re-serializes faithfully
 ```
-`vpcf_tool/Program.cs` is one `switch` with 10 commands; when replacing a case by slicing the file, check `grep -c 'case "'` afterwards (a slice once silently deleted `timing`/`scan`/`extract`). Before inventing particle fields, `scan` the game for how Valve uses them and `extract` + `dump` an example.
+`vpcf_tool/Program.cs` is one `switch` with 15 commands (on `main`; the `deathblow-grain` branch differs); when replacing a case by slicing the file, check `grep -c 'case "'` afterwards (a slice once silently deleted `timing`/`scan`/`extract`). Before inventing particle fields, `scan` the game for how Valve uses them and `extract` + `dump` an example.
 
 There are no tests; the verification loop is: rebuild → `vrf_dumper` on the VPK → decode textures to PNG and simulate the blend over the user's in-game screenshot → user tests in-game (Sandbox) and sends a screenshot. Previews outside the game have repeatedly been misleading; the user's in-game verdict is what counts, and nothing is released before it. Game files: `C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\pak01_dir.vpk`.
 
@@ -62,6 +68,9 @@ There are no tests; the verification loop is: rebuild → `vrf_dumper` on the VP
 - Billboards anchored to player entities render rotated 90° clockwise; pre-rotate images 90° CCW.
 - Sounds: never hex-patch `.vsnd_c` (LZ4 control block breaks → silence); re-serialize via VRF. Update `vsnd_duration` in the `.vsndevts_c` or the clip gets cut at the vanilla length. Overriding `soundevents/player.vsndevts_c` clobbers other sound mods.
 - Full-screen effects (death/victory kanji) belong in Panorama CSS (`hud.vcss_c`), not world particles.
+- **Never ship a stale copy of a monolithic game file** (stylesheets, `.vsndevts_c`): build it from the current game file plus the mod's changes (`vcss-append`, `kv-patch`) and rebuild after updates. The v1 Death_Victory copies silently reverted Valve's `Stinger.RevealVote` change. Register every image a stylesheet uses in its external references, as Valve does.
+- The main HUD layout does not decompile; panel ids and HUD classes live in `game/citadel/bin/win64/client.dll` strings (e.g. `gameplay_hud_dead`; root classes `dead`, `alive`, `deathReplayActive`, `rebirth`, `permadeath`, `GameState*`). Match end: `LocalPlayerTeamN` + `TeamNVictory`.
+- Sound event meaning: `UI.PlayerDeath.Team/Opponent` are notifications for an ally/enemy dying (listed with `BossTier1.Death.Friendly/Enemy`), NOT your own death; your death is `Stinger.Death` (`music_stinger_player_death`). Death_Victory plays its clip from a new `Sekiro.Death` event via the death panel's CSS `sound:` and silences `Stinger.Death`.
 
 ## Releases
 

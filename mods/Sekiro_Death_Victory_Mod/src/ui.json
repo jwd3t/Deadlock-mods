@@ -1,0 +1,9 @@
+{
+  "Sekiro.Death": {
+    "__copy_from": "UI.PlayerDeath.Team",
+    "vsnd_files": "sounds/ui/sekiro_death.vsnd",
+    "vsnd_duration": 4.728,
+    "volume": 5.0,
+    "volume_fade_out": 0.5
+  }
+}

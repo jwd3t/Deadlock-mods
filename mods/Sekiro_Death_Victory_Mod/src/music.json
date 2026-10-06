@@ -1,0 +1,11 @@
+{
+  "Music.Match.Win": {
+    "vsnd_files": ["sounds/music/music_stinger_game_over_win.vsnd"],
+    "vsnd_duration": 6.072,
+    "volume": 5.0
+  },
+  "Stinger.Death": {
+    "vsnd_files": ["sounds/common/null.vsnd"],
+    "vsnd_duration": 0.050023
+  }
+}
