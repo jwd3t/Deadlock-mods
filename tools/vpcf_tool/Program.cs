@@ -8,6 +8,8 @@ using ValveResourceFormat.ResourceTypes;
 //   vpcf_tool dump  <file.vpcf_c|file.vtex_c>
 //   vpcf_tool vtex  <template.vtex_c> <image.rgba> <size> <out.vtex_c>   (256x256 DXT5, no mips: header is cloned from template)
 //   vpcf_tool png   <file.vtex_c> <out.png>
+//   vpcf_tool deathblow-anim <symbol.vpcf_c> <lifetime> <radius>
+//   vpcf_tool timing <file.vpcf_c> <lifetime> <fadeInFraction> <fadeOutFraction>
 //   vpcf_tool blend <file.vpcf_c> <BLEND_MODE> <overbright>               (edits the first renderer in place)
 switch (args[0])
 {
@@ -50,6 +52,69 @@ switch (args[0])
         Console.WriteLine($"Wrote {args[4]} ({output.Length} bytes, header {headerSize})");
         break;
     }
+    case "deathblow-anim":
+    {
+        // Sekiro deathblow timing (measured at 30 fps): ~0.17 s fade-in while shrinking from 1.25x,
+        // ~0.23 s fade-out at constant size. Simple fade/interpolate times are fractions of lifetime.
+        using var res = new Resource();
+        res.Read(args[1]);
+        var data = ((ParticleSystem)res.DataBlock).Data;
+        double lifetime = double.Parse(args[2], System.Globalization.CultureInfo.InvariantCulture);
+        double radius = double.Parse(args[3], System.Globalization.CultureInfo.InvariantCulture);
+        double fadeIn = 0.17 / lifetime, fadeOut = 0.23 / lifetime;
+
+        static KVObject Op(params (string Key, KVObject Value)[] fields) =>
+            KVObject.Collection(fields.Select(f => new KeyValuePair<string, KVObject>(f.Key, f.Value)));
+
+        foreach (var init in data["m_Initializers"].Select(kv => kv.Value))
+        {
+            if ((string)init["_class"] == "C_INIT_InitFloat" && OutputField(init) == 1)
+                init["m_InputValue"]["m_flLiteralValue"] = (KVObject)lifetime;
+            if ((string)init["_class"] == "C_INIT_InitFloat" && OutputField(init) == 3)
+                init["m_InputValue"]["m_flLiteralValue"] = (KVObject)radius;
+        }
+        data["m_flConstantRadius"] = (KVObject)radius;
+
+        var ops = data["m_Operators"].Select(kv => kv.Value).Where(o => (string)o["_class"] is not ("C_OP_FadeInSimple" or "C_OP_FadeOutSimple" or "C_OP_InterpolateRadius")).ToList();
+        int decay = ops.FindIndex(o => (string)o["_class"] == "C_OP_Decay");
+        ops.InsertRange(decay < 0 ? ops.Count : decay, new[]
+        {
+            Op(("_class", (KVObject)"C_OP_FadeInSimple"), ("m_flFadeInTime", (KVObject)fadeIn)),
+            Op(("_class", (KVObject)"C_OP_FadeOutSimple"), ("m_flFadeOutTime", (KVObject)fadeOut)),
+            Op(("_class", (KVObject)"C_OP_InterpolateRadius"), ("m_flStartTime", (KVObject)0.0), ("m_flEndTime", (KVObject)fadeIn),
+               ("m_flStartScale", (KVObject)1.25), ("m_flEndScale", (KVObject)1.0)),
+        });
+        data["m_Operators"] = KVObject.Array(ops);
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        res.Dispose();
+        File.WriteAllBytes(args[1], ms.ToArray());
+        Console.WriteLine($"Updated {args[1]}");
+        break;
+    }
+    case "timing":
+    {
+        // Sets particle lifetime (C_INIT_InitFloat field 1) and the Simple fade in/out fractions.
+        using var res = new Resource();
+        res.Read(args[1]);
+        var data = ((ParticleSystem)res.DataBlock).Data;
+        var inv = System.Globalization.CultureInfo.InvariantCulture;
+        double lifetime = double.Parse(args[2], inv), fadeIn = double.Parse(args[3], inv), fadeOut = double.Parse(args[4], inv);
+        foreach (var init in data["m_Initializers"].Select(kv => kv.Value))
+            if ((string)init["_class"] == "C_INIT_InitFloat" && OutputField(init) == 1)
+                init["m_InputValue"]["m_flLiteralValue"] = (KVObject)lifetime;
+        foreach (var op in data["m_Operators"].Select(kv => kv.Value))
+        {
+            if ((string)op["_class"] == "C_OP_FadeInSimple") op["m_flFadeInTime"] = (KVObject)fadeIn;
+            if ((string)op["_class"] == "C_OP_FadeOutSimple") op["m_flFadeOutTime"] = (KVObject)fadeOut;
+        }
+        using var ms = new MemoryStream();
+        res.Serialize(ms);
+        res.Dispose();
+        File.WriteAllBytes(args[1], ms.ToArray());
+        Console.WriteLine($"Updated {args[1]}");
+        break;
+    }
     case "blend":
     {
         using var res = new Resource();
@@ -65,4 +130,11 @@ switch (args[0])
         Console.WriteLine($"Updated {args[1]}");
         break;
     }
+}
+
+// C_INIT_InitFloat omits m_nOutputField when it is the default (3 = radius).
+static int OutputField(KVObject init)
+{
+    try { return (int)init["m_nOutputField"]; }
+    catch (KeyNotFoundException) { return 3; }
 }

@@ -110,18 +110,3 @@ if __name__ == '__main__':
 - Fake Death for Rejuvenator: Carrying the Mid-Boss Rejuvenator buff triggers the Sekiro '回生' resurrection effect upon defeat
 - 100% VAC-safe client-side cosmetic mod"""
     )
-
-    # Mod 3
-    pack_mod(
-        mod_name="Sekiro_Perilous_Attack_True",
-        mod_dir=os.path.join(repo, "Sekiro_Perilous_Attack_True"),
-        title="Sekiro Perilous Attack True Warning Mod",
-        description="""Features (True Version - Authentic to Sekiro):
-- Animated Danger Kanji '危' flipbook with flowing white energy streaks across brush strokes and expanding shockwave aura pulse
-- Warning ONLY appears above your head when an enemy charges heavy melee nearby (128 units / 13m proximity)
-- Silent when you attack (100% self-immunity)
-- Calibrated height (+75.0) resting directly above the hero's head
-- Authentic half-size radius (21.0) for a clean, non-obtrusive telegraph
-- Authentic Sekiro Perilous Attack sound with boosted in-engine gain (+8 dB) and full duration fix
-- 100% VAC-safe client-side cosmetic mod"""
-    )
