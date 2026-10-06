@@ -233,7 +233,7 @@ switch (args[0])
             w.Write((uint)frames); w.Write((float)(frames - 1));
             long posNameRel = sheetMs.Position; w.Write(0);
             long posFloatParamsRel = sheetMs.Position; w.Write(0); w.Write(0u);
-            long namePos = sheetMs.Position; w.Write(System.Text.Encoding.UTF8.GetBytes("CDmeSheetSequence "));
+            long namePos = sheetMs.Position; w.Write(System.Text.Encoding.UTF8.GetBytes("CDmeSheetSequence\0"));
             void Patch(long at, long target) { long cur = sheetMs.Position; sheetMs.Position = at; w.Write((int)(target - at)); sheetMs.Position = cur; }
             Patch(posNameRel, namePos);
             Patch(posFloatParamsRel, sheetMs.Position);
