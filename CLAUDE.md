@@ -67,7 +67,7 @@ There are no tests; the verification loop is: rebuild → `vrf_dumper` on the VP
 
 Both repos publish GitHub releases from tags via `.github/workflows/release.yml`: every push creates the releases missing for existing tags, attaching the mod zip as committed at that tag. Here tags are `deathblow-v<x>` / `death-victory-v<x>`; in `Sekiro_Melee_Deadlock` they are `v<x>`. Release notes go in `release-notes/<tag>.md` (Spanish). To release: rebuild the zip, commit, write the notes, tag, push with `--tags`. `gh` is not installed and the repos are private, so release state can only be checked on GitHub by the user.
 
-Release state: `deathblow-v2.0` was tagged on a build the user later rejected; the approved deathblow (commit `7399282`) is untagged and would be `deathblow-v2.1` (needs `release-notes/deathblow-v2.1.md`). Perilous `v1.1` (commit `5c2522b` in `Sekiro_Melee_Deadlock`, notes already in `release-notes/v1.1.md`) is untagged pending the user's in-game test. Tag only after the user approves.
+Release state: `deathblow-v2.0` was tagged on a build the user later rejected; the approved deathblow is released as `deathblow-v2.1`. Perilous `v1.1` (commit `5c2522b` in `Sekiro_Melee_Deadlock`, notes already in `release-notes/v1.1.md`) is untagged pending the user's in-game test. Tag only after the user approves.
 
 ## Matching Sekiro effects
 
