@@ -1,0 +1,19 @@
+
+@keyframes 'SekiroFakeDeathFadeIn' {
+    0% { opacity: 0.0; pre-transform-scale2d: 0.90; }
+    40% { opacity: 0.65; pre-transform-scale2d: 0.98; }
+    100% { opacity: 0.95; pre-transform-scale2d: 1.0; }
+}
+.ability_element_progress.ability_frank_revive {
+    overflow: noclip;
+}
+.ability_element_progress.ability_frank_revive #text_container {
+    background-image: url("s2r://panorama/images/hud/sekiro_death_fake.vtex");
+    background-size: 650px 365px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-top: 240px;
+    animation-name: SekiroFakeDeathFadeIn;
+    animation-duration: 2.0s;
+    animation-timing-function: ease-in-out;
+}

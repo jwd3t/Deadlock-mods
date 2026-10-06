@@ -1,0 +1,18 @@
+
+#gameplay_hud_dead {
+    background-image: url("s2r://panorama/images/hud/sekiro_death_true.vtex");
+    background-size: 800px 450px;
+    background-position: center 36%;
+    background-repeat: no-repeat;
+    opacity: 0.0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+.dead:not(.deathReplayActive) #gameplay_hud_dead {
+    opacity: 1.0;
+    sound: "Sekiro.Death";
+}
+
+.dead.rebirth:not(.deathReplayActive) #gameplay_hud_dead {
+    background-image: url("s2r://panorama/images/hud/sekiro_death_fake.vtex");
+}

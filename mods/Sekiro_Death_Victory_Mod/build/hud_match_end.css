@@ -1,0 +1,13 @@
+
+.LocalPlayerTeam1.Team1Victory #patron_logo,
+.LocalPlayerTeam2.Team2Victory #patron_logo,
+.localPlayerTeam1.Team1Victory #patron_logo,
+.localPlayerTeam2.Team2Victory #patron_logo {
+    background-image: url("s2r://panorama/images/hud/sekiro_victory.vtex");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 800px;
+    height: 450px;
+    opacity: 1.0;
+}
